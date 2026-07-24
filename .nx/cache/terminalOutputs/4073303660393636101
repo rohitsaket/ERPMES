@@ -1,0 +1,26 @@
+
+> @diamondflow/web@0.0.1 build E:\MEGen\apps\web
+> cross-env NODE_ENV=production next build
+
+  [1m[38;2;173;127;168m▲ Next.js 14.2.35[39m[22m
+  - Environments: .env.local
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+ [37m[1m [22m[39m Linting and checking validity of types ...
+
+ [33m[1m⚠[22m[39m The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/basic-features/eslint#migrating-existing-config
+[31mFailed to compile.
+[39m
+[36m./src/app/(app)/ai/audit-log/page.tsx[39m:[33m92[39m:[33m10[39m
+[31m[1mType error[22m[39m: Cannot find name 'Tabs'.
+
+[0m [90m 90 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 91 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 92 |[39m         [33m<[39m[33mTabs[39m defaultValue[33m=[39m[32m"entries"[39m className[33m=[39m[32m"w-full"[39m[33m>[39m[0m
+[0m [90m    |[39m          [31m[1m^[22m[39m[0m
+[0m [90m 93 |[39m           [33m<[39m[33mTabsList[39m className[33m=[39m[32m"grid w-full grid-cols-2"[39m[33m>[39m[0m
+[0m [90m 94 |[39m             [33m<[39m[33mTabsTrigger[39m value[33m=[39m[32m"entries"[39m[33m>[39m[33mAI[39m [33mActivities[39m[33m<[39m[33m/[39m[33mTabsTrigger[39m[33m>[39m[0m
+[0m [90m 95 |[39m             [33m<[39m[33mTabsTrigger[39m value[33m=[39m[32m"models"[39m[33m>[39m[33mModel[39m [33mUsage[39m[33m<[39m[33m/[39m[33mTabsTrigger[39m[33m>[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

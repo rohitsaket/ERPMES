@@ -1,0 +1,46 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:generate": {
+      "outputs": ["prisma/**"]
+    },
+    "db:migrate": {
+      "outputs": ["prisma/migrations/**"]
+    },
+    "db:seed": {
+      "outputs": []
+    },
+    "db:studio": {
+      "cache": false,
+      "persistent": true
+    },
+    "docker:build": {
+      "outputs": [],
+      "dependsOn": ["build"]
+    },
+    "deploy": {
+      "outputs": [],
+      "dependsOn": ["build", "test", "lint", "typecheck"]
+    }
+  },
+  "globalDependencies": [".env*"],
+  "globalEnv": ["NODE_ENV", "DATABASE_URL", "REDIS_URL", "CLERK_*"]
+}

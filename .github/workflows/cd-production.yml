@@ -1,0 +1,149 @@
+name: CD Production
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [production]
+    labels: [promotion]
+
+env:
+  ENVIRONMENT: production
+  KUBE_NAMESPACE: diamondflow-prod
+  HELM_CHART_PATH: ./infrastructure/deployment/helm/diamondflow
+
+jobs:
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    environment: production
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup kubectl
+        uses: azure/k8s-set-context@v3
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG_PROD }}
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: '3.12.0'
+
+      - name: Get image tag from PR
+        id: image-tag
+        run: |
+          # Extract SHA from PR body or use latest
+          TAG=$(echo "${{ github.event.pull_request.body }}" | grep -oP '(?<=Image tag: )\w+' || echo "latest")
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Pre-deployment checks
+        run: |
+          # Verify staging is healthy
+          ./scripts/health-check.sh https://staging-api.diamondflow.com
+          
+          # Verify database migration compatibility
+          ./scripts/check-migrations.sh
+
+      - name: Blue-Green Deployment
+        run: |
+          # Deploy to green namespace
+          GREEN_NS="${{ env.KUBE_NAMESPACE }}-green"
+          helm upgrade --install diamondflow-green ${{ env.HELM_CHART_PATH }} \
+            --namespace $GREEN_NS \
+            --create-namespace \
+            --set image.tag=${{ steps.image-tag.outputs.tag }} \
+            --set environment=production \
+            --set replicas.api=5 \
+            --set replicas.web=3 \
+            --set replicas.worker=3 \
+            --set replicas.realtime=3 \
+            --wait --timeout 15m
+
+          # Run smoke tests against green
+          ./scripts/smoke-test.sh https://green-api.diamondflow.com
+
+      - name: Switch Traffic
+        run: |
+          # Update ingress to point to green
+          kubectl patch ingress diamondflow -n ${{ env.KUBE_NAMESPACE }} \
+            -p '{"spec":{"rules":[{"host":"api.diamondflow.com","http":{"paths":[{"path":"/","pathType":"Prefix","backend":{"service":{"name":"diamondflow-green-api","port":{"number":3000}}}}]}}]}}'
+
+          # Wait for traffic to stabilize
+          sleep 30
+
+          # Verify production health
+          ./scripts/health-check.sh https://api.diamondflow.com
+
+      - name: Cleanup Blue
+        if: success()
+        run: |
+          # Decommission old blue deployment after 10 minutes
+          sleep 600
+          BLUE_NS="${{ env.KUBE_NAMESPACE }}-blue"
+          helm uninstall diamondflow -n $BLUE_NS || true
+          kubectl delete namespace $BLUE_NS --ignore-not-found=true
+
+      - name: Rollback on Failure
+        if: failure()
+        run: |
+          # Switch back to blue (previous version)
+          kubectl patch ingress diamondflow -n ${{ env.KUBE_NAMESPACE }} \
+            -p '{"spec":{"rules":[{"host":"api.diamondflow.com","http":{"paths":[{"path":"/","pathType":"Prefix","backend":{"service":{"name":"diamondflow-api","port":{"number":3000}}}}]}}]}}'
+          
+          # Cleanup failed green
+          GREEN_NS="${{ env.KUBE_NAMESPACE }}-green"
+          helm uninstall diamondflow-green -n $GREEN_NS || true
+
+      - name: Post-deployment verification
+        if: success()
+        run: |
+          # Run critical path tests
+          ./scripts/critical-path-test.sh https://api.diamondflow.com
+          
+          # Update deployment marker
+          kubectl annotate deployment diamondflow-api -n ${{ env.KUBE_NAMESPACE }} \
+            deployment.kubernetes.io/revision="$(date +%s)" --overwrite
+
+      - name: Notify success
+        if: success()
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "text": "Production deployment successful for ${{ github.repository }}@${{ steps.image-tag.outputs.tag }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Production Deployment Successful* :white_check_mark:\nRepo: ${{ github.repository }}\nTag: ${{ steps.image-tag.outputs.tag }}\nEnvironment: Production"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Notify failure
+        if: failure()
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "text": "Production deployment FAILED for ${{ github.repository }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Production Deployment Failed* :x:\nRepo: ${{ github.repository }}\nCommit: ${{ github.sha }}\nRollback initiated automatically"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

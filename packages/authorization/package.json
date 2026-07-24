@@ -1,0 +1,27 @@
+{
+  "name": "@diamondflow/authorization",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@casl/ability": "^6.7.0",
+    "@casl/prisma": "^1.4.0",
+    "@diamondflow/contracts": "workspace:*",
+    "@diamondflow/domain": "workspace:*",
+    "@diamondflow/database": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0",
+    "eslint": "^8.57.0"
+  }
+}
+

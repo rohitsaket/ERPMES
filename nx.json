@@ -1,0 +1,66 @@
+{
+  "$schema": "https://nx.dev/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default", "!{projectRoot}/**/*.spec.ts"],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"],
+      "cache": true
+    },
+    "lint": {
+      "inputs": ["default", "^production"]
+    },
+    "typecheck": {
+      "inputs": ["default", "^production"]
+    },
+    "test": {
+      "inputs": ["default", "^production"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "defaultProject": "api",
+  "plugins": [
+    "@nx/js",
+    "@nx/next",
+    "@nx/nest",
+    "@nx/react",
+    "@nx/vite"
+  ],
+  "generators": {
+    "@nx/next": {
+      "application": {
+        "style": "tailwind",
+        "linter": "eslint",
+        "unitTestRunner": "vitest",
+        "e2eTestRunner": "playwright"
+      }
+    },
+    "@nx/react": {
+      "library": {
+        "style": "tailwind",
+        "linter": "eslint",
+        "unitTestRunner": "vitest"
+      }
+    },
+    "@nx/nest": {
+      "library": {
+        "unitTestRunner": "vitest"
+      }
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "typecheck", "test", "db:generate", "db:migrate"]
+      }
+    }
+  }
+}

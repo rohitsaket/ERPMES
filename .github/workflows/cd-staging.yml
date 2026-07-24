@@ -1,0 +1,103 @@
+name: CD Staging
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  ENVIRONMENT: staging
+  KUBE_NAMESPACE: diamondflow-staging
+  HELM_CHART_PATH: ./infrastructure/deployment/helm/diamondflow
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup kubectl
+        uses: azure/k8s-set-context@v3
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG_STAGING }}
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: '3.12.0'
+
+      - name: Get image tag
+        id: image-tag
+        run: |
+          echo "tag=${GITHUB_SHA::8}" >> $GITHUB_OUTPUT
+
+      - name: Deploy with Helm
+        run: |
+          helm upgrade --install diamondflow ${{ env.HELM_CHART_PATH }} \
+            --namespace ${{ env.KUBE_NAMESPACE }} \
+            --create-namespace \
+            --set image.tag=${{ steps.image-tag.outputs.tag }} \
+            --set environment=staging \
+            --set replicas.api=3 \
+            --set replicas.web=2 \
+            --set replicas.worker=2 \
+            --set replicas.realtime=2 \
+            --wait --timeout 10m
+
+      - name: Run smoke tests
+        run: |
+          ./scripts/smoke-test.sh https://staging-api.diamondflow.com
+
+      - name: Notify on failure
+        if: failure()
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          payload: |
+            {
+              "text": "Staging deployment failed for ${{ github.repository }}@${{ github.sha }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Staging Deployment Failed* :x:\nRepo: ${{ github.repository }}\nCommit: ${{ github.sha }}\nWorkflow: ${{ github.workflow }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  promote-to-production:
+    name: Promote to Production (Manual)
+    needs: deploy-staging
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Create promotion PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: promote-to-production
+          base: production
+          title: 'chore: promote staging to production'
+          body: |
+            This PR promotes the current staging build to production.
+            
+            **Staging Validation:**
+            - All CI checks passed
+            - Smoke tests passed
+            - Manual QA sign-off required
+            
+            **Changes:**
+            - Image tag: ${{ github.sha }}
+            - Environment: production
+          labels: |
+            promotion
+            production

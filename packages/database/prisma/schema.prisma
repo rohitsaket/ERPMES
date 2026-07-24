@@ -1,0 +1,1515 @@
+// DiamondFlow Prisma Schema - Validated Version
+// ONLY child-side foreign keys - no parent array relations
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// CORE ORG HIERARCHY
+// ============================================================================
+
+model Company {
+  id        String   @id @default(cuid())
+  name      String
+  code      String   @unique
+  settings  Json     @default("{}")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  branches Branch[]
+  users     User[]
+
+  @@index([code])
+  @@index([deletedAt])
+}
+
+model Branch {
+  id        String   @id @default(cuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  name      String
+  code      String
+  address   Json?
+  timezone  String   @default("UTC")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  factories Factory[]
+
+  @@unique([companyId, code])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model Factory {
+  id        String   @id @default(cuid())
+  companyId String
+  branchId  String
+  branch    Branch   @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  name      String
+  code      String
+  capacity  Int?
+  shifts    Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@unique([branchId, code])
+  @@index([branchId])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model Warehouse {
+  id        String   @id @default(cuid())
+  companyId String
+  factoryId String
+  factory   Factory  @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  name      String
+  type      String
+  location  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@unique([factoryId, name])
+  @@index([factoryId])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model Department {
+  id        String   @id @default(cuid())
+  companyId String
+  factoryId String
+  factory   Factory  @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  name      String
+  type      String
+  sequence  Int
+  capacity  Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  @@unique([factoryId, name])
+  @@index([factoryId])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model WorkCenter {
+  id            String   @id @default(cuid())
+  companyId     String
+  departmentId  String
+  department    Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  name          String
+  type          String
+  capacity      Int
+  oeeTarget     Float    @default(0.85)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  deletedAt     DateTime?
+
+  @@unique([departmentId, name])
+  @@index([departmentId])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+// ============================================================================
+// MASTER DATA
+// ============================================================================
+
+model Product {
+  id          String   @id @default(cuid())
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  sku         String
+  name        String
+  category    String
+  description String?
+  bomId       String?  @unique
+  routingId   String?  @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  @@unique([companyId, sku])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model BillOfMaterials {
+  id        String   @id @default(cuid())
+  productId String   @unique
+  product   Product  @relation("ProductBom", fields: [productId], references: [id], onDelete: Cascade)
+  version   Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lines BomLine[]
+}
+
+model BomLine {
+  id            String   @id @default(cuid())
+  bomId         String
+  bom           BillOfMaterials @relation(fields: [bomId], references: [id], onDelete: Cascade)
+  itemId        String
+  itemName      String
+  qty           Decimal  @db.Decimal(19, 6)
+  uom           String
+  operationSeq  Int?
+  scrapPct      Decimal  @default(0) @db.Decimal(5, 2)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([bomId, itemId])
+  @@index([bomId])
+}
+
+model Routing {
+  id        String   @id @default(cuid())
+  productId String   @unique
+  product   Product  @relation("ProductRouting", fields: [productId], references: [id], onDelete: Cascade)
+  version   Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  operations RoutingOperation[]
+  configs    RoutingConfig[]
+}
+
+model RoutingOperation {
+  id             String   @id @default(cuid())
+  routingId      String
+  routing        Routing  @relation(fields: [routingId], references: [id], onDelete: Cascade)
+  seq            Int
+  departmentId   String
+  department     Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+  workCenterType String
+  setupMin       Int      @default(0)
+  runMinPerUnit  Int      @default(0)
+  queueMin       Int      @default(0)
+  moveMin        Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([routingId, seq])
+  @@index([routingId])
+  @@index([departmentId])
+}
+
+model RoutingConfig {
+  id                String   @id @default(cuid())
+  routingId         String
+  routing           Routing  @relation(fields: [routingId], references: [id], onDelete: Cascade)
+  companyId         String?
+  factoryId         String?
+  productId         String?
+  diamondType       String?
+  shape             String?
+  customerId        String?
+  orderType         String?
+  method            String?
+  priority          String?
+  qualityReq        String?
+  departmentSequence Json
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([routingId])
+  @@index([companyId, factoryId, productId])
+}
+
+// ============================================================================
+// SALES
+// ============================================================================
+
+model Customer {
+  id            String   @id @default(cuid())
+  companyId     String
+  company       Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  name          String
+  code          String
+  creditLimit   Decimal  @default(0) @db.Decimal(19, 2)
+  paymentTerms  String?
+  address       Json?
+  contactInfo   Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  deletedAt     DateTime?
+
+  @@unique([companyId, code])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model Quotation {
+  id              String   @id @default(cuid())
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  customerId      String
+  customer        Customer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  version         Int      @default(1)
+  status          String
+  validUntil      DateTime?
+  approvalFlowId  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedAt       DateTime?
+
+  lines           QuotationLine[]
+  approvalInstance ApprovalInstance?
+
+  @@index([companyId])
+  @@index([customerId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model QuotationLine {
+  id            String   @id @default(cuid())
+  quotationId   String
+  quotation     Quotation @relation(fields: [quotationId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+  qty           Decimal  @db.Decimal(19, 6)
+  uom           String
+  unitPrice     Decimal  @db.Decimal(19, 4)
+  discountPct   Decimal  @default(0) @db.Decimal(5, 2)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([quotationId, productId])
+  @@index([quotationId])
+}
+
+model SalesOrder {
+  id              String   @id @default(cuid())
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  customerId      String
+  customer        Customer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  quotationId     String?  @unique
+  quotation       Quotation? @relation(fields: [quotationId], references: [id])
+  status          String
+  orderDate       DateTime @default(now())
+  requiredDate    DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedAt       DateTime?
+
+  lines           SalesOrderLine[]
+  productionOrders ProductionOrder[]
+  invoices        Invoice[]
+
+  @@index([companyId])
+  @@index([customerId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model SalesOrderLine {
+  id                  String   @id @default(cuid())
+  orderId             String
+  order               SalesOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId           String
+  product             Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+  qty                 Decimal  @db.Decimal(19, 6)
+  uom                 String
+  unitPrice           Decimal  @db.Decimal(19, 4)
+  dueDate             DateTime?
+  allocatedQty        Decimal  @default(0) @db.Decimal(19, 6)
+  productionOrderId   String?  @unique
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([orderId])
+  @@index([productId])
+  @@index([productionOrderId])
+}
+
+// ============================================================================
+// PLANNING
+// ============================================================================
+
+model MrpRun {
+  id                String   @id @default(cuid())
+  companyId         String
+  status            String
+  recordsProcessed  Int      @default(0)
+  exceptions        Json?
+  startedAt         DateTime @default(now())
+  completedAt       DateTime?
+
+  plannedOrders     PlannedOrder[]
+
+  @@index([companyId])
+  @@index([status])
+}
+
+model PlannedOrder {
+  id            String   @id @default(cuid())
+  mrpRunId      String
+  mrpRun        MrpRun   @relation(fields: [mrpRunId], references: [id], onDelete: Cascade)
+  itemId        String
+  itemName      String
+  qty           Decimal  @db.Decimal(19, 6)
+  dueDate       DateTime
+  supplyType    String
+  pegging       Json
+  createdAt     DateTime @default(now())
+
+  @@index([mrpRunId])
+  @@index([itemId])
+}
+
+model ProductionOrder {
+  id                String   @id @default(cuid())
+  companyId         String
+  salesOrderLineId  String?  @unique
+  productId         String
+  qty               Decimal  @db.Decimal(19, 6)
+  status            String
+  priority          Int      @default(0)
+  startDate         DateTime?
+  dueDate           DateTime?
+  routingId         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deletedAt         DateTime?
+
+  operations        ProductionOrderOperation[]
+  jobCards          JobCard[]
+
+  @@index([companyId])
+  @@index([status])
+  @@index([salesOrderLineId])
+  @@index([deletedAt])
+}
+
+model ProductionOrderOperation {
+  id                 String   @id @default(cuid())
+  orderId            String
+  order              ProductionOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  seq                Int
+  departmentId       String
+  department         Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+  workCenterId       String?
+  workCenter         WorkCenter? @relation(fields: [workCenterId], references: [id])
+  status             String
+  setupMin           Int      @default(0)
+  runMin             Int      @default(0)
+  qtyComplete        Decimal  @default(0) @db.Decimal(19, 6)
+  qtyScrap           Decimal  @default(0) @db.Decimal(19, 6)
+  weightIn           Decimal? @db.Decimal(19, 6)
+  weightOut          Decimal? @db.Decimal(19, 6)
+  yieldPct           Decimal? @db.Decimal(5, 2)
+  startedAt          DateTime?
+  completedAt        DateTime?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@unique([orderId, seq])
+  @@index([orderId])
+  @@index([workCenterId])
+  @@index([status])
+}
+
+model JobCard {
+  id                  String   @id @default(cuid())
+  productionOrderId   String
+  productionOrder     ProductionOrder @relation(fields: [productionOrderId], references: [id], onDelete: Cascade)
+  opSeq               Int
+  status              String
+  assignedTo          String?
+  issuedAt            DateTime?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@unique([productionOrderId, opSeq])
+  @@index([productionOrderId])
+  @@index([status])
+}
+
+// ============================================================================
+// PROCUREMENT
+// ============================================================================
+
+model Vendor {
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String
+  code        String
+  contactInfo Json?
+  address     Json?
+  rating      Float?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  purchaseOrders PurchaseOrder[]
+  rfqs          RequestForQuotation[]
+
+  @@unique([companyId, code])
+  @@index([companyId])
+  @@index([deletedAt])
+}
+
+model PurchaseRequisition {
+  id        String   @id @default(cuid())
+  companyId String
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  lines     PrLine[]
+
+  @@index([companyId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model PrLine {
+  id              String   @id @default(cuid())
+  requisitionId   String
+  requisition     PurchaseRequisition @relation(fields: [requisitionId], references: [id], onDelete: Cascade)
+  itemId          String
+  itemName        String
+  qty             Decimal  @db.Decimal(19, 6)
+  uom             String
+  neededBy        DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([requisitionId])
+}
+
+model RequestForQuotation {
+  id        String   @id @default(cuid())
+  companyId String
+  vendorId  String
+  vendor    Vendor   @relation(fields: [vendorId], references: [id], onDelete: Restrict)
+  status    String
+  dueDate   DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  lines     RfqLine[]
+
+  @@index([companyId])
+  @@index([vendorId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model RfqLine {
+  id        String   @id @default(cuid())
+  rfqId     String
+  rfq       RequestForQuotation @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+  itemId    String
+  itemName  String
+  qty       Decimal  @db.Decimal(19, 6)
+  uom       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([rfqId])
+}
+
+model PurchaseOrder {
+  id        String   @id @default(cuid())
+  companyId String
+  vendorId  String
+  vendor    Vendor   @relation(fields: [vendorId], references: [id], onDelete: Restrict)
+  status    String
+  orderDate DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  lines     PoLine[]
+  goodsReceipts GoodsReceipt[]
+
+  @@index([companyId])
+  @@index([vendorId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model PoLine {
+  id            String   @id @default(cuid())
+  poId          String
+  po            PurchaseOrder @relation(fields: [poId], references: [id], onDelete: Cascade)
+  itemId        String
+  itemName      String
+  qty           Decimal  @db.Decimal(19, 6)
+  uom           String
+  unitPrice     Decimal  @db.Decimal(19, 4)
+  dueDate       DateTime
+  receivedQty   Decimal  @default(0) @db.Decimal(19, 6)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  grLines       GrLine[]
+
+  @@index([poId])
+}
+
+model GoodsReceipt {
+  id            String   @id @default(cuid())
+  poId          String
+  po            PurchaseOrder @relation(fields: [poId], references: [id], onDelete: Restrict)
+  warehouseId   String
+  warehouse     Warehouse @relation(fields: [warehouseId], references: [id], onDelete: Restrict)
+  status        String
+  receivedAt    DateTime @default(now())
+  inspectedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  lines         GrLine[]
+
+  @@index([poId])
+  @@index([warehouseId])
+  @@index([status])
+}
+
+model GrLine {
+  id            String   @id @default(cuid())
+  receiptId     String
+  receipt       GoodsReceipt @relation(fields: [receiptId], references: [id], onDelete: Cascade)
+  poLineId      String
+  poLine        PoLine   @relation(fields: [poLineId], references: [id], onDelete: Restrict)
+  qty           Decimal  @db.Decimal(19, 6)
+  uom           String
+  lotId         String?
+  lot           InventoryLot? @relation(fields: [lotId], references: [id])
+  inspectionStatus String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([receiptId])
+  @@index([poLineId])
+  @@index([lotId])
+}
+
+// ============================================================================
+// INVENTORY
+// ============================================================================
+
+model InventoryLot {
+  id            String   @id @default(cuid())
+  companyId     String
+  itemId        String
+  itemName      String
+  warehouseId   String
+  warehouse     Warehouse @relation(fields: [warehouseId], references: [id], onDelete: Restrict)
+  qty           Decimal  @default(0) @db.Decimal(19, 6)
+  uom           String
+  status        String
+  lotNumber     String
+  expiryDate    DateTime?
+  certificateId String?
+  certificate   Certificate? @relation(fields: [certificateId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  deletedAt     DateTime?
+
+  transactions  InventoryTransaction[]
+  reservations  Reservation[]
+  grLines       GrLine[]
+
+  @@unique([companyId, lotNumber])
+  @@index([companyId])
+  @@index([warehouseId])
+  @@index([itemId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model InventoryTransaction {
+  id            String   @id @default(cuid())
+  lotId         String
+  lot           InventoryLot @relation(fields: [lotId], references: [id], onDelete: Cascade)
+  type          String
+  qty           Decimal  @db.Decimal(19, 6)
+  uom           String
+  refType       String?
+  refId         String?
+  fromLocation  String?
+  toLocation    String?
+  employeeId    String?
+  weightBefore  Decimal? @db.Decimal(19, 6)
+  weightAfter   Decimal? @db.Decimal(19, 6)
+  timestamp     DateTime @default(now())
+
+  @@index([lotId])
+  @@index([refType, refId])
+  @@index([timestamp])
+}
+
+model Reservation {
+  id              String   @id @default(cuid())
+  lotId           String
+  lot             InventoryLot @relation(fields: [lotId], references: [id], onDelete: Cascade)
+  salesOrderLineId String?
+  salesOrderLine  SalesOrderLine? @relation(fields: [salesOrderLineId], references: [id])
+  productionOrderId String?
+  productionOrder ProductionOrder? @relation(fields: [productionOrderId], references: [id])
+  qty             Decimal  @db.Decimal(19, 6)
+  uom             String
+  status          String
+  expiresAt       DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([lotId])
+  @@index([salesOrderLineId])
+  @@index([productionOrderId])
+  @@index([status])
+}
+
+model InventorySnapshot {
+  id            String   @id @default(cuid())
+  companyId     String
+  factoryId     String?
+  warehouseId   String?
+  itemId        String
+  qty           Decimal  @db.Decimal(19, 6)
+  uom           String
+  snapshotDate  DateTime @db.Date
+  source        String
+  createdAt     DateTime @default(now())
+
+  @@unique([companyId, factoryId, warehouseId, itemId, snapshotDate])
+  @@index([companyId])
+  @@index([snapshotDate])
+}
+
+model ErpSyncRecord {
+  id                String   @id @default(cuid())
+  companyId         String
+  connector         String
+  externalRequestId String
+  mappingVersion    String
+  importMode        String
+  recordsReceived   Int      @default(0)
+  recordsAccepted   Int      @default(0)
+  recordsRejected   Int      @default(0)
+  conflicts         Json?
+  retries           Int      @default(0)
+  status            String
+  correlationId     String
+  startedAt         DateTime @default(now())
+  completedAt       DateTime?
+  errorDetails      Json?
+  reconciliationResult Json?
+
+  @@index([companyId])
+  @@index([connector])
+  @@index([status])
+  @@index([correlationId])
+}
+
+// ============================================================================
+// DIAMONDS
+// ============================================================================
+
+model Diamond {
+  id                  String   @id @default(cuid())
+  companyId           String
+  certificateNo       String   @unique
+  carat               Decimal  @db.Decimal(19, 6)
+  color               String
+  clarity             String
+  cut                 String
+  shape               String
+  origin              String?
+  status              String
+  currentOwnerId      String?
+  currentPacketId     String?
+  currentDeptId       String?
+  currentEmployeeId   String?
+  bagId               String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+
+  events              DiamondEvent[]
+  allocations         Allocation[]
+  certificate         DiamondCertificate?
+
+  @@index([companyId])
+  @@index([status])
+  @@index([currentPacketId])
+  @@index([currentDeptId])
+  @@index([deletedAt])
+}
+
+model DiamondPacket {
+  id        String   @id @default(cuid())
+  factoryId String
+  factory   Factory  @relation(fields: [factoryId], references: [id], onDelete: Restrict)
+  status    String
+  location  String?
+  bagId     String?  @unique
+  bag       Bag?     @relation("PacketBag", fields: [bagId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+
+  diamonds  Diamond[]
+
+  @@index([factoryId])
+  @@index([status])
+  @@index([deletedAt])
+}
+
+model DiamondEvent {
+  id              String   @id @default(cuid())
+  diamondId       String
+  diamond         Diamond  @relation(fields: [diamondId], references: [id], onDelete: Cascade)
+  eventType       String
+  fromDeptId      String?
+  toDeptId        String?
+  packetId        String?
+  employeeId      String?
+  weightBefore    Decimal  @db.Decimal(19, 6)
+  weightAfter     Decimal  @db.Decimal(19, 6)
+  lossPct         Decimal  @db.Decimal(5, 2)
+  operation       String?
+  timestamp       DateTime @default(now())
+  metadata        Json?
+
+  @@index([diamondId])
+  @@index([timestamp])
+  @@index([eventType])
+}
+
+model Allocation {
+  id                String   @id @default(cuid())
+  diamondId         String
+  diamond           Diamond  @relation(fields: [diamondId], references: [id], onDelete: Cascade)
+  salesOrderLineId  String
+  salesOrderLine    SalesOrderLine @relation(fields: [salesOrderLineId], references: [id], onDelete: Restrict)
+  allocatedAt       DateTime @default(now())
+  allocatedBy       String
+
+  @@unique([diamondId, salesOrderLineId])
+  @@index([diamondId])
+  @@index([salesOrderLineId])
+}
+
+model DiamondCertificate {
+  id            String   @id @default(cuid())
+  diamondId     String   @unique
+  diamond       Diamond  @relation(fields: [diamondId], references: [id], onDelete: Cascade)
+  labId         String
+  certificateNo String   @unique
+  issueDate     DateTime
+  expiryDate    DateTime?
+  pdfUrl        String?
+  validatedAt   DateTime?
+  validatedBy   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([labId])
+  @@index([certificateNo])
+  @@index([validatedAt])
+}
+
+// ============================================================================
+// MANUFACTURING
+// ============================================================================
+
+model Operation {
+  id                  String   @id @default(cuid())
+  productionOrderId   String
+  productionOrder     ProductionOrder @relation(fields: [productionOrderId], references: [id], onDelete: Cascade)
+  seq                 Int
+  departmentId        String
+  department          Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+  workCenterId        String?
+  workCenter          WorkCenter? @relation(fields: [workCenterId], references: [id])
+  employeeId          String?
+  status              String
+  startedAt           DateTime?
+  pausedAt            DateTime?
+  resumedAt           DateTime?
+  completedAt         DateTime?
+  weightIn            Decimal? @db.Decimal(19, 6)
+  weightOut           Decimal? @db.Decimal(19, 6)
+  yieldPct            Decimal? @db.Decimal(5, 2)
+  qtyGood             Decimal  @default(0) @db.Decimal(19, 6)
+  qtyScrap            Decimal  @default(0) @db.Decimal(19, 6)
+  notes               String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  packetIssues        PacketIssue[]
+  transfers           DepartmentTransfer[]
+
+  @@unique([productionOrderId, seq])
+  @@index([productionOrderId])
+  @@index([workCenterId])
+  @@index([employeeId])
+  @@index([status])
+}
+
+model PacketIssue {
+  id            String   @id @default(cuid())
+  operationId   String
+  operation     Operation @relation(fields: [operationId], references: [id], onDelete: Cascade)
+  packetId      String
+  packet        DiamondPacket @relation(fields: [packetId], references: [id], onDelete: Restrict)
+  issuedAt      DateTime @default(now())
+  issuedBy      String
+  returnedAt    DateTime?
+  returnedBy    String?
+
+  @@index([operationId])
+  @@index([packetId])
+}
+
+model DepartmentTransfer {
+  id            String   @id @default(cuid())
+  operationId   String
+  operation     Operation @relation(fields: [operationId], references: [id], onDelete: Cascade)
+  fromDeptId    String
+  toDeptId      String
+  packetId      String?
+  employeeId    String?
+  transferredAt DateTime @default(now())
+  notes         String?
+
+  @@index([operationId])
+  @@index([fromDeptId, toDeptId])
+}
+
+model WorkCenterQueue {
+  id            String   @id @default(cuid())
+  workCenterId  String   @unique
+  workCenter    WorkCenter @relation(fields: [workCenterId], references: [id], onDelete: Cascade)
+  operations    Json
+  updatedAt     DateTime @updatedAt
+}
+
+// ============================================================================
+// QUALITY
+// ============================================================================
+
+model InspectionPlan {
+  id        String   @id @default(cuid())
+  companyId String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+  version   Int      @default(1)
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  steps     InspectionStep[]
+
+  @@unique([productId, version])
+  @@index([companyId])
+  @@index([productId])
+}
+
+model InspectionStep {
+  id            String   @id @default(cuid())
+  planId        String
+  plan          InspectionPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  seq           Int
+  name          String
+  type          String
+  specMin       Decimal? @db.Decimal(19, 6)
+  specMax       Decimal? @db.Decimal(19, 6)
+  uom           String?
+  method        String?
+  samplingPlan  Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([planId, seq])
+  @@index([planId])
+}
+
+model QualityInspection {
+  id                String   @id @default(cuid())
+  productionOrderId String
+  productionOrder   ProductionOrder @relation(fields: [productionOrderId], references: [id], onDelete: Restrict)
+  stepId            String
+  step              InspectionStep @relation(fields: [stepId], references: [id], onDelete: Restrict)
+  operationId       String?
+  operation         Operation? @relation(fields: [operationId], references: [id])
+  status            String
+  value             Decimal? @db.Decimal(19, 6)
+  result            String?
+  inspectorId       String
+  timestamp         DateTime @default(now())
+  ncrId             String?  @unique
+  ncr               Nonconformance? @relation(fields: [ncrId], references: [id])
+  images            Json?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([productionOrderId])
+  @@index([stepId])
+  @@index([status])
+  @@index([inspectorId])
+}
+
+model Nonconformance {
+  id              String   @id @default(cuid())
+  inspectionId    String
+  inspection      QualityInspection @relation(fields: [inspectionId], references: [id], onDelete: Restrict)
+  type            String
+  severity        String
+  disposition     String?
+  rootCause       String?
+  correctiveAction String?
+  status          String
+  dispositionedAt DateTime?
+  dispositionedBy String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  capa            CorrectiveAction?
+  reinspections   Reinspection[]
+
+  @@index([inspectionId])
+  @@index([status])
+  @@index([disposition])
+}
+
+model CorrectiveAction {
+  id              String   @id @default(cuid())
+  ncrId           String   @unique
+  ncr             Nonconformance @relation(fields: [ncrId], references: [id], onDelete: Cascade)
+  description     String
+  ownerId         String
+  dueDate         DateTime
+  completedAt     DateTime?
+  verifiedAt      DateTime?
+  verifiedBy      String?
+  effectiveness   String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([ownerId])
+  @@index([dueDate])
+}
+
+model Reinspection {
+  id              String   @id @default(cuid())
+  ncrId           String
+  ncr             Nonconformance @relation(fields: [ncrId], references: [id], onDelete: Cascade)
+  inspectionId    String
+  inspection      QualityInspection @relation(fields: [inspectionId], references: [id], onDelete: Restrict)
+  result          String
+  inspectedAt     DateTime @default(now())
+  inspectedBy     String
+  createdAt       DateTime @default(now())
+}
+
+model CertificationRequest {
+  id            String   @id @default(cuid())
+  diamondId     String
+  diamond       Diamond  @relation(fields: [diamondId], references: [id], onDelete: Cascade)
+  labId         String
+  status        String
+  submittedAt   DateTime?
+  trackingNo    String?
+  certificateId String?  @unique
+  certificate   Certificate? @relation(fields: [certificateId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([diamondId])
+  @@index([status])
+  @@index([labId])
+}
+
+model Certificate {
+  id            String   @id @default(cuid())
+  diamondId     String
+  diamond       Diamond  @relation(fields: [diamondId], references: [id], onDelete: Cascade)
+  labId         String
+  certificateNo String   @unique
+  issueDate     DateTime
+  pdfUrl        String?
+  validatedAt   DateTime?
+  validatedBy   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([diamondId])
+  @@index([labId])
+  @@index([certificateNo])
+}
+
+// ============================================================================
+// MAINTENANCE
+// ============================================================================
+
+model Asset {
+  id                  String   @id @default(cuid())
+  factoryId           String
+  factory             Factory  @relation(fields: [factoryId], references: [id], onDelete: Cascade)
+  name                String
+  type                String
+  criticality         String
+  pmScheduleId        String?  @unique
+  pmSchedule          PreventiveMaintenanceSchedule? @relation(fields: [pmScheduleId], references: [id])
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  deletedAt           DateTime?
+
+  workOrders          WorkOrder[]
+
+  @@index([factoryId])
+  @@index([pmScheduleId])
+  @@index([deletedAt])
+}
+
+model WorkOrder {
+  id          String   @id @default(cuid())
+  assetId     String
+  asset       Asset    @relation(fields: [assetId], references: [id], onDelete: Restrict)
+  type        String
+  priority    String
+  status      String
+  assignedTo  String?
+  dueDate     DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tasks       WoTask[]
+
+  @@index([assetId])
+  @@index([status])
+  @@index([assignedTo])
+  @@index([dueDate])
+}
+
+model WoTask {
+  id            String   @id @default(cuid())
+  workOrderId   String
+  workOrder     WorkOrder @relation(fields: [workOrderId], references: [id], onDelete: Cascade)
+  seq           Int
+  description   String
+  estimatedHours Decimal @db.Decimal(6, 2)
+  actualHours   Decimal? @db.Decimal(6, 2)
+  completedAt   DateTime?
+  completedBy   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([workOrderId, seq])
+  @@index([workOrderId])
+}
+
+model PreventiveMaintenanceSchedule {
+  id          String   @id @default(cuid())
+  assetId     String   @unique
+  asset       Asset    @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  frequency   String
+  lastRun     DateTime?
+  nextRun     DateTime
+  tasks       Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([nextRun])
+}
+
+// ============================================================================
+// DISPATCH
+// ============================================================================
+
+model Bag {
+  id            String   @id @default(cuid())
+  shipmentId    String?
+  shipment      Shipment? @relation(fields: [shipmentId], references: [id])
+  weight        Decimal  @db.Decimal(19, 6)
+  sealNo        String   @unique
+  status        String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  diamonds      Diamond[] @relation("BagDiamonds")
+
+  @@index([shipmentId])
+  @@index([status])
+}
+
+model Shipment {
+  id            String   @id @default(cuid())
+  companyId     String
+  customerId    String
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  carrierId     String?
+  carrier       Carrier? @relation(fields: [carrierId], references: [id])
+  trackingNo    String?  @unique
+  status        String
+  dispatchedAt  DateTime?
+  deliveredAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  bags          Bag[]
+  tracking      ShipmentTracking[]
+
+  @@index([companyId])
+  @@index([customerId])
+  @@index([status])
+  @@index([trackingNo])
+}
+
+model ShipmentTracking {
+  id          String   @id @default(cuid())
+  shipmentId  String
+  shipment    Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+  status      String
+  location    String?
+  timestamp   DateTime @default(now())
+  rawData     Json?
+
+  @@index([shipmentId])
+  @@index([timestamp])
+}
+
+model Carrier {
+  id              String   @id @default(cuid())
+  name            String
+  code            String   @unique
+  apiEndpoint     String?
+  apiKey          String?
+  accountNumber   String?
+  serviceLevels   Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  shipments       Shipment[]
+
+  @@index([code])
+}
+
+// ============================================================================
+// FINANCE
+// ============================================================================
+
+model ChartOfAccount {
+  id        String   @id @default(cuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  code      String
+  name      String
+  type      String
+  parentId  String?
+  parent    ChartOfAccount? @relation("AccountHierarchy", fields: [parentId], references: [id])
+  children  ChartOfAccount[] @relation("AccountHierarchy")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([companyId, code])
+  @@index([companyId])
+  @@index([type])
+}
+
+model Invoice {
+  id            String   @id @default(cuid())
+  companyId     String
+  company       Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  customerId    String
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  shipmentId    String?  @unique
+  shipment      Shipment? @relation(fields: [shipmentId], references: [id])
+  status        String
+  amount        Decimal  @db.Decimal(19, 2)
+  currency      String   @default("USD")
+  dueDate       DateTime
+  invoiceDate   DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  lines         InvoiceLine[]
+  payments      Payment[]
+
+  @@index([companyId])
+  @@index([customerId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+model InvoiceLine {
+  id          String   @id @default(cuid())
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  description String
+  qty         Decimal  @db.Decimal(19, 6)
+  unitPrice   Decimal  @db.Decimal(19, 4)
+  accountId   String
+  account     ChartOfAccount @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  createdAt   DateTime @default(now())
+
+  @@index([invoiceId])
+  @@index([accountId])
+}
+
+model Payment {
+  id            String   @id @default(cuid())
+  invoiceId     String
+  invoice       Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  amount        Decimal  @db.Decimal(19, 2)
+  currency      String   @default("USD")
+  method        String
+  reference     String?
+  receivedAt    DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  @@index([invoiceId])
+  @@index([receivedAt])
+}
+
+model JournalEntry {
+  id        String   @id @default(cuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  date      DateTime @db.Date
+  memo      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lines     JournalLine[]
+
+  @@index([companyId])
+  @@index([date])
+}
+
+model JournalLine {
+  id            String   @id @default(cuid())
+  entryId       String
+  entry         JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  accountId     String
+  account       ChartOfAccount @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  debit         Decimal  @default(0) @db.Decimal(19, 2)
+  credit        Decimal  @default(0) @db.Decimal(19, 2)
+  description   String?
+  createdAt     DateTime @default(now())
+
+  @@index([entryId])
+  @@index([accountId])
+}
+
+// ============================================================================
+// RETURNS
+// ============================================================================
+
+model ReturnAuthorization {
+  id            String   @id @default(cuid())
+  companyId     String
+  customerId    String
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  invoiceId     String?
+  invoice       Invoice? @relation(fields: [invoiceId], references: [id])
+  status        String
+  disposition   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  lines         RaLine[]
+  repairOrder   RepairOrder?
+
+  @@index([companyId])
+  @@index([customerId])
+  @@index([status])
+}
+
+model RaLine {
+  id            String   @id @default(cuid())
+  raId          String
+  ra            ReturnAuthorization @relation(fields: [raId], references: [id], onDelete: Cascade)
+  diamondId     String?
+  diamond       Diamond? @relation(fields: [diamondId], references: [id])
+  qty           Decimal  @db.Decimal(19, 6)
+  reason        String
+  createdAt     DateTime @default(now())
+
+  @@index([raId])
+  @@index([diamondId])
+}
+
+model RepairOrder {
+  id                String   @id @default(cuid())
+  returnAuthId      String   @unique
+  returnAuth        ReturnAuthorization @relation(fields: [returnAuthId], references: [id], onDelete: Cascade)
+  productionOrderId String?
+  productionOrder   ProductionOrder? @relation(fields: [productionOrderId], references: [id])
+  status            String
+  completedAt       DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  redispatch        Redispatch?
+
+  @@index([status])
+}
+
+model Redispatch {
+  id            String   @id @default(cuid())
+  repairOrderId String   @unique
+  repairOrder   RepairOrder @relation(fields: [repairOrderId], references: [id], onDelete: Cascade)
+  shipmentId    String
+  shipment      Shipment @relation(fields: [shipmentId], references: [id], onDelete: Restrict)
+  status        String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([status])
+}
+
+// ============================================================================
+// WORKFLOW / APPROVALS
+// ============================================================================
+
+model ApprovalFlow {
+  id        String   @id @default(cuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  name      String
+  entityType String
+  steps     Json
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  instances ApprovalInstance[]
+
+  @@index([companyId])
+  @@index([entityType])
+}
+
+model ApprovalStep {
+  id        String   @id @default(cuid())
+  flowId    String
+  flow      ApprovalFlow @relation(fields: [flowId], references: [id], onDelete: Cascade)
+  seq       Int
+  roleId    String
+  action    String
+  condition Json?
+  createdAt DateTime @default(now())
+
+  @@unique([flowId, seq])
+  @@index([flowId])
+}
+
+model ApprovalInstance {
+  id            String   @id @default(cuid())
+  flowId        String
+  flow          ApprovalFlow @relation(fields: [flowId], references: [id], onDelete: Restrict)
+  entityId      String
+  entityType    String
+  currentStep   Int      @default(0)
+  status        String
+  history       Json
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([flowId, entityId, entityType])
+  @@index([entityId, entityType])
+  @@index([status])
+}
+
+// ============================================================================
+// AUDIT & EVENTS
+// ============================================================================
+
+model AuditLog {
+  id              String   @id @default(cuid())
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  entityType      String
+  entityId        String
+  action          String
+  oldValue        Json?
+  newValue        Json?
+  userId          String
+  timestamp       DateTime @default(now())
+  correlationId   String?
+
+  @@index([companyId])
+  @@index([entityType, entityId])
+  @@index([userId])
+  @@index([timestamp])
+  @@index([correlationId])
+}
+
+model OutboxEvent {
+  id            String   @id @default(cuid())
+  aggregateType String
+  aggregateId   String
+  eventType     String
+  version       Int      @default(1)
+  payload       Json
+  createdAt     DateTime @default(now())
+  publishedAt   DateTime?
+
+  @@index([aggregateType, aggregateId])
+  @@index([eventType])
+  @@index([publishedAt])
+  @@index([createdAt])
+}
+
+model InboxEvent {
+  id            String   @id @default(cuid())
+  eventId       String   @unique
+  consumer      String
+  status        String
+  processedAt   DateTime?
+  retries       Int      @default(0)
+  error         Json?
+  createdAt     DateTime @default(now())
+
+  @@index([consumer, status])
+  @@index([processedAt])
+}
+
+// ============================================================================
+// USER & AUTH
+// ============================================================================
+
+model User {
+  id            String   @id @default(cuid())
+  companyId     String
+  company       Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  clerkId       String   @unique
+  email         String
+  firstName     String?
+  lastName      String?
+  roleIds       String[]
+  factoryIds    String[]
+  departmentIds String[]
+  isActive      Boolean  @default(true)
+  lastLoginAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([companyId])
+  @@index([clerkId])
+  @@index([email])
+}

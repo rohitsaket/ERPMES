@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@diamondflow/contracts": ["packages/contracts/src/index.ts"],
+      "@diamondflow/domain": ["packages/domain/src/index.ts"],
+      "@diamondflow/database": ["packages/database/src/index.ts"],
+      "@diamondflow/auth": ["packages/auth/src/index.ts"],
+      "@diamondflow/authorization": ["packages/authorization/src/index.ts"],
+      "@diamondflow/events": ["packages/events/src/index.ts"],
+      "@diamondflow/queue": ["packages/queue/src/index.ts"],
+      "@diamondflow/realtime": ["packages/realtime/src/index.ts"],
+      "@diamondflow/ui": ["packages/ui/src/index.ts"],
+      "@diamondflow/api": ["apps/api/src/index.ts"],
+      "@diamondflow/web": ["apps/web/src/index.ts"],
+      "@diamondflow/worker": ["apps/worker/src/index.ts"],
+      "@diamondflow/config": ["packages/config/src/index.ts"],
+      "@diamondflow/observability": ["packages/observability/src/index.ts"],
+      "@diamondflow/testing": ["packages/testing/src/index.ts"]
+    },
+    "types": ["node", "vitest/globals"]
+  },
+  "exclude": ["node_modules", "dist", "build", "**/*.spec.ts", "**/*.test.ts"]
+}

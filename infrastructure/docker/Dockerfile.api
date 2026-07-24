@@ -1,0 +1,46 @@
+# API Dockerfile
+FROM node:20-alpine AS base
+
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages/*/package.json ./packages/*/
+COPY apps/api/package.json ./apps/api/
+
+RUN corepack enable pnpm && pnpm install --frozen-lockfile --prod=false
+
+# Generate Prisma Client
+FROM deps AS prisma
+COPY . .
+RUN corepack enable pnpm && pnpm --filter=@diamondflow/database prisma generate
+
+# Build the application
+FROM deps AS builder
+COPY . .
+COPY --from=prisma /app/node_modules/.prisma ./node_modules/.prisma
+RUN corepack enable pnpm && pnpm --filter=@diamondflow/api build
+
+# Production image
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nestjs
+
+COPY --from=builder /app/apps/api/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
+COPY --from=prisma /app/node_modules/.prisma ./node_modules/.prisma
+
+USER nestjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+
+CMD ["node", "dist/main.js"]
