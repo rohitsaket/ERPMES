@@ -11,9 +11,6 @@ export const metadata: Metadata = {
   title: "DiamondFlow ERP+MES",
   description: "Unified enterprise operating platform for diamond and jewelry businesses",
   keywords: ["ERP", "MES", "Diamond", "Jewelry", "Manufacturing", "Supply Chain"],
-  icons: {
-    icon: "/icon.svg",
-  },
 };
 
 export default function RootLayout({
