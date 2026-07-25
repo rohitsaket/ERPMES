@@ -68,3 +68,7 @@ prisma/migrations/
 .codex-backups/
 .tmp-codex/
 
+# Nx cache
+.nx/cache/
+.nx/workspace-data/
+
