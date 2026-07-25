@@ -97,10 +97,8 @@ function SortableTab({ tab, isActive, onActivate, onClose, onContextMenu }: Sort
           <div
             {...attributes}
             {...listeners}
-            onPointerDown={(e) => {
-              if (e.button === 0) onActivate(tab.id);
-              listeners?.onPointerDown?.(e);
-            }}
+            data-tab-id={tab.id}
+            onClick={() => onActivate(tab.id)}
             onMouseUp={handleMouseUp}
             title={tab.title}
             className={cn(
