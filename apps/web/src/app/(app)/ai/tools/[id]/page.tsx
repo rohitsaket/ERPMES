@@ -1,6 +1,5 @@
 "use client";
 
-import { AppShell } from "@/components/layout/app-shell";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowLeft, Edit, Play } from "lucide-react";
@@ -28,16 +27,16 @@ export default function ToolPage({ params }: { params: { id: string } }) {
 
   if (loading) {
     return (
-      <AppShell>
+      <>
         <div className="flex h-[50vh] items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
-      </AppShell>
+      </>
     );
   }
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -96,6 +95,6 @@ export default function ToolPage({ params }: { params: { id: string } }) {
           </Card>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

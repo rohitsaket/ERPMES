@@ -32,19 +32,8 @@ const nextAuthResult = NextAuth({
 
         try {
           console.log("Querying user:", email);
-          const user = await prisma.user.findUnique({
+          const user = await prisma.user.findFirst({
             where: { email },
-            select: {
-              id: true,
-              email: true,
-              firstName: true,
-              lastName: true,
-              passwordHash: true,
-              status: true,
-              emailVerified: true,
-              role: true,
-              companyId: true,
-            },
           });
 
           console.log("User found:", !!user);
@@ -60,7 +49,7 @@ const nextAuthResult = NextAuth({
 
           if (user.status === "suspended" || user.status === "disabled") {
             console.log("User is suspended");
-            throw new Error("Account suspended");
+            return null;
           }
 
           console.log("Comparing passwords...");
@@ -74,9 +63,9 @@ const nextAuthResult = NextAuth({
           return {
             id: user.id,
             email: user.email,
-            name: `${user.firstName || ""} ${user.lastName || ""}`.trim() || undefined,
+            name: `${user.firstName || ""} ${user.lastName || ""}`.trim() || "User",
             companyId: user.companyId || undefined,
-            role: user.role,
+            role: user.role || "ADMIN",
           };
         } catch (error) {
           console.error("AUTHORIZE ERROR:", error);

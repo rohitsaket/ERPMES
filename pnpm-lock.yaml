@@ -11,6 +11,15 @@ importers:
       '@clerk/clerk-sdk-node':
         specifier: 5.0.0
         version: 5.0.0(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
+      '@dnd-kit/core':
+        specifier: ^6.3.1
+        version: 6.3.1(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
+      '@dnd-kit/sortable':
+        specifier: ^10.0.0
+        version: 10.0.0(@dnd-kit/core@6.3.1(react-dom@18.3.0(react@18.3.0))(react@18.3.0))(react@18.3.0)
+      '@dnd-kit/utilities':
+        specifier: ^3.2.2
+        version: 3.2.2(react@18.3.0)
       '@nestjs/common':
         specifier: 10.3.8
         version: 10.3.8(class-transformer@0.5.1)(class-validator@0.15.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
@@ -44,6 +53,9 @@ importers:
       '@tanstack/react-query':
         specifier: 5.40.0
         version: 5.40.0(react@18.3.0)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.40.0
+        version: 5.101.4(@tanstack/react-query@5.40.0(react@18.3.0))(react@18.3.0)
       bullmq:
         specifier: 5.10.0
         version: 5.10.0
@@ -59,6 +71,9 @@ importers:
       decimal.js:
         specifier: 10.4.0
         version: 10.4.0
+      framer-motion:
+        specifier: ^12.42.2
+        version: 12.42.2(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
       ioredis:
         specifier: 5.4.0
         version: 5.4.0
@@ -68,6 +83,9 @@ importers:
       next:
         specifier: 14.2.35
         version: 14.2.35(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(babel-plugin-macros@2.8.0)(react-dom@18.3.0(react@18.3.0))(react@18.3.0)(sass@1.101.7)
+      next-themes:
+        specifier: ^0.3.0
+        version: 0.3.0(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
       pino:
         specifier: 9.0.0
         version: 9.0.0
@@ -83,6 +101,9 @@ importers:
       react-dom:
         specifier: 18.3.0
         version: 18.3.0(react@18.3.0)
+      react-shepherd:
+        specifier: ^7.0.4
+        version: 7.0.4(react-dom@18.3.0(react@18.3.0))(react@18.3.0)(typescript@5.4.5)
       reflect-metadata:
         specifier: 0.2.2
         version: 0.2.2
@@ -92,6 +113,9 @@ importers:
       socket.io:
         specifier: 4.7.0
         version: 4.7.0
+      sonner:
+        specifier: ^2.0.7
+        version: 2.0.7(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
       speakeasy:
         specifier: ^2.0.0
         version: 2.0.0
@@ -6115,6 +6139,10 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
+  deepmerge-ts@7.1.5:
+    resolution: {integrity: sha512-HOJkrhaYsweh+W+e74Yn7YStZOilkoPb6fycpwNLKzSPtruFs48nYis0zy5yJz1+ktUhHxoRDJ27RQAWLIJVJw==}
+    engines: {node: '>=16.0.0'}
+
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
@@ -9199,6 +9227,13 @@ packages:
       '@types/react':
         optional: true
 
+  react-shepherd@7.0.4:
+    resolution: {integrity: sha512-WDgnVVwH48EQE9/+YKXSUm2qQiLS14A/Bgc39AxqbZ6QQhUKDIOcFcvtWFCEtmGuWIumcrJEjuF5e0ROxO6dqQ==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+      typescript: ^5.0.0
+
   react-smooth@4.0.4:
     resolution: {integrity: sha512-gnGKTpYwqL0Iii09gHobNolvX4Kiq4PKx6eWBCYYix+8cdw+cGo3do906l1NBPKkSWx1DghC1dlWG9L2uGd61Q==}
     peerDependencies:
@@ -9619,6 +9654,10 @@ packages:
     resolution: {integrity: sha512-w1aiOKwKuRgtwAReIIj89puqg+I7GvX4IbLrvmhXbzQsj1+Zwi4VO3+fa6ZF91TWSjIxoEkKnMeHcLEODK5ZXA==}
     engines: {node: '>= 0.4'}
 
+  shepherd.js@15.2.2:
+    resolution: {integrity: sha512-WDJDjZ8tUG2HF93C9mJCXsdGJ01bpZKjonyMABMkU6I4KjSD9pZ0zFKaeSducdFIx9inKHbDmcFE82uJ65HmgA==}
+    engines: {node: '>= 20'}
+
   side-channel-list@1.0.1:
     resolution: {integrity: sha512-mjn/0bi/oUURjc5Xl7IaWi/OJJJumuoJFQJfDDyO46+hBWsfaVM65TBHq2eoZBhzl9EchxOijpkbRC8SVBQU0w==}
     engines: {node: '>= 0.4'}
@@ -9693,6 +9732,12 @@ packages:
 
   sonic-boom@4.2.1:
     resolution: {integrity: sha512-w6AxtubXa2wTXAUsZMMWERrsIRAdrK0Sc+FUytWvYAhBJLyuI4llrMIC1DtlNSdI99EI86KZum2MMq3EAZlF9Q==}
+
+  sonner@2.0.7:
+    resolution: {integrity: sha512-W6ZN4p58k8aDKA4XPcx2hpIQXBRAgyiWVkYhT7CvK6D3iAu7xjvVyhQHg2/iaKJZ1XVJ4r7XuwGL+WGEK37i9w==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
 
   sorted-array-functions@1.3.0:
     resolution: {integrity: sha512-2sqgzeFlid6N4Z2fUQ1cvFmTOLRi/sEDzSQ0OKYchqgoPmQBVyM3959qYx3fpS6Esef80KjmpgPeEr028dP3OA==}
@@ -14836,6 +14881,12 @@ snapshots:
       '@tanstack/react-query': 5.101.4(react@18.3.0)
       react: 18.3.0
 
+  '@tanstack/react-query-devtools@5.101.4(@tanstack/react-query@5.40.0(react@18.3.0))(react@18.3.0)':
+    dependencies:
+      '@tanstack/query-devtools': 5.101.4
+      '@tanstack/react-query': 5.40.0(react@18.3.0)
+      react: 18.3.0
+
   '@tanstack/react-query@5.101.4(react@18.3.0)':
     dependencies:
       '@tanstack/query-core': 5.101.4
@@ -16908,6 +16959,8 @@ snapshots:
   deep-equal@1.0.1: {}
 
   deep-is@0.1.4: {}
+
+  deepmerge-ts@7.1.5: {}
 
   deepmerge@4.3.1: {}
 
@@ -20774,6 +20827,13 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.31
 
+  react-shepherd@7.0.4(react-dom@18.3.0(react@18.3.0))(react@18.3.0)(typescript@5.4.5):
+    dependencies:
+      react: 18.3.0
+      react-dom: 18.3.0(react@18.3.0)
+      shepherd.js: 15.2.2
+      typescript: 5.4.5
+
   react-smooth@4.0.4(react-dom@18.3.0(react@18.3.0))(react@18.3.0):
     dependencies:
       fast-equals: 5.4.1
@@ -21294,6 +21354,11 @@ snapshots:
 
   shell-quote@1.10.0: {}
 
+  shepherd.js@15.2.2:
+    dependencies:
+      '@floating-ui/dom': 1.8.0
+      deepmerge-ts: 7.1.5
+
   side-channel-list@1.0.1:
     dependencies:
       es-errors: 1.3.0
@@ -21418,6 +21483,11 @@ snapshots:
   sonic-boom@4.2.1:
     dependencies:
       atomic-sleep: 1.0.0
+
+  sonner@2.0.7(react-dom@18.3.0(react@18.3.0))(react@18.3.0):
+    dependencies:
+      react: 18.3.0
+      react-dom: 18.3.0(react@18.3.0)
 
   sorted-array-functions@1.3.0: {}
 

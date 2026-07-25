@@ -1,6 +1,5 @@
 "use client";
 
-import { AppShell } from "@/components/layout/app-shell";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,7 +31,7 @@ export default function NewToolPage() {
   };
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/ai/tools">
@@ -111,6 +110,6 @@ export default function NewToolPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

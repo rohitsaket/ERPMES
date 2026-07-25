@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { PaginatedResponse, InventoryTransaction } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,7 +32,7 @@ function AuthenticatedPage() {
   });
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center gap-4">
           <ArrowUpDown className="h-8 w-8 text-primary" />
@@ -73,6 +72,6 @@ function AuthenticatedPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -33,7 +32,7 @@ export default function RolesPage() {
   const pageSize = 20;
 
   useEffect(() => { if (isLoaded && !isSignedIn) router.push("/login"); }, [isLoaded, isSignedIn, router]);
-  if (!isLoaded) return <AppShell><div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
+  if (!isLoaded) return <><div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
   if (!isSignedIn) return null;
 
   const { data, isLoading, error } = useQuery({
@@ -46,8 +45,8 @@ export default function RolesPage() {
     placeholderData: (prev) => prev,
   });
 
-  if (isLoading) return <AppShell><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
-  if (error) return <AppShell><div className="text-center py-20 text-red-600">Failed to load roles</div></AppShell>;
+  if (isLoading) return <><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
+  if (error) return <><div className="text-center py-20 text-red-600">Failed to load roles</div></>;
 
   const roles = data?.data ?? [];
   const meta = data?.meta;
@@ -58,7 +57,7 @@ export default function RolesPage() {
   );
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center justify-between shrink-0">
           <div>
@@ -164,6 +163,6 @@ export default function RolesPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

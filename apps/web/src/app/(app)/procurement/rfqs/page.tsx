@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { FileSearch, RefreshCw } from "lucide-react";
-import { AppShell } from "@/components/layout/app-shell";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -78,7 +77,7 @@ function AuthenticatedRfqsPage() {
   if (!isSignedIn) return null;
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="max-w-3xl">
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -310,6 +309,6 @@ function AuthenticatedRfqsPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

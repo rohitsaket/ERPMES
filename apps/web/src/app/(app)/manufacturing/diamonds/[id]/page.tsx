@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { Diamond } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,11 +31,11 @@ function AuthenticatedPage() {
 
   const { data: diamond, isLoading } = useQuery<Diamond>({ queryKey: ["diamond", id], queryFn: () => api.get(`/manufacturing/diamonds/${id}`), enabled: !!id });
 
-  if (isLoading) return <AppShell><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
-  if (!diamond) return <AppShell><div className="text-center py-20"><p>Diamond not found</p><Link href="/manufacturing/diamonds"><Button variant="link">Back</Button></Link></div></AppShell>;
+  if (isLoading) return <><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
+  if (!diamond) return <><div className="text-center py-20"><p>Diamond not found</p><Link href="/manufacturing/diamonds"><Button variant="link">Back</Button></Link></div></>;
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/manufacturing/diamonds"><Button variant="ghost" size="icon"><ArrowLeft className="h-5 w-5" /></Button></Link>
@@ -85,6 +84,6 @@ function AuthenticatedPage() {
           </Card>
         )}
       </div>
-    </AppShell>
+    </>
   );
 }

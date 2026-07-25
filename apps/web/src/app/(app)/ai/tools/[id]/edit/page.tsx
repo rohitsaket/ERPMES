@@ -1,6 +1,5 @@
 "use client";
 
-import { AppShell } from "@/components/layout/app-shell";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,16 +35,16 @@ export default function EditToolPage({ params }: { params: { id: string } }) {
 
   if (loading) {
     return (
-      <AppShell>
+      <>
         <div className="flex h-[50vh] items-center justify-center">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
-      </AppShell>
+      </>
     );
   }
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/ai/tools">
@@ -93,6 +92,6 @@ export default function EditToolPage({ params }: { params: { id: string } }) {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

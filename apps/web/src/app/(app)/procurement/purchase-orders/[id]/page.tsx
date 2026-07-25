@@ -5,7 +5,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { PurchaseOrder } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -36,13 +35,13 @@ function AuthenticatedPage() {
   const placeMutation = useMutation({ mutationFn: () => api.post(`/purchase-orders/${id}/place`), onSuccess: () => queryClient.invalidateQueries({ queryKey: ["purchase-order", id] }) });
   const receiveMutation = useMutation({ mutationFn: () => api.post(`/purchase-orders/${id}/receive`), onSuccess: () => queryClient.invalidateQueries({ queryKey: ["purchase-order", id] }) });
 
-  if (isLoading) return <AppShell><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
-  if (!po) return <AppShell><div className="text-center py-20"><p className="text-lg font-medium">Purchase order not found</p><Link href="/procurement/purchase-orders"><Button variant="link">Back</Button></Link></div></AppShell>;
+  if (isLoading) return <><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
+  if (!po) return <><div className="text-center py-20"><p className="text-lg font-medium">Purchase order not found</p><Link href="/procurement/purchase-orders"><Button variant="link">Back</Button></Link></div></>;
 
   const total = po.lines.reduce((s, l) => s + l.qty * l.unitPrice, 0);
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/procurement/purchase-orders"><Button variant="ghost" size="icon"><ArrowLeft className="h-5 w-5" /></Button></Link>
@@ -77,6 +76,6 @@ function AuthenticatedPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

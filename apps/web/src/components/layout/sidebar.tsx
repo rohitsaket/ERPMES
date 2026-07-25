@@ -192,6 +192,9 @@ interface SidebarProps {
   onMobileOpenChange: (open: boolean) => void;
 }
 
+import { useRouter } from "next/navigation";
+import { useWorkspaceStore } from "@/store/workspace-store";
+
 export function Sidebar({
   desktopExpanded,
   mobileOpen,
@@ -199,6 +202,9 @@ export function Sidebar({
   onMobileOpenChange,
 }: SidebarProps) {
   const pathname = usePathname() ?? "";
+  const activeTabId = useWorkspaceStore((state) => state.activeTabId);
+  const currentPath = activeTabId || pathname;
+
   const { hasPermission } = usePermissions();
   const [isDesktop, setIsDesktop] = useState(false);
   const showLabels = mobileOpen || desktopExpanded;
@@ -209,7 +215,7 @@ export function Sidebar({
 
   useEffect(() => {
     onMobileOpenChange(false);
-  }, [pathname, onMobileOpenChange]);
+  }, [currentPath, onMobileOpenChange]);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 1024px)");
@@ -281,7 +287,7 @@ export function Sidebar({
                 {item.items ? (
                   <CollapsibleNavItem
                     item={item}
-                    pathname={pathname}
+                    pathname={currentPath}
                     open={showLabels}
                     hasPermission={hasPermission}
                     onNavigate={() => onMobileOpenChange(false)}
@@ -291,7 +297,7 @@ export function Sidebar({
                     href={item.href}
                     icon={item.icon}
                     label={item.title}
-                    isActive={pathname === item.href}
+                    isActive={currentPath === item.href}
                     open={showLabels}
                     onNavigate={() => onMobileOpenChange(false)}
                   />
@@ -341,7 +347,7 @@ function CollapsibleNavItem({
   const isActive = Boolean(item.items?.some((child) => pathname.startsWith(child.href)));
 
   useEffect(() => {
-    setExpanded(isActive);
+    if (isActive) setExpanded(true);
   }, [isActive]);
 
   const filteredItems = item.items?.filter((child) => 
@@ -401,8 +407,6 @@ interface NavLinkProps {
   onNavigate?: () => void;
 }
 
-import { useWorkspaceStore } from "@/store/workspace-store";
-
 function NavLink({
   href,
   icon,
@@ -412,13 +416,13 @@ function NavLink({
   onNavigate,
 }: NavLinkProps) {
   const Icon = icon;
+  const router = useRouter();
   const addTab = useWorkspaceStore((state) => state.addTab);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     addTab({ id: href, title: label });
-    // Update URL without triggering Next.js routing
-    window.history.pushState(null, "", href);
+    router.push(href);
     if (onNavigate) {
       onNavigate();
     }
@@ -431,7 +435,7 @@ function NavLink({
         "flex min-h-11 items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer",
         open
           ? isActive
-            ? "bg-accent text-accent-foreground"
+            ? "bg-accent text-accent-foreground font-semibold"
             : "hover:bg-accent"
           : "justify-center hover:bg-accent",
         isActive && "font-semibold"

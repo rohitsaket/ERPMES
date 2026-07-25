@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { InventoryLot, Warehouse } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,7 +47,7 @@ function AuthenticatedPage() {
   };
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/inventory/lots"><Button variant="ghost" size="icon"><ArrowLeft className="h-5 w-5" /></Button></Link>
@@ -77,6 +76,6 @@ function AuthenticatedPage() {
           </div>
         </form>
       </div>
-    </AppShell>
+    </>
   );
 }

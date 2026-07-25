@@ -1,7 +1,6 @@
 "use client";
 
 import { Building2, Mail, UserRound } from "lucide-react";
-import { AppShell } from "@/components/layout/app-shell";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/hooks/use-auth";
@@ -11,7 +10,7 @@ export default function ProfilePage() {
   const avatarText = user?.firstName?.[0] || "U";
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
@@ -59,6 +58,6 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

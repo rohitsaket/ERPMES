@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { InventoryLot } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,11 +31,11 @@ function AuthenticatedPage() {
 
   const { data: lot, isLoading } = useQuery<InventoryLot>({ queryKey: ["inventory-lot", id], queryFn: () => api.get(`/inventory/lots/${id}`), enabled: !!id });
 
-  if (isLoading) return <AppShell><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
-  if (!lot) return <AppShell><div className="text-center py-20"><p className="text-lg font-medium">Lot not found</p><Link href="/inventory/lots"><Button variant="link">Back</Button></Link></div></AppShell>;
+  if (isLoading) return <><div className="flex justify-center py-20"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
+  if (!lot) return <><div className="text-center py-20"><p className="text-lg font-medium">Lot not found</p><Link href="/inventory/lots"><Button variant="link">Back</Button></Link></div></>;
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/inventory/lots"><Button variant="ghost" size="icon"><ArrowLeft className="h-5 w-5" /></Button></Link>
@@ -72,6 +71,6 @@ function AuthenticatedPage() {
           </Card>
         )}
       </div>
-    </AppShell>
+    </>
   );
 }

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -38,7 +37,7 @@ export default function AIChatPage() {
   const [temperature, setTemperature] = useState(0.7);
 
   useEffect(() => { if (isLoaded && !isSignedIn) router.push("/login"); }, [isLoaded, isSignedIn, router]);
-  if (!isLoaded) return <AppShell><div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
+  if (!isLoaded) return <><div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
   if (!isSignedIn) return null;
 
   const currentSession = sessions.find(s => s.id === currentSessionId);
@@ -76,7 +75,7 @@ export default function AIChatPage() {
   const newChat = () => { setCurrentSessionId(null); setInput(""); };
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center justify-between shrink-0">
           <div className="flex items-center gap-4">
@@ -252,6 +251,6 @@ export default function AIChatPage() {
           </Card>
         </div>
       </div>
-    </AppShell>
+    </>
   );
 }

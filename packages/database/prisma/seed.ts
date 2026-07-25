@@ -382,6 +382,36 @@ async function main() {
   }
 
   console.log('✅ Inspection Plans created');
+
+  // Valid bcrypt hash for "password123" and "admin123"
+  const password123Hash = "$2b$10$IKD1cYZUCU5wXR7OaZmA7eg.zDyq9YiDs3tSDwJmO5UGT3nHwvmLC";
+
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@diamondflow.com";
+  const hashedPassword = process.env.ADMIN_PASSWORD_HASH || password123Hash;
+
+  await prisma.user.upsert({
+    where: { email: adminEmail },
+    update: {
+      companyId: company.id,
+      email: adminEmail,
+      firstName: "Admin",
+      lastName: "User",
+      passwordHash: hashedPassword,
+      status: "active",
+      role: "ADMIN",
+    },
+    create: {
+      companyId: company.id,
+      email: adminEmail,
+      firstName: "Admin",
+      lastName: "User",
+      passwordHash: hashedPassword,
+      status: "active",
+      role: "ADMIN",
+    },
+  });
+
+  console.log('✅ Admin user created:', adminEmail);
   console.log('🎉 Database seeding completed!');
 }
 

@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { CapacityData } from "@/lib/api/types";
 import { dateRangeParams } from "@/lib/api/date-range";
@@ -40,7 +39,7 @@ export default function CapacityPage() {
     if (isLoaded && !isSignedIn) router.push("/login");
   }, [isLoaded, isSignedIn, router]);
 
-  if (!isLoaded) return <AppShell><div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></AppShell>;
+  if (!isLoaded) return <><div className="flex h-screen items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div></>;
   if (!isSignedIn) return null;
 
   const { data, isLoading } = useQuery({
@@ -53,7 +52,7 @@ export default function CapacityPage() {
   const totalOps = data?.totalOperations ?? 0;
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center justify-between shrink-0">
           <div>
@@ -252,6 +251,6 @@ export default function CapacityPage() {
           </Card>
         )}
       </div>
-    </AppShell>
+    </>
   );
 }

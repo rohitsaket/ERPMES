@@ -6,7 +6,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { PaginatedResponse, ManufacturingOperation } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -41,7 +40,7 @@ function AuthenticatedPage() {
   const resumeMut = useMutation({ mutationFn: (id: string) => api.post(`/manufacturing/operations/${id}/resume`), onSuccess: () => invalidate("") });
 
   return (
-    <AppShell>
+    <>
       <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div><h1 className="text-3xl font-bold tracking-tight">Operations</h1><p className="text-muted-foreground">Track individual manufacturing operations</p></div>
         <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
@@ -86,6 +85,6 @@ function AuthenticatedPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

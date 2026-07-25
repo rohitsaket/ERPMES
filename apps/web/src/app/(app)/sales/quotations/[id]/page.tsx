@@ -4,7 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect } from "react";
-import { AppShell } from "@/components/layout/app-shell";
 import { api } from "@/lib/api/client";
 import type { Quotation } from "@/lib/api/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -59,24 +58,24 @@ function AuthenticatedQuotationDetailPage() {
 
   if (isLoading) {
     return (
-      <AppShell>
+      <>
         <div className="flex justify-center py-20">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
-      </AppShell>
+      </>
     );
   }
 
   if (!quotation) {
     return (
-      <AppShell>
+      <>
         <div className="text-center py-20">
           <p className="text-lg font-medium">Quotation not found</p>
           <Link href="/sales/quotations">
             <Button variant="link" className="mt-2">Back to quotations</Button>
           </Link>
         </div>
-      </AppShell>
+      </>
     );
   }
 
@@ -85,7 +84,7 @@ function AuthenticatedQuotationDetailPage() {
   );
 
   return (
-    <AppShell>
+    <>
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <Link href="/sales/quotations">
@@ -174,6 +173,6 @@ function AuthenticatedQuotationDetailPage() {
           </CardContent>
         </Card>
       </div>
-    </AppShell>
+    </>
   );
 }

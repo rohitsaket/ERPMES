@@ -249,7 +249,7 @@ export function TabBar() {
         ::-webkit-scrollbar { display: none; }
       `}} />
       
-      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <DndContext id="tab-bar-dnd" sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={tabs.map(t => t.id)} strategy={horizontalListSortingStrategy}>
           <div className="flex">
             <AnimatePresence initial={false}>
