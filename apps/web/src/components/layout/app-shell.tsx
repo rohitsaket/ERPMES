@@ -3,7 +3,6 @@
 import { ReactNode, useState } from "react";
 import { Sidebar } from "./sidebar";
 import { TopNavigation } from "./top-navigation";
-import { Breadcrumbs } from "./breadcrumbs";
 import { cn } from "../../lib/utils";
 
 interface AppShellProps {
@@ -16,7 +15,7 @@ export function AppShell({ children }: AppShellProps) {
     useState(true);
 
   return (
-    <div className="min-h-dvh bg-background">
+    <div className="h-dvh overflow-hidden bg-background">
       <Sidebar
         desktopExpanded={desktopNavigationExpanded}
         mobileOpen={mobileNavigationOpen}
@@ -25,7 +24,7 @@ export function AppShell({ children }: AppShellProps) {
       />
       <div
         className={cn(
-          "flex min-h-dvh min-w-0 flex-col transition-[padding] duration-200",
+          "flex h-dvh min-w-0 flex-col transition-[padding] duration-200",
           desktopNavigationExpanded ? "lg:pl-64" : "lg:pl-16"
         )}
       >
@@ -39,10 +38,9 @@ export function AppShell({ children }: AppShellProps) {
         <main
           id="main-content"
           tabIndex={-1}
-          className="flex-1 p-4 focus:outline-none sm:p-6 lg:p-8"
+          className="flex-1 p-4 focus:outline-none sm:p-6 lg:p-8 flex flex-col"
         >
-          <Breadcrumbs />
-          <div className="mx-auto mt-4 w-full max-w-7xl">{children}</div>
+          <div className="w-full flex-1 flex flex-col min-h-0">{children}</div>
         </main>
       </div>
     </div>

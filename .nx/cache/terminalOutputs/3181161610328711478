@@ -1,0 +1,27 @@
+
+> @diamondflow/web@0.0.1 build E:\MEGen\apps\web
+> cross-env NODE_ENV=production next build
+
+  [1m[38;2;173;127;168m▲ Next.js 14.2.35[39m[22m
+  - Environments: .env.local
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+ [37m[1m [22m[39m Linting and checking validity of types ...
+
+ [33m[1m⚠[22m[39m The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/basic-features/eslint#migrating-existing-config
+[31mFailed to compile.
+[39m
+[36m./src/lib/auth-middleware.ts[39m:[33m3[39m:[33m33[39m
+[31m[1mType error[22m[39m: Argument of type '{ session: { strategy: "jwt"; }; pages: { signIn: string; }; callbacks: { jwt({ token }: { token: JWT; user: User | AdapterUser; account?: Account | null | undefined; profile?: Profile | undefined; trigger?: "signIn" | ... 2 more ... | undefined; isNewUser?: boolean | undefined; session?: any; }): Promise<...>; sess...' is not assignable to parameter of type 'NextAuthConfig | ((request: NextRequest | undefined) => Awaitable<NextAuthConfig>)'.
+  Property 'providers' is missing in type '{ session: { strategy: "jwt"; }; pages: { signIn: string; }; callbacks: { jwt({ token }: { token: JWT; user: User | AdapterUser; account?: Account | null | undefined; profile?: Profile | undefined; trigger?: "signIn" | ... 2 more ... | undefined; isNewUser?: boolean | undefined; session?: any; }): Promise<...>; sess...' but required in type 'NextAuthConfig'.
+
+[0m [90m 1 |[39m [36mimport[39m [33mNextAuth[39m [36mfrom[39m [32m"next-auth"[39m[33m;[39m[0m
+[0m [90m 2 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mconst[39m nextAuthResult [33m=[39m [33mNextAuth[39m({[0m
+[0m [90m   |[39m                                 [31m[1m^[22m[39m[0m
+[0m [90m 4 |[39m   session[33m:[39m { strategy[33m:[39m [32m"jwt"[39m }[33m,[39m[0m
+[0m [90m 5 |[39m   pages[33m:[39m {[0m
+[0m [90m 6 |[39m     signIn[33m:[39m [32m"/sign-in"[39m[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

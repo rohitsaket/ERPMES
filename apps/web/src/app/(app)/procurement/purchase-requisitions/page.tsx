@@ -14,9 +14,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Plus, Eye, FileText } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const statusColors: Record<string, string> = {
   DRAFT: "bg-gray-100 text-gray-700",
   SUBMITTED: "bg-blue-100 text-blue-700",
@@ -25,9 +22,6 @@ const statusColors: Record<string, string> = {
 };
 
 export default function PurchaseRequisitionsPage() {
-  if (!isClerkConfigured) {
-    return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1><p className="mt-3 text-sm text-muted-foreground">Configure Clerk in <code>apps/web/.env.local</code> before opening this page.</p></div></main>;
-  }
   return <AuthenticatedPage />;
 }
 
@@ -35,33 +29,33 @@ function AuthenticatedPage() {
   const { isLoaded, isSignedIn } = useAuth();
   const router = useRouter();
   useEffect(() => { if (isLoaded && !isSignedIn) router.push("/login"); }, [isLoaded, isSignedIn, router]);
-  if (!isLoaded) return <div className="flex h-screen items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" /></div>;
-  if (!isSignedIn) return null;
-
   const [page, setPage] = useState(1);
   const { data, isLoading } = useQuery<PaginatedResponse<PurchaseRequisition>>({
     queryKey: ["purchase-requisitions", page],
     queryFn: () => api.get("/purchase-requisitions", { page, limit: 20 }),
   });
 
+  if (!isLoaded) return <div className="flex h-screen items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" /></div>;
+  if (!isSignedIn) return null;
+
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Purchase Requisitions</h1>
             <p className="text-muted-foreground">Manage internal purchase requests</p>
           </div>
           <Link href="/procurement/purchase-requisitions/new"><Button><Plus className="mr-2 h-4 w-4" />New Requisition</Button></Link>
         </div>
-        <Card>
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
           <CardHeader><CardTitle>All Requisitions</CardTitle></CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? <div className="flex justify-center py-8"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
             : !data?.data.length ? <div className="flex flex-col items-center py-12 text-muted-foreground"><FileText className="h-12 w-12 mb-4 opacity-50" /><p className="text-lg font-medium">No requisitions yet</p><p className="text-sm">Create your first purchase requisition</p></div>
-            : <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+            : <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">ID</th>
                       <th className="pb-3 font-medium">Lines</th>
@@ -84,7 +78,7 @@ function AuthenticatedPage() {
                 </table>
               </div>}
             {data?.meta && data.meta.totalPages > 1 && (
-              <div className="flex items-center justify-between pt-4">
+              <div className="flex items-center justify-between pt-4 shrink-0 mt-4 border-t">
                 <p className="text-sm text-muted-foreground">Page {data.meta.page} of {data.meta.totalPages} ({data.meta.total} total)</p>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>Previous</Button>

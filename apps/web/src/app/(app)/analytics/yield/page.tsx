@@ -69,8 +69,8 @@ export default function YieldPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Yield Analysis</h1>
             <p className="text-muted-foreground">Track production yield by department and operation</p>
@@ -100,46 +100,46 @@ export default function YieldPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Overall Yield</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">{overall.toFixed(2)}%</div>
               <p className="text-xs text-muted-foreground">
                 {overall >= 99 ? "Excellent" : overall >= 97 ? "Good" : overall >= 95 ? "Fair" : "Needs Improvement"}
               </p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Departments</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">{departments.length}</div>
               <p className="text-xs text-muted-foreground">Reporting departments</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Below Target</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-amber-600">
                 {departments.filter(d => d.yieldPct < 97).length}
               </div>
               <p className="text-xs text-muted-foreground">Departments &lt; 97%</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Critical</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-red-600">
                 {departments.filter(d => d.yieldPct < 95).length}
               </div>
@@ -148,8 +148,8 @@ export default function YieldPage() {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>Yield by Department</CardTitle>
               <CardDescription>Production yield percentage with trend indicators</CardDescription>
@@ -167,11 +167,11 @@ export default function YieldPage() {
               </Select>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : (
-              <div className="overflow-x-auto">
+              <div className="flex-1 overflow-auto border rounded-md">
                 <Table>
                   <TableHeader>
                     <TableRow>

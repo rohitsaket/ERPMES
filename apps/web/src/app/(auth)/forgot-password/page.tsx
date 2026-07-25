@@ -2,8 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useSignIn } from "@clerk/nextjs";
+import { useSession } from "next-auth/react";
 import { KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,8 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function ForgotPasswordPage() {
-  const { isLoaded, signIn, setActive } = useSignIn();
-  const router = useRouter();
+  const { data: _session } = useSession();
   const [step, setStep] = useState<"request" | "reset">("request");
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -22,14 +20,25 @@ export default function ForgotPasswordPage() {
 
   async function requestCode(event: FormEvent) {
     event.preventDefault();
-    if (!isLoaded || !signIn) return;
     setLoading(true);
     setError("");
+
     try {
-      await signIn.create({ strategy: "reset_password_email_code", identifier: email.trim() });
+      const response = await fetch("/api/auth/forgot-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim().toLowerCase() }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        setError(data.error || "Unable to send reset code");
+        return;
+      }
+
       setStep("reset");
-    } catch (caught: any) {
-      setError(caught.errors?.[0]?.longMessage ?? "Unable to send a reset code.");
+    } catch {
+      setError("Unable to send reset code. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -37,23 +46,25 @@ export default function ForgotPasswordPage() {
 
   async function resetPassword(event: FormEvent) {
     event.preventDefault();
-    if (!isLoaded || !signIn || !setActive) return;
     setLoading(true);
     setError("");
+
     try {
-      const result = await signIn.attemptFirstFactor({
-        strategy: "reset_password_email_code",
-        code: code.trim(),
-        password,
+      const response = await fetch("/api/auth/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim().toLowerCase(), code: code.trim(), password }),
       });
-      if (result.status === "complete") {
-        await setActive({ session: result.createdSessionId });
-        router.replace("/dashboard");
+
+      if (!response.ok) {
+        const data = await response.json();
+        setError(data.error || "Unable to reset password");
         return;
       }
-      setError("Password reset requires another verification step.");
-    } catch (caught: any) {
-      setError(caught.errors?.[0]?.longMessage ?? "Unable to reset the password.");
+
+      window.location.href = "/sign-in?reset=success";
+    } catch {
+      setError("Unable to reset password. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -93,8 +104,8 @@ export default function ForgotPasswordPage() {
                   disabled={loading}
                 />
               </div>
-              <Button className="w-full" type="submit" disabled={loading || !isLoaded}>
-                {loading ? "Sending…" : "Send reset code"}
+              <Button className="w-full" type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send reset code"}
               </Button>
             </form>
           ) : (
@@ -124,14 +135,14 @@ export default function ForgotPasswordPage() {
                   disabled={loading}
                 />
               </div>
-              <Button className="w-full" type="submit" disabled={loading || !isLoaded}>
-                {loading ? "Resetting…" : "Reset password"}
+              <Button className="w-full" type="submit" disabled={loading}>
+                {loading ? "Resetting..." : "Reset password"}
               </Button>
             </form>
           )}
         </CardContent>
         <CardFooter>
-          <Link href="/login" className="text-sm text-primary underline-offset-4 hover:underline">
+          <Link href="/sign-in" className="text-sm text-primary underline-offset-4 hover:underline">
             Back to sign in
           </Link>
         </CardFooter>

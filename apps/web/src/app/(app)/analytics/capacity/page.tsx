@@ -54,8 +54,8 @@ export default function CapacityPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Capacity Planning</h1>
             <p className="text-muted-foreground">Analyze work center utilization and capacity constraints</p>
@@ -81,44 +81,44 @@ export default function CapacityPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-4">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Overall Utilization</CardTitle>
               <Gauge className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-4xl font-bold">{overall.toFixed(1)}%</div>
               <p className="text-xs text-muted-foreground">
                 {overall >= 85 ? "Optimal" : overall >= 70 ? "Good" : overall >= 55 ? "Moderate" : "Underutilized"}
               </p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Total Operations</CardTitle>
               <Maximize className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">{totalOps.toLocaleString()}</div>
               <p className="text-xs text-muted-foreground">Completed in period</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Work Centers</CardTitle>
               <Maximize className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">{byWorkCenter.length}</div>
               <p className="text-xs text-muted-foreground">Active work centers</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Avg Utilization</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">
                 {byWorkCenter.length > 0 
                   ? (byWorkCenter.reduce((a, b) => a + b.utilization, 0) / byWorkCenter.length).toFixed(1)
@@ -128,22 +128,22 @@ export default function CapacityPage() {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>Work Center Utilization</CardTitle>
               <CardDescription>Individual work center performance</CardDescription>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : byWorkCenter.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">No capacity data available</div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">Work Center</th>
                       <th className="pb-3 font-medium">Utilization</th>
@@ -200,15 +200,15 @@ export default function CapacityPage() {
         </Card>
 
         {view === "planned-vs-actual" && (
-          <Card>
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
             <CardHeader>
               <CardTitle>Planned vs Actual Analysis</CardTitle>
               <CardDescription>Compare planned vs actual minutes by work center</CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+            <CardContent className="flex-1 flex flex-col min-h-0">
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">Work Center</th>
                       <th className="pb-3 font-medium text-center">Planned</th>

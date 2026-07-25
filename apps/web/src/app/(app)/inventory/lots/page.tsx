@@ -15,9 +15,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Search, Eye, Package } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const statusColors: Record<string, string> = {
   AVAILABLE: "bg-emerald-100 text-emerald-700",
   RESERVED: "bg-blue-100 text-blue-700",
@@ -27,7 +24,6 @@ const statusColors: Record<string, string> = {
 };
 
 export default function LotsPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 
@@ -48,8 +44,8 @@ function AuthenticatedPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div><h1 className="text-3xl font-bold tracking-tight">Inventory Lots</h1><p className="text-muted-foreground">Track stock by lot number</p></div>
           <Link href="/inventory/lots/new"><Button><Plus className="mr-2 h-4 w-4" />New Lot</Button></Link>
         </div>
@@ -59,14 +55,14 @@ function AuthenticatedPage() {
             <Input placeholder="Search lots..." value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }} className="pl-9" />
           </div>
         </div>
-        <Card>
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
           <CardHeader><CardTitle>All Lots</CardTitle></CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? <div className="flex justify-center py-8"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
             : !data?.data.length ? <div className="flex flex-col items-center py-12 text-muted-foreground"><Package className="h-12 w-12 mb-4 opacity-50" /><p className="text-lg font-medium">No lots yet</p></div>
-            : <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead><tr className="border-b text-left text-muted-foreground"><th className="pb-3 font-medium">Lot #</th><th className="pb-3 font-medium">Item</th><th className="pb-3 font-medium">Qty</th><th className="pb-3 font-medium">Warehouse</th><th className="pb-3 font-medium">Status</th><th className="pb-3 font-medium">Expiry</th><th className="pb-3 font-medium">Actions</th></tr></thead>
+            : <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm"><tr className="border-b text-left text-muted-foreground"><th className="pb-3 font-medium">Lot #</th><th className="pb-3 font-medium">Item</th><th className="pb-3 font-medium">Qty</th><th className="pb-3 font-medium">Warehouse</th><th className="pb-3 font-medium">Status</th><th className="pb-3 font-medium">Expiry</th><th className="pb-3 font-medium">Actions</th></tr></thead>
                   <tbody>
                     {data.data.map((lot) => (
                       <tr key={lot.id} className="border-b last:border-0 hover:bg-muted/50">
@@ -83,7 +79,7 @@ function AuthenticatedPage() {
                 </table>
               </div>}
             {data?.meta && data.meta.totalPages > 1 && (
-              <div className="flex items-center justify-between pt-4">
+              <div className="flex items-center justify-between pt-4 shrink-0 mt-4 border-t">
                 <p className="text-sm text-muted-foreground">Page {data.meta.page} of {data.meta.totalPages} ({data.meta.total} total)</p>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>Previous</Button>

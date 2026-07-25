@@ -1,0 +1,19 @@
+
+> @diamondflow/domain@0.0.1 lint E:\MEGen\packages\domain
+> eslint src --ext .ts
+
+
+Oops! Something went wrong! :(
+
+ESLint: 8.57.1
+
+You are linting "src", but all of the files matching the glob pattern "src" are ignored.
+
+If you don't want to lint these files, remove the pattern "src" from the list of arguments passed to ESLint.
+
+If you do want to lint these files, try the following solutions:
+
+* Check your .eslintignore file, or the eslintIgnore property in package.json, to ensure that the files are not configured to be ignored.
+* Explicitly list the files from this glob that you'd like to lint on the command-line, rather than providing a glob as an argument.
+
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

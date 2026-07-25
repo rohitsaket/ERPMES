@@ -1,0 +1,90 @@
+
+> @diamondflow/api@0.0.1 dev E:\MEGen\apps\api
+> npm run start:dev
+
+
+> @diamondflow/api@0.0.1 start:dev
+> pnpm --workspace-root nx run @diamondflow/api:build && nest start --watch
+
+[43m[30m WARN [39m[49m Unsupported engine: wanted: {"node":">=20 <23"} (current: {"node":"v26.3.0","pnpm":"9.0.0"})
+
+[0m[7m[1m[36m NX [39m[22m[27m[0m  [36mRunning target [1mbuild[22m for project @diamondflow/api and [1m8[22m tasks it depends on:[39m
+
+
+
+[2m> [22m[2mnx run[22m @diamondflow/observability:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/contracts:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/domain:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/database:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/events:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/authorization:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/queue:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/realtime:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/api:build
+
+(node:36180) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+> @diamondflow/api@0.0.1 build E:\MEGen\apps\api
+> nest build
+Entrypoint [1mmain[39m[22m =
+[1m[31mERROR[39m[22m in [1m[32mmain[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'ts-loader' in 'E:\MEGen\apps\api'[39m[22m
+resolve 'ts-loader' in 'E:\MEGen\apps\api'
+  Parsed request is a module
+  using description file: E:\MEGen\apps\api\package.json (relative path: .)
+    resolve as module
+      looking for modules in E:\MEGen\apps\api\node_modules
+        single file module
+          using description file: E:\MEGen\apps\api\package.json (relative path: ./node_modules/ts-loader)
+            no extension
+[1m[31m              E:\MEGen\apps\api\node_modules\ts-loader doesn't exist[39m[22m
+            .js
+[1m[31m              E:\MEGen\apps\api\node_modules\ts-loader.js doesn't exist[39m[22m
+[1m[31m        E:\MEGen\apps\api\node_modules\ts-loader doesn't exist[39m[22m
+[1m[31m      E:\MEGen\apps\node_modules doesn't exist[39m[22m or is not a directory
+      looking for modules in E:\MEGen\node_modules
+        single file module
+          using description file: E:\MEGen\package.json (relative path: ./node_modules/ts-loader)
+            no extension
+[1m[31m              E:\MEGen\node_modules\ts-loader doesn't exist[39m[22m
+            .js
+[1m[31m              E:\MEGen\node_modules\ts-loader.js doesn't exist[39m[22m
+[1m[31m        E:\MEGen\node_modules\ts-loader doesn't exist[39m[22m
+[1m[31m      E:\node_modules doesn't exist[39m[22m or is not a directory
+webpack 5.97.1 compiled with [1m[31m1 error[39m[22m in 3393 ms
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m
+
+
+
+[0m[7m[1m[31m NX [39m[22m[27m[0m  [31mRunning target [1mbuild[22m for project @diamondflow/api and [1m8[22m tasks it depends on failed[39m
+
+[2mFailed tasks:[22m
+
+[2m-[22m @diamondflow/api:build
+
+[2mHint: run the command with[22m --verbose [2mfor more details.[22m
+
+npm error Lifecycle script `start:dev` failed with error:
+npm error code 1
+npm error path E:\MEGen\apps\api
+npm error workspace @diamondflow/api@0.0.1
+npm error location E:\MEGen\apps\api
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c pnpm --workspace-root nx run @diamondflow/api:build && nest start --watch
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

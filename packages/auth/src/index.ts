@@ -1,9 +1,5 @@
 export { AuthModule } from './auth.module';
-export { ClerkWebhookHandler } from './clerk/clerk-webhook-handler';
-export { SessionManager } from './session/session-manager';
-export { TokenRefreshService } from './session/token-refresh';
-export { MfaHandler } from './session/mfa-handler';
 export { JwtAuthGuard, ApiKeyGuard, DeviceTrustGuard } from './guards/auth.guards';
 export { CurrentUser, CurrentOrg, Permissions } from './decorators/auth.decorators';
-
-export * from './types';
+export { Public, IS_PUBLIC_KEY } from './decorators/public.decorator';
+export type { AuthContext, JWTPayload, ClerkUser } from './types';

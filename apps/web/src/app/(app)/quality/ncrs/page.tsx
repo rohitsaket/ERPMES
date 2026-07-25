@@ -13,14 +13,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { AlertTriangle, Eye } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const severityColors: Record<string, string> = { MINOR: "bg-amber-100 text-amber-700", MAJOR: "bg-orange-100 text-orange-700", CRITICAL: "bg-red-100 text-red-700" };
 const statusColors: Record<string, string> = { OPEN: "bg-red-100 text-red-700", DISPOSITIONED: "bg-blue-100 text-blue-700", CLOSED: "bg-emerald-100 text-emerald-700" };
 
 export default function NcrsPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 
@@ -40,18 +36,18 @@ function AuthenticatedPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center gap-4">
           <AlertTriangle className="h-8 w-8 text-destructive" />
           <div><h1 className="text-3xl font-bold tracking-tight">Nonconformances (NCRs)</h1><p className="text-muted-foreground">{ncrs.length} records</p></div>
         </div>
 
         {isLoading ? <div className="flex justify-center py-8"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
-        : ncrs.length === 0 ? <Card><CardContent className="py-12 text-center text-muted-foreground"><p>No nonconformances found</p></CardContent></Card>
+        : ncrs.length === 0 ? <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="py-12 text-center text-muted-foreground flex-1 flex flex-col min-h-0"><p>No nonconformances found</p></CardContent></Card>
         : <div className="grid gap-4">
             {ncrs.map((ncr) => (
               <Card key={ncr.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="flex items-center justify-between p-4">
+                <CardContent className="flex items-center justify-between p-4 flex-1 flex flex-col min-h-0">
                   <div className="flex items-center gap-4">
                     <Badge className={severityColors[ncr.severity] || "bg-gray-100"}>{ncr.severity}</Badge>
                     <Badge className={statusColors[ncr.status] || "bg-gray-100"}>{ncr.status}</Badge>

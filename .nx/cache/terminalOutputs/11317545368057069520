@@ -1,0 +1,12 @@
+
+> @diamondflow/api@0.0.1 test E:\MEGen\apps\api
+> jest "--run"
+
+[31m[31m[1m[1m●[22m[1m Unrecognized CLI Parameter[22m:[39m[31m[39m
+[31m[31m[39m[31m[39m
+[31m[31m  Unrecognized option [1m"run"[22m. Did you mean [1m"u"[22m?[39m[31m[39m
+[31m[31m[39m[31m[39m
+[31m[31m  [1mCLI Options Documentation[22m:[39m[31m[39m
+[31m[31m  https://jestjs.io/docs/cli[39m[31m[39m
+[31m[31m[39m[31m[39m
+[41m[30m ELIFECYCLE [39m[49m [31mTest failed. See above for more details.[39m

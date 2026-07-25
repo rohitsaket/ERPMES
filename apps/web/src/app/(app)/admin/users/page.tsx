@@ -43,10 +43,6 @@ export default function AdminUsersPage() {
   const [filterRole, setFilterRole] = useState("all");
   const pageSize = 20;
 
-  useEffect(() => { if (isLoaded && !isSignedIn) router.push("/login"); }, [isLoaded, isSignedIn, router]);
-  if (!isLoaded) return <AppShell><div className="flex h-screen items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div></AppShell>;
-  if (!isSignedIn) return null;
-
   const { data, isLoading, error } = useQuery({
     queryKey: ["admin-users", page, search, filterStatus, filterRole],
     queryFn: () => api.get<{ data: User[]; meta: { page: number; limit: number; total: number; totalPages: number } }>("/admin/users", {
@@ -57,7 +53,12 @@ export default function AdminUsersPage() {
       role: filterRole === "all" ? undefined : filterRole,
     }),
     placeholderData: (prev) => prev,
+    enabled: isLoaded && isSignedIn,
   });
+
+  useEffect(() => { if (isLoaded && !isSignedIn) router.push("/login"); }, [isLoaded, isSignedIn, router]);
+  if (!isLoaded) return <AppShell><div className="flex h-screen items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div></AppShell>;
+  if (!isSignedIn) return null;
 
   if (error) return <AppShell><div className="text-center py-20 text-red-600">Failed to load users</div></AppShell>;
 
@@ -66,8 +67,8 @@ export default function AdminUsersPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">User Management</h1>
             <p className="text-muted-foreground">Manage user accounts and access</p>
@@ -77,8 +78,8 @@ export default function AdminUsersPage() {
           </Button>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between py-4">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between py-4 shrink-0">
             <CardTitle>All Users</CardTitle>
             <div className="flex flex-wrap items-center gap-2">
               <div className="relative w-64">
@@ -107,7 +108,7 @@ export default function AdminUsersPage() {
               </Select>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
             ) : users.length === 0 ? (
@@ -118,9 +119,9 @@ export default function AdminUsersPage() {
               </div>
             ) : (
               <>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
+                <div className="flex-1 overflow-auto border rounded-md">
+                  <table className="w-full text-sm relative">
+                    <thead className="sticky top-0 bg-card z-10 shadow-sm">
                       <tr className="border-b text-left text-muted-foreground">
                         <th className="pb-3 font-medium">Name</th>
                         <th className="pb-3 font-medium">Email</th>
@@ -161,7 +162,7 @@ export default function AdminUsersPage() {
                   </table>
                 </div>
                 {meta && meta.totalPages > 1 && (
-                  <div className="flex items-center justify-between pt-4">
+                  <div className="flex items-center justify-between pt-4 shrink-0 mt-4 border-t">
                     <p className="text-sm text-muted-foreground">
                       Page {meta.page} of {meta.totalPages} ({meta.total} total)
                     </p>

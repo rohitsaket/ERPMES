@@ -11,11 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TrendingUp, Package, Truck, Clock, Factory, AlertTriangle, Sparkles, Send, Bot, User, Loader2 } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 export default function AnalyticsPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 
@@ -68,15 +64,15 @@ function AuthenticatedPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center gap-4">
           <TrendingUp className="h-8 w-8 text-primary" />
           <div><h1 className="text-3xl font-bold tracking-tight">Analytics</h1><p className="text-muted-foreground">Operational metrics and performance insights</p></div>
         </div>
 
-        <Card>
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-medium">Filters</CardTitle></CardHeader>
-          <CardContent className="flex flex-wrap gap-4">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="pb-2 shrink-0"><CardTitle className="text-sm font-medium">Filters</CardTitle></CardHeader>
+          <CardContent className="flex flex-wrap gap-4 flex-1 flex flex-col min-h-0">
             <div className="flex gap-2">
               <label className="text-sm font-medium">Factory</label>
               <select className="border rounded-md px-3 py-2 text-sm" value={filters.factoryId} onChange={(e) => setFilters({...filters, factoryId: e.target.value})}>
@@ -115,52 +111,52 @@ function AuthenticatedPage() {
 
         {activeTab === "oee" && (
           <div className="grid gap-4 md:grid-cols-4 mt-4">
-            <Card><CardHeader className="pb-2"><CardTitle className="text-sm font-medium text-muted-foreground">Overall OEE</CardTitle></CardHeader><CardContent><div className="text-4xl font-bold">{oee?.overallOEE?.toFixed(1) || 0}%</div><p className="text-sm text-muted-foreground">A: {oee?.availability?.toFixed(1) || 0}% P: {oee?.performance?.toFixed(1) || 0}% Q: {oee?.quality?.toFixed(1) || 0}%</p></CardContent></Card>
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardHeader className="pb-2 shrink-0"><CardTitle className="text-sm font-medium text-muted-foreground">Overall OEE</CardTitle></CardHeader><CardContent className="flex-1 flex flex-col min-h-0"><div className="text-4xl font-bold">{oee?.overallOEE?.toFixed(1) || 0}%</div><p className="text-sm text-muted-foreground">A: {oee?.availability?.toFixed(1) || 0}% P: {oee?.performance?.toFixed(1) || 0}% Q: {oee?.quality?.toFixed(1) || 0}%</p></CardContent></Card>
             {oee?.byDepartment?.map((d: any) => (
-              <Card key={d.department}><CardContent><div className="font-medium">{d.department}</div><div className="text-2xl font-bold">{d.oee.toFixed(1)}%</div><div className="text-xs text-muted-foreground">A:{d.availability.toFixed(1)}% P:{d.performance.toFixed(1)}% Q:{d.quality.toFixed(1)}%</div></CardContent></Card>
+              <Card key={d.department}><CardContent className="flex-1 flex flex-col min-h-0"><div className="font-medium">{d.department}</div><div className="text-2xl font-bold">{d.oee.toFixed(1)}%</div><div className="text-xs text-muted-foreground">A:{d.availability.toFixed(1)}% P:{d.performance.toFixed(1)}% Q:{d.quality.toFixed(1)}%</div></CardContent></Card>
             ))}
           </div>
         )}
 
         {activeTab === "yield" && (
-          <Card><CardHeader><CardTitle>Yield Analysis</CardTitle></CardHeader><CardContent>
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardHeader><CardTitle>Yield Analysis</CardTitle></CardHeader><CardContent className="flex-1 flex flex-col min-h-0">
             <div className="text-3xl font-bold mb-4">Overall Yield: {yieldData?.overallYield?.toFixed(1) || 0}%</div>
             <div className="grid gap-4 md:grid-cols-3">
               {yieldData?.byDepartment?.map((d: any) => (
-                <Card key={d.department}><CardContent><div className="font-medium">{d.department}</div><div className="text-2xl font-bold">{d.yieldPct.toFixed(1)}%</div><div className="text-xs text-muted-foreground">{d.operations} operations</div></CardContent></Card>
+                <Card key={d.department}><CardContent className="flex-1 flex flex-col min-h-0"><div className="font-medium">{d.department}</div><div className="text-2xl font-bold">{d.yieldPct.toFixed(1)}%</div><div className="text-xs text-muted-foreground">{d.operations} operations</div></CardContent></Card>
               ))}
             </div>
           </CardContent></Card>
         )}
 
         {activeTab === "otd" && (
-          <Card><CardHeader><CardTitle>On-Time Delivery</CardTitle></CardHeader><CardContent>
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardHeader><CardTitle>On-Time Delivery</CardTitle></CardHeader><CardContent className="flex-1 flex flex-col min-h-0">
             <div className="grid gap-4 md:grid-cols-3">
-              <Card><CardContent><div className="text-sm text-muted-foreground">On-Time %</div><div className="text-3xl font-bold">{otd?.onTimeDeliveryPct?.toFixed(1) || 100}%</div></CardContent></Card>
-              <Card><CardContent><div className="text-sm text-muted-foreground">Total Shipments</div><div className="text-3xl font-bold">{otd?.totalShipments || 0}</div></CardContent></Card>
-              <Card><CardContent><div className="text-sm text-muted-foreground">On-Time</div><div className="text-3xl font-bold text-emerald-600">{otd?.onTimeShipments || 0}</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="flex-1 flex flex-col min-h-0"><div className="text-sm text-muted-foreground">On-Time %</div><div className="text-3xl font-bold">{otd?.onTimeDeliveryPct?.toFixed(1) || 100}%</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="flex-1 flex flex-col min-h-0"><div className="text-sm text-muted-foreground">Total Shipments</div><div className="text-3xl font-bold">{otd?.totalShipments || 0}</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="flex-1 flex flex-col min-h-0"><div className="text-sm text-muted-foreground">On-Time</div><div className="text-3xl font-bold text-emerald-600">{otd?.onTimeShipments || 0}</div></CardContent></Card>
             </div>
           </CardContent></Card>
         )}
 
         {activeTab === "wip" && (
-          <Card><CardHeader><CardTitle>WIP Aging</CardTitle></CardHeader><CardContent>
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardHeader><CardTitle>WIP Aging</CardTitle></CardHeader><CardContent className="flex-1 flex flex-col min-h-0">
             <div className="grid gap-4 md:grid-cols-4 mb-4">
-              <Card><CardContent className="text-center"><div className="text-3xl font-bold text-emerald-600">{wip?.buckets?.['0-24h'] || 0}</div><div className="text-sm text-muted-foreground">0-24h</div></CardContent></Card>
-              <Card><CardContent className="text-center"><div className="text-3xl font-bold text-blue-600">{wip?.buckets?.['24-48h'] || 0}</div><div className="text-sm text-muted-foreground">24-48h</div></CardContent></Card>
-              <Card><CardContent className="text-center"><div className="text-3xl font-bold text-amber-600">{wip?.buckets?.['48-72h'] || 0}</div><div className="text-sm text-muted-foreground">48-72h</div></CardContent></Card>
-              <Card><CardContent className="text-center"><div className="text-3xl font-bold text-red-600">{wip?.buckets?.['72h+'] || 0}</div><div className="text-sm text-muted-foreground">72h+</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="text-center flex-1 flex flex-col min-h-0"><div className="text-3xl font-bold text-emerald-600">{wip?.buckets?.['0-24h'] || 0}</div><div className="text-sm text-muted-foreground">0-24h</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="text-center flex-1 flex flex-col min-h-0"><div className="text-3xl font-bold text-blue-600">{wip?.buckets?.['24-48h'] || 0}</div><div className="text-sm text-muted-foreground">24-48h</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="text-center flex-1 flex flex-col min-h-0"><div className="text-3xl font-bold text-amber-600">{wip?.buckets?.['48-72h'] || 0}</div><div className="text-sm text-muted-foreground">48-72h</div></CardContent></Card>
+              <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="text-center flex-1 flex flex-col min-h-0"><div className="text-3xl font-bold text-red-600">{wip?.buckets?.['72h+'] || 0}</div><div className="text-sm text-muted-foreground">72h+</div></CardContent></Card>
             </div>
             <div className="text-sm text-muted-foreground">Total WIP: {wip?.totalWip || 0} operations</div>
           </CardContent></Card>
         )}
 
         {activeTab === "capacity" && (
-          <Card><CardHeader><CardTitle>Capacity Utilization</CardTitle></CardHeader><CardContent>
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardHeader><CardTitle>Capacity Utilization</CardTitle></CardHeader><CardContent className="flex-1 flex flex-col min-h-0">
             <div className="text-3xl font-bold mb-4">Overall: {capacity?.overallUtilization?.toFixed(1) || 0}%</div>
             <div className="grid gap-4 md:grid-cols-3">
               {capacity?.byWorkCenter?.map((wc: any) => (
-                <Card key={wc.workCenter}><CardContent><div className="font-medium">{wc.workCenter}</div><div className="text-2xl font-bold">{wc.utilization.toFixed(1)}%</div><div className="text-xs text-muted-foreground">{wc.operations} ops | {wc.actualMinutes}/{wc.plannedMinutes} min</div></CardContent></Card>
+                <Card key={wc.workCenter}><CardContent className="flex-1 flex flex-col min-h-0"><div className="font-medium">{wc.workCenter}</div><div className="text-2xl font-bold">{wc.utilization.toFixed(1)}%</div><div className="text-xs text-muted-foreground">{wc.operations} ops | {wc.actualMinutes}/{wc.plannedMinutes} min</div></CardContent></Card>
               ))}
             </div>
           </CardContent></Card>

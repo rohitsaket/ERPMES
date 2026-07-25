@@ -23,6 +23,7 @@ import {
   ChevronLeft,
   Bot,
   UserRound,
+  Shield,
 } from "lucide-react";
 import { usePermissions } from "@/hooks/use-auth";
 
@@ -171,6 +172,15 @@ const navigation = [
     permission: "manage:ai:global",
     items: [
       { title: "Chat", href: "/ai/chat", permission: "manage:ai:global" },
+    ],
+  },
+  {
+    title: "Admin",
+    icon: Shield,
+    permission: "manage:users:global",
+    items: [
+      { title: "Users", href: "/admin/users", permission: "manage:users:global" },
+      { title: "Permissions", href: "/admin/permissions", permission: "manage:permissions:global" },
     ],
   },
 ];
@@ -391,6 +401,8 @@ interface NavLinkProps {
   onNavigate?: () => void;
 }
 
+import { useWorkspaceStore } from "@/store/workspace-store";
+
 function NavLink({
   href,
   icon,
@@ -400,12 +412,23 @@ function NavLink({
   onNavigate,
 }: NavLinkProps) {
   const Icon = icon;
+  const addTab = useWorkspaceStore((state) => state.addTab);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    addTab({ id: href, title: label });
+    // Update URL without triggering Next.js routing
+    window.history.pushState(null, "", href);
+    if (onNavigate) {
+      onNavigate();
+    }
+  };
 
   return (
-    <Link
+    <a
       href={href}
       className={cn(
-        "flex min-h-11 items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "flex min-h-11 items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer",
         open
           ? isActive
             ? "bg-accent text-accent-foreground"
@@ -413,13 +436,13 @@ function NavLink({
           : "justify-center hover:bg-accent",
         isActive && "font-semibold"
       )}
-      onClick={onNavigate}
+      onClick={handleClick}
       aria-current={isActive ? "page" : undefined}
       aria-label={!open ? label : undefined}
       title={!open ? label : undefined}
     >
       {Icon && <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />}
       {open && <span>{label}</span>}
-    </Link>
+    </a>
   );
 }

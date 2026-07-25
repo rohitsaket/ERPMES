@@ -1,0 +1,19 @@
+
+> @diamondflow/database@0.0.1 prisma:seed E:\MEGen\packages\database
+> tsx prisma/seed.ts
+
+🌱 Seeding database...
+✅ Company created: DEMO
+✅ Branches created
+✅ Factories created
+✅ Warehouses created
+✅ Departments created
+✅ Work Centers created
+✅ Products created
+✅ Customers created
+✅ Vendors created
+✅ Chart of Accounts created
+✅ Carriers created
+✅ Approval Flows created
+✅ Inspection Plans created
+🎉 Database seeding completed!

@@ -10,7 +10,6 @@ export class TokenRefreshService {
   }
 
   async revokeRefreshToken(userId: string, refreshToken: string) {
-    // Invalidate specific refresh token
     await this.sessionManager.revokeSession(userId);
   }
 }

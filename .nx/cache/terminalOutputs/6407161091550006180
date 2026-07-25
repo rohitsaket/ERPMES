@@ -1,0 +1,7 @@
+
+> @diamondflow/web@0.0.1 lint E:\MEGen\apps\web
+> next lint
+
+
+ [33m[1m⚠[22m[39m The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/basic-features/eslint#migrating-existing-config
+[32m✔ No ESLint warnings or errors[39m

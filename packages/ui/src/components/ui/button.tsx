@@ -32,22 +32,37 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "href">,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   loading?: boolean;
+  href?: string;
+  // Allow anchor-specific props when href is provided
+  download?: string;
+  target?: string;
+  rel?: string;
+  ping?: string;
+  referrerPolicy?: string;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, loading, disabled, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+const Button = React.forwardRef<any, ButtonProps>(
+  ({ className, variant, size, asChild = false, loading, disabled, children, href, ...props }, ref) => {
+    const isAnchor = asChild ? false : !!href;
+    const Comp = asChild ? Slot : isAnchor ? "a" : "button";
+    const anchorProps = isAnchor
+      ? { href, download: props.download, target: props.target, rel: props.rel, ping: props.ping, referrerPolicy: props.referrerPolicy }
+      : { disabled: disabled || loading, type: "button" };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rest = props as any;
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        disabled={disabled || loading}
         aria-busy={loading}
-        {...props}
+        {...anchorProps}
+        {...rest}
       >
         {loading ? (
           <>

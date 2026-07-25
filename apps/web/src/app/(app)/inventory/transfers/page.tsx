@@ -15,11 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Loader2, ArrowRight } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 export default function TransfersPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 
@@ -49,14 +45,14 @@ function AuthenticatedPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="flex items-center gap-4">
           <ArrowRight className="h-8 w-8 text-primary" />
           <div><h1 className="text-3xl font-bold tracking-tight">Inventory Transfers</h1><p className="text-muted-foreground">Move stock between warehouses</p></div>
         </div>
-        <Card>
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
           <CardHeader><CardTitle>New Transfer</CardTitle></CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
               <div className="space-y-2"><Label>Lot</Label>
                 <Select value={lotId} onValueChange={setLotId} required>

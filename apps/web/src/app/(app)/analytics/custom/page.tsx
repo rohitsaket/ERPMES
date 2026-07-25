@@ -49,8 +49,8 @@ export default function CustomReportsPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Custom Reports</h1>
             <p className="text-muted-foreground">Create and manage custom analytics reports</p>
@@ -65,7 +65,7 @@ export default function CustomReportsPage() {
             <CardHeader>
               <CardTitle>Create New Report</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <form onSubmit={handleCreate} className="space-y-4 max-w-2xl">
                 <div>
                   <label className="block text-sm font-medium mb-1">Report Name</label>
@@ -84,8 +84,8 @@ export default function CustomReportsPage() {
           </Card>
         )}
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>Saved Reports</CardTitle>
               <CardDescription>Your custom analytics reports</CardDescription>
@@ -95,7 +95,7 @@ export default function CustomReportsPage() {
               <Input placeholder="Search reports..." value={search} onChange={e => setSearch(e.target.value)} className="pl-9" />
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : reports.length === 0 ? (
@@ -106,9 +106,9 @@ export default function CustomReportsPage() {
                 <Button disabled title="Persistent custom reports are not implemented yet" className="mt-4"><Plus className="mr-2 h-4 w-4" />Create Report</Button>
               </div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">Name</th>
                       <th className="pb-3 font-medium">Description</th>

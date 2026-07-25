@@ -1,0 +1,377 @@
+
+> @diamondflow/api@0.0.1 dev E:\MEGen\apps\api
+> npm run start:dev
+
+
+> @diamondflow/api@0.0.1 start:dev
+> pnpm --workspace-root nx run @diamondflow/api:build && nest start --watch
+
+[43m[30m WARN [39m[49m Unsupported engine: wanted: {"node":">=20 <23"} (current: {"node":"v26.3.0","pnpm":"9.0.0"})
+
+[0m[7m[1m[36m NX [39m[22m[27m[0m  [36mRunning target [1mbuild[22m for project @diamondflow/api and [1m8[22m tasks it depends on:[39m
+
+
+
+[2m> [22m[2mnx run[22m @diamondflow/contracts:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/observability:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/domain:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/database:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/events:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/authorization:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/queue:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/realtime:build  [2m[existing outputs match the cache, left as is][22m
+
+
+[2m> [22m[2mnx run[22m @diamondflow/api:build  [2m[local cache][22m
+
+
+> @diamondflow/api@0.0.1 build E:\MEGen\apps\api
+> nest build
+
+
+
+
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project @diamondflow/api and [1m8[22m tasks it depends on[39m
+
+[2mNx read the output from the cache instead of running the command for 9 out of 9 tasks.[22m
+
+[2J[3J[H[[90m6:20:40 pm[0m] Starting compilation in watch mode...
+
+[[90m6:20:44 pm[0m] Found 0 errors. Watching for file changes.
+
+(node:25684) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+node:internal/modules/esm/resolve:1008
+    throw error;
+    ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'E:\MEGen\packages\auth\src\auth.module' imported from E:\MEGen\packages\auth\src\index.ts
+[90m    at finalizeResolution (node:internal/modules/esm/resolve:271:11)[39m
+[90m    at moduleResolve (node:internal/modules/esm/resolve:865:10)[39m
+[90m    at defaultResolve (node:internal/modules/esm/resolve:992:11)[39m
+[90m    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:20)[39m
+[90m    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:724:38)[39m
+[90m    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:762:56)[39m
+[90m    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:27)[39m
+[90m    at ModuleJobSync.syncLink (node:internal/modules/esm/module_job:163:33)[39m
+[90m    at ModuleJobSync.link (node:internal/modules/esm/module_job:489:17)[39m
+[90m    at new ModuleJobSync (node:internal/modules/esm/module_job:479:26)[39m {
+  code: [32m'ERR_MODULE_NOT_FOUND'[39m,
+  url: [32m'file:///E:/MEGen/packages/auth/src/auth.module'[39m
+}
+
+Node.js v26.3.0
+[2J[3J[H[[90m6:22:51 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m6:22:51 pm[0m] Found 0 errors. Watching for file changes.
+
+node:internal/modules/esm/resolve:1008
+    throw error;
+    ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'E:\MEGen\packages\auth\src\auth.module' imported from E:\MEGen\packages\auth\src\index.ts
+[90m    at finalizeResolution (node:internal/modules/esm/resolve:271:11)[39m
+[90m    at moduleResolve (node:internal/modules/esm/resolve:865:10)[39m
+[90m    at defaultResolve (node:internal/modules/esm/resolve:992:11)[39m
+[90m    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:20)[39m
+[90m    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:724:38)[39m
+[90m    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:762:56)[39m
+[90m    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:27)[39m
+[90m    at ModuleJobSync.syncLink (node:internal/modules/esm/module_job:163:33)[39m
+[90m    at ModuleJobSync.link (node:internal/modules/esm/module_job:489:17)[39m
+[90m    at new ModuleJobSync (node:internal/modules/esm/module_job:479:26)[39m {
+  code: [32m'ERR_MODULE_NOT_FOUND'[39m,
+  url: [32m'file:///E:/MEGen/packages/auth/src/auth.module'[39m
+}
+
+Node.js v26.3.0
+[2J[3J[H[[90m6:23:00 pm[0m] File change detected. Starting incremental compilation...
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/app.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/app.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/app.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/common/filters/all-exceptions.filter.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/common/interceptors/audit.interceptor.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/common/middleware/correlation-id.middleware.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/common/pipes/query-normalization.pipe.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/common/pipes/zod-validation.pipe.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/index.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/main.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/ai.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/ai.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/ai.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/audit-logger.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/intent-router.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/permission-guard.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/ai/tool-registry.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/analytics/analytics.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/analytics/analytics.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/analytics/analytics.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/analytics/dto/analytics.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/branches.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/branches.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/companies.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/companies.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/companies.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/dto/branch.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/companies/dto/company.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/dispatch/bags.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/dispatch/carriers.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/dispatch/dispatch.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/dispatch/dispatch.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/dispatch/dto/dispatch.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/dispatch/shipments.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/chart-of-accounts.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/dto/finance.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/finance.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/finance.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/invoices.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/journal-entries.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/finance/payments.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/dto/inventory-lot.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/dto/inventory-transaction.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/inventory-lots.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/inventory-lots.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/inventory-transactions.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/inventory-transactions.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/inventory/inventory.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/maintenance/assets.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/maintenance/dto/maintenance.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/maintenance/maintenance.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/maintenance/maintenance.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/maintenance/schedules.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/maintenance/work-orders.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/manufacturing/diamonds.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/manufacturing/diamonds.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/manufacturing/dto/manufacturing.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/manufacturing/manufacturing.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/manufacturing/operations.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/manufacturing/operations.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/customers.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/customers.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/dto/customer.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/dto/product.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/dto/vendor.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/dto/work-center.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/master-data.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/products.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/products.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/vendors.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/vendors.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/work-centers.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/master-data/work-centers.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/planning/dto/production-order.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/planning/mrp.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/planning/mrp.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/planning/planning.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/planning/production-orders.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/planning/production-orders.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/dto/purchase-order.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/dto/purchase-requisition.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/dto/rfq.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/procurement.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/purchase-orders.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/purchase-orders.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/purchase-requisitions.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/purchase-requisitions.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/rfqs.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/procurement/rfqs.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/certificates.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/dto/quality.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/inspection-plans.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/inspections.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/ncrs.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/quality.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/quality/quality.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/authorizations.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/dto/returns.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/receipts.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/repair-orders.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/return-auths.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/returns.module.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/returns/returns.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/dto/quotation.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/dto/sales-order.dto.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/quotations.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/quotations.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/sales-orders.controller.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/sales-orders.service.d.ts' because it would overwrite input file.
+
+[91merror[0m[90m TS5055: [0mCannot write file 'E:/MEGen/apps/api/dist/modules/sales/sales.module.d.ts' because it would overwrite input file.
+
+[[90m6:23:00 pm[0m] Found 110 errors. Watching for file changes.
+
+node:internal/modules/esm/resolve:1008
+    throw error;
+    ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'E:\MEGen\packages\auth\src\auth.module' imported from E:\MEGen\packages\auth\src\index.ts
+[90m    at finalizeResolution (node:internal/modules/esm/resolve:271:11)[39m
+[90m    at moduleResolve (node:internal/modules/esm/resolve:865:10)[39m
+[90m    at defaultResolve (node:internal/modules/esm/resolve:992:11)[39m
+[90m    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:20)[39m
+[90m    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:724:38)[39m
+[90m    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:762:56)[39m
+[90m    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:27)[39m
+[90m    at ModuleJobSync.syncLink (node:internal/modules/esm/module_job:163:33)[39m
+[90m    at ModuleJobSync.link (node:internal/modules/esm/module_job:489:17)[39m
+[90m    at new ModuleJobSync (node:internal/modules/esm/module_job:479:26)[39m {
+  code: [32m'ERR_MODULE_NOT_FOUND'[39m,
+  url: [32m'file:///E:/MEGen/packages/auth/src/auth.module'[39m
+}
+
+Node.js v26.3.0
+[2J[3J[H[[90m6:23:09 pm[0m] File change detected. Starting incremental compilation...
+
+[[90m6:23:09 pm[0m] Found 0 errors. Watching for file changes.
+
+node:internal/modules/esm/resolve:1008
+    throw error;
+    ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module 'E:\MEGen\packages\auth\src\auth.module' imported from E:\MEGen\packages\auth\src\index.ts
+[90m    at finalizeResolution (node:internal/modules/esm/resolve:271:11)[39m
+[90m    at moduleResolve (node:internal/modules/esm/resolve:865:10)[39m
+[90m    at defaultResolve (node:internal/modules/esm/resolve:992:11)[39m
+[90m    at #cachedDefaultResolve (node:internal/modules/esm/loader:704:20)[39m
+[90m    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:724:38)[39m
+[90m    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:762:56)[39m
+[90m    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:27)[39m
+[90m    at ModuleJobSync.syncLink (node:internal/modules/esm/module_job:163:33)[39m
+[90m    at ModuleJobSync.link (node:internal/modules/esm/module_job:489:17)[39m
+[90m    at new ModuleJobSync (node:internal/modules/esm/module_job:479:26)[39m {
+  code: [32m'ERR_MODULE_NOT_FOUND'[39m,
+  url: [32m'file:///E:/MEGen/packages/auth/src/auth.module'[39m
+}
+
+Node.js v26.3.0
+^Cnpm error Lifecycle script `start:dev` failed with error:
+npm error code 3221225786
+npm error path E:\MEGen\apps\api
+npm error workspace @diamondflow/api@0.0.1
+npm error location E:\MEGen\apps\api
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c pnpm --workspace-root nx run @diamondflow/api:build && nest start --watch
+^CTerminate batch job (Y/N)? [41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 3221225786.[39m

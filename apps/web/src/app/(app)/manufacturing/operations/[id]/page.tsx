@@ -17,13 +17,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ArrowLeft, Loader2, Play, Pause, RotateCcw, AlertTriangle, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const opColors: Record<string, string> = { QUEUED: "bg-gray-100 text-gray-600", RUNNING: "bg-emerald-100 text-emerald-700", PAUSED: "bg-amber-100 text-amber-700", HELD: "bg-red-100 text-red-700", COMPLETED: "bg-blue-100 text-blue-700" };
 
 export default function OperationDetailPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 

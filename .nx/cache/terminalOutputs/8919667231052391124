@@ -1,0 +1,4 @@
+
+> @diamondflow/contracts@0.0.1 typecheck E:\MEGen\packages\contracts
+> tsc --noEmit
+

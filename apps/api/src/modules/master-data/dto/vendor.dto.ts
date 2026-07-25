@@ -1,81 +1,150 @@
+import { IsString, IsOptional, IsEmail, IsNumber, IsObject, IsArray, IsUUID, IsEnum, Min, Max, IsNotEmpty, ArrayNotEmpty } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsNumber, IsObject, MaxLength } from 'class-validator';
+
+export enum VendorStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+  PENDING = 'PENDING',
+  BLOCKED = 'BLOCKED'
+}
 
 export class CreateVendorDto {
-  @ApiProperty({ example: 'Diamond World Ltd.', description: 'Vendor name' })
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  @MaxLength(200)
   name!: string;
 
-  @ApiProperty({ example: 'DW-LTD', description: 'Unique vendor code' })
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  @MaxLength(20)
   code!: string;
 
-  @ApiPropertyOptional({ description: 'Contact information as JSON' })
+  @ApiProperty()
+  @IsUUID()
+  companyId!: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsEmail()
+  email?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  phone?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  mobile?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  gstNumber?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  panNumber?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  vendorType?: string;
+
+  @ApiPropertyOptional({ enum: VendorStatus })
+  @IsOptional()
+  @IsEnum(VendorStatus)
+  status?: VendorStatus;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  creditLimit?: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  paymentTerms?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsUUID()
+  categoryId?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsUUID()
+  countryId?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsUUID()
+  stateId?: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsUUID()
+  cityId?: string;
+
+  @ApiPropertyOptional()
   @IsOptional()
   @IsObject()
   contactInfo?: Record<string, any>;
 
-  @ApiPropertyOptional({ description: 'Address information as JSON' })
+  @ApiPropertyOptional()
   @IsOptional()
   @IsObject()
   address?: Record<string, any>;
 
-  @ApiPropertyOptional({ example: 4.5, description: 'Vendor rating (0-5)' })
+  @ApiPropertyOptional()
   @IsOptional()
   @IsNumber()
+  @Min(0)
+  @Max(5)
   rating?: number;
+}
 
-  @ApiProperty({ example: 'uuid-company-id', description: 'Company ID' })
+export class UpdateVendorDto extends CreateVendorDto {}
+
+export class VendorQueryDto {
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNumber()
+  page?: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsNumber()
+  limit?: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  search?: string;
+
+  @ApiPropertyOptional()
   @IsString()
   @IsNotEmpty()
   companyId!: string;
+
+  @ApiPropertyOptional({ enum: VendorStatus })
+  @IsOptional()
+  @IsEnum(VendorStatus)
+  status?: VendorStatus;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsUUID()
+  categoryId?: string;
 }
 
-export class UpdateVendorDto {
-  @ApiPropertyOptional({ example: 'Diamond World Ltd. Updated', description: 'Vendor name' })
-  @IsOptional()
-  @IsString()
-  @IsNotEmpty()
-  @MaxLength(200)
-  name?: string;
-
-  @ApiPropertyOptional({ example: 'DW-LTD-2', description: 'Unique vendor code' })
-  @IsOptional()
-  @IsString()
-  @IsNotEmpty()
-  @MaxLength(20)
-  code?: string;
-
-  @ApiPropertyOptional({ description: 'Contact information as JSON' })
-  @IsOptional()
-  @IsObject()
-  contactInfo?: Record<string, any>;
-
-  @ApiPropertyOptional({ description: 'Address information as JSON' })
-  @IsOptional()
-  @IsObject()
-  address?: Record<string, any>;
-
-  @ApiPropertyOptional({ example: 4.8, description: 'Vendor rating (0-5)' })
-  @IsOptional()
-  @IsNumber()
-  rating?: number;
-}
-
-export class VendorQueryDto {
-  @ApiPropertyOptional({ example: 1, description: 'Page number' })
-  page?: number = 1;
-
-  @ApiPropertyOptional({ example: 20, description: 'Items per page' })
-  limit?: number = 20;
-
-  @ApiPropertyOptional({ example: 'Diamond', description: 'Search term' })
-  search?: string;
-
-  @ApiPropertyOptional({ description: 'Company ID' })
-  companyId?: string;
+export class BulkDeleteVendorDto {
+  @ApiProperty()
+  @IsArray()
+  @IsString({ each: true })
+  @ArrayNotEmpty()
+  ids!: string[];
 }

@@ -446,23 +446,95 @@ model JobCard {
 // ============================================================================
 
 model Vendor {
+  id                 String   @id @default(cuid())
+  companyId          String
+  name               String
+  code               String
+  email              String?
+  phone              String?
+  mobile             String?
+  gstNumber          String?
+  panNumber          String?
+  vendorType         String?  // e.g., SUPPLIER, SERVICE_PROVIDER, CONTRACTOR
+  status             String   @default("ACTIVE") // ACTIVE, INACTIVE, PENDING, BLOCKED
+  creditLimit        Decimal  @default(0) @db.Decimal(19, 2)
+  outstandingBalance Decimal  @default(0) @db.Decimal(19, 2)
+  paymentTerms       String?
+  
+  categoryId         String?
+  category           VendorCategory? @relation(fields: [categoryId], references: [id])
+  countryId          String?
+  stateId            String?
+  cityId             String?
+
+  contactInfo        Json?
+  address            Json?
+  rating             Float?
+  
+  createdBy          String?
+  updatedBy          String?
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  deletedAt          DateTime?
+
+  purchaseOrders     PurchaseOrder[]
+  rfqs               RequestForQuotation[]
+  payments           VendorPayment[]
+  transactions       VendorTransaction[]
+
+  @@unique([companyId, code])
+  @@index([companyId])
+  @@index([status])
+  @@index([categoryId])
+  @@index([deletedAt])
+}
+
+model VendorCategory {
   id          String   @id @default(cuid())
   companyId   String
   name        String
   code        String
-  contactInfo Json?
-  address     Json?
-  rating      Float?
+  description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  deletedAt   DateTime?
 
-  purchaseOrders PurchaseOrder[]
-  rfqs          RequestForQuotation[]
+  vendors     Vendor[]
 
   @@unique([companyId, code])
   @@index([companyId])
-  @@index([deletedAt])
+}
+
+model VendorPayment {
+  id          String   @id @default(cuid())
+  companyId   String
+  vendorId    String
+  vendor      Vendor   @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  amount      Decimal  @db.Decimal(19, 2)
+  currency    String   @default("INR")
+  paymentDate DateTime @default(now())
+  status      String   @default("COMPLETED")
+  reference   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([vendorId])
+  @@index([companyId])
+}
+
+model VendorTransaction {
+  id          String   @id @default(cuid())
+  companyId   String
+  vendorId    String
+  vendor      Vendor   @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  type        String   // INVOICE, PAYMENT, DEBIT_NOTE, CREDIT_NOTE
+  amount      Decimal  @db.Decimal(19, 2)
+  reference   String?
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  @@index([vendorId])
+  @@index([companyId])
 }
 
 model PurchaseRequisition {
@@ -1501,6 +1573,7 @@ model User {
   email         String
   firstName     String?
   lastName      String?
+  passwordHash  String?
   roleIds       String[]
   factoryIds    String[]
   departmentIds String[]

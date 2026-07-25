@@ -1,0 +1,28 @@
+
+> @diamondflow/api@0.0.1 build E:\MEGen\apps\api
+> nest build
+
+[96m../../packages/auth/src/guards/auth.guards.ts[0m:[93m3[0m:[93m31[0m - [91merror[0m[90m TS5097: [0mAn import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+
+[7m3[0m import { IS_PUBLIC_KEY } from '../decorators/public.decorator.ts';
+[7m [0m [91m                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96m../../packages/auth/src/index.ts[0m:[93m1[0m:[93m28[0m - [91merror[0m[90m TS5097: [0mAn import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+
+[7m1[0m export { AuthModule } from './auth.module.ts';
+[7m [0m [91m                           ~~~~~~~~~~~~~~~~~~[0m
+[96m../../packages/auth/src/index.ts[0m:[93m2[0m:[93m61[0m - [91merror[0m[90m TS5097: [0mAn import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+
+[7m2[0m export { JwtAuthGuard, ApiKeyGuard, DeviceTrustGuard } from './guards/auth.guards.ts';
+[7m [0m [91m                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96m../../packages/auth/src/index.ts[0m:[93m3[0m:[93m54[0m - [91merror[0m[90m TS5097: [0mAn import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+
+[7m3[0m export { CurrentUser, CurrentOrg, Permissions } from './decorators/auth.decorators.ts';
+[7m [0m [91m                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96m../../packages/auth/src/index.ts[0m:[93m4[0m:[93m39[0m - [91merror[0m[90m TS5097: [0mAn import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+
+[7m4[0m export { Public, IS_PUBLIC_KEY } from './decorators/public.decorator.ts';
+[7m [0m [91m                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Found 5 error(s).
+
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

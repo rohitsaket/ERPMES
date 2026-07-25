@@ -1,0 +1,33 @@
+
+> @diamondflow/api@0.0.1 build E:\MEGen\apps\api
+> nest build
+
+Entrypoint [1mmain[39m[22m =
+
+[1m[31mERROR[39m[22m in [1m[32mmain[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'ts-loader' in 'E:\MEGen\apps\api'[39m[22m
+resolve 'ts-loader' in 'E:\MEGen\apps\api'
+  Parsed request is a module
+  using description file: E:\MEGen\apps\api\package.json (relative path: .)
+    resolve as module
+      looking for modules in E:\MEGen\apps\api\node_modules
+        single file module
+          using description file: E:\MEGen\apps\api\package.json (relative path: ./node_modules/ts-loader)
+            no extension
+[1m[31m              E:\MEGen\apps\api\node_modules\ts-loader doesn't exist[39m[22m
+            .js
+[1m[31m              E:\MEGen\apps\api\node_modules\ts-loader.js doesn't exist[39m[22m
+[1m[31m        E:\MEGen\apps\api\node_modules\ts-loader doesn't exist[39m[22m
+[1m[31m      E:\MEGen\apps\node_modules doesn't exist[39m[22m or is not a directory
+      looking for modules in E:\MEGen\node_modules
+        single file module
+          using description file: E:\MEGen\package.json (relative path: ./node_modules/ts-loader)
+            no extension
+[1m[31m              E:\MEGen\node_modules\ts-loader doesn't exist[39m[22m
+            .js
+[1m[31m              E:\MEGen\node_modules\ts-loader.js doesn't exist[39m[22m
+[1m[31m        E:\MEGen\node_modules\ts-loader doesn't exist[39m[22m
+[1m[31m      E:\node_modules doesn't exist[39m[22m or is not a directory
+
+webpack 5.97.1 compiled with [1m[31m1 error[39m[22m in 3393 ms
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

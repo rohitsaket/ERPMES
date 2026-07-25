@@ -68,8 +68,8 @@ export default function WipAgingPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">WIP Aging Analysis</h1>
             <p className="text-muted-foreground">Monitor work-in-progress aging across operations</p>
@@ -97,60 +97,60 @@ export default function WipAgingPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-5">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Total WIP</CardTitle>
               <Clock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">{totalWip}</div>
               <p className="text-xs text-muted-foreground">Active operations</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">0-24h</CardTitle>
               <Clock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-emerald-600">{buckets["0-24h"] || 0}</div>
               <p className="text-xs text-muted-foreground">Fresh operations</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">24-48h</CardTitle>
               <Clock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-blue-600">{buckets["24-48h"] || 0}</div>
               <p className="text-xs text-muted-foreground">Aging 1-2 days</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">48-72h</CardTitle>
               <Clock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-amber-600">{buckets["48-72h"] || 0}</div>
               <p className="text-xs text-muted-foreground">Aging 2-3 days</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">72h+</CardTitle>
               <Clock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-red-600">{buckets["72h+"] || 0}</div>
               <p className="text-xs text-muted-foreground">Critical aging</p>
             </CardContent>
           </Card>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>WIP Aging Detail</CardTitle>
               <CardDescription>Operations sorted by age - oldest first</CardDescription>
@@ -166,11 +166,11 @@ export default function WipAgingPage() {
               </SelectContent>
             </Select>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : (
-              <div className="overflow-x-auto">
+              <div className="flex-1 overflow-auto border rounded-md">
                 <Table>
                   <TableHeader>
                     <TableRow>

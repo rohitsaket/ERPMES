@@ -16,16 +16,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeft, Loader2 } from "lucide-react";
 import Link from "next/link";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const shapes = ["ROUND", "PRINCESS", "EMERALD", "OVAL", "MARQUISE", "PEAR", "CUSHION", "ASSCHER", "RADIANT", "HEART"];
 const colors = ["D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
 const clarities = ["IF", "VVS1", "VVS2", "VS1", "VS2", "SI1", "SI2", "I1", "I2", "I3"];
 const cuts = ["EXCELLENT", "VERY_GOOD", "GOOD", "FAIR", "POOR"];
 
 export default function NewDiamondPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 

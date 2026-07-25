@@ -1,22 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import { AbilityFactory, AppAbility } from '@diamondflow/authorization';
+import { PrismaService } from '@diamondflow/database';
 
 @Injectable()
 export class PermissionGuard {
-  constructor(private abilityFactory: AbilityFactory) {}
+  constructor(
+    private abilityFactory: AbilityFactory,
+    private prisma: PrismaService,
+  ) {}
 
   async check(userId: string, companyId: string, requiredPermissions: string[]): Promise<boolean> {
     if (!requiredPermissions || requiredPermissions.length === 0) {
       return true;
     }
 
-    // In production, fetch user from database with roles/permissions
-    // For now, return true for development
+    const userRecord = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { role: true, permissions: true },
+    });
+
+    if (!userRecord) {
+      return false;
+    }
+
     const user = {
       userId,
       companyId,
-      role: 'operator',
-      permissions: requiredPermissions, // Simulated - in production fetch from DB
+      role: userRecord.role,
+      permissions: (userRecord.permissions as string[]) || [],
     };
 
     const ability = this.abilityFactory.defineAbility(user);

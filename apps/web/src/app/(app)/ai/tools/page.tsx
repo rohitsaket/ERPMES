@@ -75,8 +75,8 @@ export default function AIToolsPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">AI Tools</h1>
             <p className="text-muted-foreground">Manage and execute AI-powered tools and workflows</p>
@@ -88,8 +88,8 @@ export default function AIToolsPage() {
           </div>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between py-4">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between py-4 shrink-0">
             <CardTitle>Available Tools</CardTitle>
             <div className="flex flex-wrap items-center gap-2">
               <div className="relative w-64">
@@ -117,7 +117,7 @@ export default function AIToolsPage() {
               </Select>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : filtered.length === 0 ? (
@@ -130,7 +130,7 @@ export default function AIToolsPage() {
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {filtered.map((tool) => (
                   <Card key={tool.id} className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 flex-1 flex flex-col min-h-0">
                       <div className="flex items-start gap-4">
                         <div className="p-3 rounded-lg bg-primary/10">{categoryIcons[tool.category]}</div>
                         <div className="flex-1 min-w-0">

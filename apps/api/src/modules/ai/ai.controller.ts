@@ -1,13 +1,13 @@
-import { Controller, Post, Body, Get, Query, UseGuards, Request } from '@nestjs/common';
+import { Controller, Post, Body, Get, Query, Request, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
-import { JwtAuthGuard } from '@diamondflow/auth';
 import { RequirePermission } from '@diamondflow/authorization';
-import { AiService } from './ai.service.js';
+import { AiService } from './ai.service';
+import { CurrentUser, JwtAuthGuard } from '@diamondflow/auth';
 
 @ApiTags('AI Copilot')
 @ApiBearerAuth()
-@Controller('ai')
 @UseGuards(JwtAuthGuard)
+@Controller('ai')
 export class AiController {
   constructor(private readonly aiService: AiService) {}
 

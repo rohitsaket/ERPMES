@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "DiamondFlow ERP+MES",
   description: "Unified enterprise operating platform for diamond and jewelry businesses",
   keywords: ["ERP", "MES", "Diamond", "Jewelry", "Manufacturing", "Supply Chain"],
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="text-[11px]">
       <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
       </body>

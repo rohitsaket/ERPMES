@@ -1,0 +1,548 @@
+
+> @diamondflow/web@0.0.1 dev E:\MEGen\apps\web
+> next dev -p 3001
+
+  [1m[38;2;173;127;168m▲ Next.js 14.2.35[39m[22m
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 1998ms
+ [37m[1m○[22m[39m Compiling /src/middleware ...
+ [32m[1m✓[22m[39m Compiled /src/middleware in 615ms (242 modules)
+ [37m[1m○[22m[39m Compiling /dashboard ...
+ [32m[1m✓[22m[39m Compiled /dashboard in 4.6s (1011 modules)
+ GET /dashboard [32m200[39m in 4969ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /api/auth/[...nextauth] in 5.2s (1154 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 5409ms
+ GET /api/auth/session [32m200[39m in 5121ms
+ GET /api/auth/session [32m200[39m in 27ms
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 287ms (742 modules)
+ GET /api/auth/session [32m200[39m in 442ms
+ GET /api/auth/token [32m200[39m in 477ms
+ GET /api/auth/token [32m200[39m in 28ms
+ GET /api/auth/session [32m200[39m in 30ms
+ GET /api/auth/token [32m200[39m in 16ms
+ GET /api/auth/token [32m200[39m in 17ms
+ GET /api/auth/token [32m200[39m in 18ms
+ GET /api/auth/token [32m200[39m in 15ms
+ GET /api/auth/token [32m200[39m in 16ms
+ GET /api/auth/token [32m200[39m in 21ms
+ GET /api/auth/session [32m200[39m in 28ms
+ GET /api/auth/session [32m200[39m in 13ms
+ [32m[1m✓[22m[39m Compiled /master-data/products in 502ms (1237 modules)
+ GET /api/auth/token [32m200[39m in 39ms
+ [32m[1m✓[22m[39m Compiled /master-data/customers in 300ms (1243 modules)
+ GET /api/auth/token [32m200[39m in 30ms
+ [32m[1m✓[22m[39m Compiled /profile in 233ms (1252 modules)
+ GET /api/auth/session [32m200[39m in 62ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/session [32m200[39m in 24ms
+ GET /api/auth/session [32m200[39m in 13ms
+ [32m[1m✓[22m[39m Compiled in 520ms (1185 modules)
+ [32m[1m✓[22m[39m Compiled in 670ms (1185 modules)
+ GET /api/auth/session [32m200[39m in 80ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /profile [32m200[39m in 614ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 601ms (680 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 696ms
+ GET /api/auth/session [32m200[39m in 79ms
+ GET /api/auth/session [32m200[39m in 14ms
+ GET /api/auth/session [32m200[39m in 11ms
+ GET /api/auth/session [32m200[39m in 14ms
+ [32m[1m✓[22m[39m Compiled in 343ms (1186 modules)
+ GET /api/auth/session [32m200[39m in 34ms
+ GET /api/auth/session [32m200[39m in 12ms
+ [32m[1m✓[22m[39m Compiled in 947ms (1186 modules)
+ GET /api/auth/session [32m200[39m in 37ms
+ GET /api/auth/session [32m200[39m in 11ms
+ [32m[1m✓[22m[39m Compiled in 399ms (1187 modules)
+ [37m[1m○[22m[39m Compiling /sign-in ...
+ [32m[1m✓[22m[39m Compiled /sign-in in 2.3s (1998 modules)
+ GET /sign-in?callbackUrl=%2Fadmin%2Fusers [32m200[39m in 1715ms
+ GET /sign-in?callbackUrl=%2Fadmin%2Fpermissions [32m200[39m in 1109ms
+ GET /sign-in?callbackUrl=%2F [32m200[39m in 2496ms
+ GET /api/auth/session [32m200[39m in 55ms
+ GET /api/auth/session [32m200[39m in 12ms
+ [32m[1m✓[22m[39m Compiled /admin/users in 417ms (2012 modules)
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 263ms (1183 modules)
+ GET /api/auth/token [32m200[39m in 332ms
+ GET /api/auth/token [32m200[39m in 14ms
+ [32m[1m✓[22m[39m Compiled /admin/permissions in 377ms (2101 modules)
+ GET /api/auth/token [32m200[39m in 30ms
+ [32m[1m✓[22m[39m Compiled in 406ms (2115 modules)
+ GET /api/auth/token [32m200[39m in 24ms
+ GET /api/auth/session [32m200[39m in 21ms
+ GET /api/auth/session [32m200[39m in 20ms
+ GET /api/auth/session [32m200[39m in 23ms
+ GET /api/auth/session [32m200[39m in 14ms
+ [32m[1m✓[22m[39m Compiled in 489ms (1459 modules)
+ [32m[1m✓[22m[39m Compiled /api/auth/[...nextauth] in 324ms (683 modules)
+ GET /api/auth/session [32m200[39m in 434ms
+ GET /api/auth/session [32m200[39m in 14ms
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 143ms (764 modules)
+ GET /api/auth/token [32m200[39m in 206ms
+ GET /api/auth/token [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 21ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /admin/users [32m200[39m in 143ms
+ [32m[1m✓[22m[39m Compiled /_not-found in 399ms (765 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 459ms
+ GET /api/auth/session [32m200[39m in 35ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/session [32m200[39m in 102ms
+ GET /api/auth/session [32m200[39m in 23ms
+ [32m[1m✓[22m[39m Compiled in 381ms (1692 modules)
+ GET /api/auth/session [32m200[39m in 51ms
+ GET /api/auth/session [32m200[39m in 14ms
+ GET /admin/users [32m200[39m in 90ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 26ms
+ GET /api/auth/session [32m200[39m in 22ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 105ms
+ GET /api/auth/session [32m200[39m in 19ms
+ GET /api/auth/session [32m200[39m in 25ms
+ GET /api/auth/session [32m200[39m in 12ms
+ [32m[1m✓[22m[39m Compiled in 783ms (1459 modules)
+ [32m[1m✓[22m[39m Compiled in 366ms (1459 modules)
+ [32m[1m✓[22m[39m Compiled in 414ms (1459 modules)
+ [32m[1m✓[22m[39m Compiled in 412ms (1459 modules)
+ [37m[1m○[22m[39m Compiling /api/auth/[...nextauth] ...
+ [32m[1m✓[22m[39m Compiled /api/auth/[...nextauth] in 565ms (683 modules)
+ GET /api/auth/session [32m200[39m in 880ms
+ GET /api/auth/session [32m200[39m in 16ms
+ GET /admin/users [32m200[39m in 111ms
+ [32m[1m✓[22m[39m Compiled /_not-found in 189ms (684 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 250ms
+ GET /api/auth/session [32m200[39m in 38ms
+ GET /api/auth/session [32m200[39m in 16ms
+ GET /api/auth/session [32m200[39m in 23ms
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 269ms (765 modules)
+ GET /api/auth/token [32m200[39m in 497ms
+ GET /api/auth/session [32m200[39m in 353ms
+ GET /api/auth/token [32m200[39m in 13ms
+ GET /api/auth/token [32m200[39m in 15ms
+ GET /api/auth/token [32m200[39m in 16ms
+ GET /api/auth/token [32m200[39m in 13ms
+ GET /api/auth/token [32m200[39m in 14ms
+ GET /api/auth/session [32m200[39m in 24ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /api/auth/session [32m200[39m in 22ms
+ GET /api/auth/session [32m200[39m in 14ms
+ GET /admin/users [32m200[39m in 97ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 27ms
+ GET /api/auth/session [32m200[39m in 22ms
+ GET /api/auth/session [32m200[39m in 16ms
+ GET /api/auth/token [32m200[39m in 17ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 14ms
+ GET /api/auth/token [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 21ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/session [32m200[39m in 21ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /api/auth/token [32m200[39m in 18ms
+ GET /api/auth/token [32m200[39m in 14ms
+ GET /admin/permissions [32m200[39m in 45ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 18ms
+ GET /api/auth/session [32m200[39m in 18ms
+ GET /api/auth/session [32m200[39m in 10ms
+ GET /api/auth/token [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /api/auth/session [32m200[39m in 10ms
+ GET /api/auth/session [32m200[39m in 19ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/token [32m200[39m in 10ms
+ GET /api/auth/session [32m200[39m in 20ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /admin/permissions [32m200[39m in 62ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 21ms
+ GET /api/auth/session [32m200[39m in 22ms
+ GET /api/auth/session [32m200[39m in 57ms
+ GET /api/auth/token [32m200[39m in 32ms
+ GET /api/auth/session [32m200[39m in 32ms
+ GET /api/auth/session [32m200[39m in 14ms
+ GET /api/auth/token [32m200[39m in 17ms
+ GET /api/auth/session [32m200[39m in 20ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /admin/permissions [32m200[39m in 47ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 13ms
+ GET /api/auth/session [32m200[39m in 16ms
+ GET /api/auth/session [32m200[39m in 48ms
+ GET /api/auth/token [32m200[39m in 33ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/token [32m200[39m in 8ms
+ GET /api/auth/session [32m200[39m in 16ms
+ GET /api/auth/session [32m200[39m in 11ms
+ GET /api/auth/token [32m200[39m in 14ms
+ GET /api/auth/token [32m200[39m in 7ms
+ GET /api/auth/session [32m200[39m in 17ms
+ GET /api/auth/session [32m200[39m in 13ms
+ [32m[1m✓[22m[39m Compiled in 1514ms (1864 modules)
+ [32m[1m✓[22m[39m Compiled /icon.svg in 238ms (738 modules)
+ GET /icon.svg?033fa93d0bfc2666 [32m200[39m in 285ms
+ GET /api/auth/session [32m200[39m in 63ms
+ GET /api/auth/session [32m200[39m in 11ms
+ GET /admin/users [32m200[39m in 150ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 962ms (739 modules)
+ [32m[1m✓[22m[39m Compiled in 1ms (739 modules)
+ [32m[1m✓[22m[39m Compiled in 1ms (739 modules)
+ [32m[1m✓[22m[39m Compiled in 0ms (739 modules)
+ GET /icon.svg?033fa93d0bfc2666 [32m200[39m in 782ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 1532ms
+ GET /api/auth/session [32m200[39m in 788ms
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 0ms (739 modules)
+ [32m[1m✓[22m[39m Compiled (820 modules)
+ GET /api/auth/session [32m200[39m in 609ms
+ GET /api/auth/token [32m200[39m in 540ms
+ GET /api/auth/session [32m200[39m in 11ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /icon.svg [32m200[39m in 9ms
+ GET /icon.svg?033fa93d0bfc2666 [32m200[39m in 18ms
+ GET /api/auth/token [32m200[39m in 19ms
+ GET /api/auth/session [32m200[39m in 21ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/session [32m200[39m in 18ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 10ms
+ GET /icon.svg?033fa93d0bfc2666 [32m200[39m in 14ms
+ GET /api/auth/token [32m200[39m in 16ms
+ [32m[1m✓[22m[39m Compiled in 716ms (1747 modules)
+ GET /icon.svg [32m200[39m in 14ms
+ GET /api/auth/session [32m200[39m in 32ms
+ GET /api/auth/session [32m200[39m in 11ms
+ GET /api/auth/token [32m200[39m in 25ms
+ GET /icon.svg [32m200[39m in 16ms
+ GET /icon.svg [32m200[39m in 10ms
+ GET /api/auth/session [32m200[39m in 22ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 20ms
+ GET /api/auth/session [32m200[39m in 11ms
+ [37m[1m○[22m[39m Compiling /sign-in ...
+ [32m[1m✓[22m[39m Compiled /sign-in in 506ms (1232 modules)
+ GET /sign-in?callbackUrl=%2F [32m200[39m in 677ms
+ GET /api/auth/session [32m200[39m in 58ms
+ GET /api/auth/session [32m200[39m in 15ms
+ GET /icon.svg [32m200[39m in 23ms
+ GET /api/auth/token [32m200[39m in 47ms
+ GET /api/auth/session [32m200[39m in 17ms
+ GET /api/auth/session [32m200[39m in 14ms
+ GET /api/auth/session [32m200[39m in 13ms
+ GET /api/auth/session [32m200[39m in 9ms
+ [37m[1m○[22m[39m Compiling /master-data/work-centers ...
+ [32m[1m✓[22m[39m Compiled /master-data/work-centers in 597ms (1628 modules)
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 218ms (742 modules)
+ [32m[1m✓[22m[39m Compiled (823 modules)
+ GET /icon.svg [32m200[39m in 384ms
+ GET /api/auth/token [32m200[39m in 445ms
+ [32m[1m✓[22m[39m Compiled /master-data/vendors in 272ms (1744 modules)
+ GET /icon.svg [32m200[39m in 12ms
+ GET /api/auth/token [32m200[39m in 28ms
+ GET /api/auth/session [32m200[39m in 19ms
+ GET /api/auth/session [32m200[39m in 11ms
+ [32m[1m✓[22m[39m Compiled in 336ms (931 modules)
+ GET /api/auth/session [32m200[39m in 17ms
+ GET /api/auth/session [32m200[39m in 11ms
+ [32m[1m✓[22m[39m Compiled in 141ms (931 modules)
+ [32m[1m✓[22m[39m Compiled in 527ms (1868 modules)
+ [32m[1m✓[22m[39m Compiled in 319ms (1640 modules)
+ [32m[1m✓[22m[39m Compiled /api/auth/token in 156ms (790 modules)
+ GET /api/auth/token [32m200[39m in 288ms
+ [31m[1m⨯[22m[39m Error: Cannot find module './1314.js'
+Require stack:
+- E:\MEGen\apps\web\.next\server\webpack-runtime.js
+- E:\MEGen\apps\web\.next\server\app\api\auth\token\route.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\dev\hot-middleware.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\lib\router-server.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\lib\start-server.js
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1519:15)[39m
+    at E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require-hook.js:55:36
+[90m    at wrapResolveFilename (node:internal/modules/cjs/loader:1073:27)[39m
+[90m    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1097:10)[39m
+[90m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1124:12)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1296:5)[39m
+[90m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)[39m
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1619:12)[39m
+    at mod.require (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require-hook.js:65:28)
+[90m    at require (node:internal/modules/helpers:191:16)[39m
+    at __webpack_require__.f.require [90m(E:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:208:28[90m)[39m
+    at [90mE:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e [90m(E:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:115:67[90m)[39m
+    at Array.map (<anonymous>)
+    at __webpack_require__.X [90m(E:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:167:22[90m)[39m
+    at [90mE:\MEGen\apps\web\[39m.next\server\app\api\auth\[...nextauth]\route.js:1:3555
+    at Object.<anonymous> [90m(E:\MEGen\apps\web\[39m.next\server\app\api\auth\[...nextauth]\route.js:1:3613[90m)[39m
+[90m    at Module._compile (node:internal/modules/cjs/loader:1873:14)[39m
+[90m    at Object..js (node:internal/modules/cjs/loader:2013:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:1596:32)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1398:12)[39m
+[90m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)[39m
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1619:12)[39m
+    at mod.require (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require-hook.js:65:28)
+[90m    at require (node:internal/modules/helpers:191:16)[39m
+    at requirePage (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require.js:109:84)
+    at E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:818:17)
+    at async E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\start-server.js:141:13) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [
+    [32m'E:\\MEGen\\apps\\web\\.next\\server\\webpack-runtime.js'[39m,
+    [32m'E:\\MEGen\\apps\\web\\.next\\server\\app\\api\\auth\\token\\route.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\require.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\load-components.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\build\\utils.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\lib\\router-server.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\lib\\start-server.js'[39m
+  ],
+  page: [32m'/api/auth/session'[39m
+}
+ [37m[1m○[22m[39m Compiling /_error ...
+ [32m[1m✓[22m[39m Compiled /master-data/vendors/new in 1430ms (1940 modules)
+ [32m[1m✓[22m[39m Compiled in 517ms (1115 modules)
+ GET /api/auth/session [31m500[39m in 2327ms
+ [31m[1m⨯[22m[39m Error: Cannot find module './1314.js'
+Require stack:
+- E:\MEGen\apps\web\.next\server\webpack-runtime.js
+- E:\MEGen\apps\web\.next\server\pages\_document.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\dev\hot-middleware.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\lib\router-server.js
+- E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\lib\start-server.js
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1519:15)[39m
+    at E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require-hook.js:55:36
+[90m    at wrapResolveFilename (node:internal/modules/cjs/loader:1073:27)[39m
+[90m    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1097:10)[39m
+[90m    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1124:12)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1296:5)[39m
+[90m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)[39m
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1619:12)[39m
+    at mod.require (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require-hook.js:65:28)
+[90m    at require (node:internal/modules/helpers:191:16)[39m
+    at __webpack_require__.f.require [90m(E:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:208:28[90m)[39m
+    at [90mE:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e [90m(E:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:115:67[90m)[39m
+    at Array.map (<anonymous>)
+    at __webpack_require__.X [90m(E:\MEGen\apps\web\[39m.next\server\webpack-runtime.js:167:22[90m)[39m
+    at [90mE:\MEGen\apps\web\[39m.next\server\app\api\auth\[...nextauth]\route.js:1:3555
+    at Object.<anonymous> [90m(E:\MEGen\apps\web\[39m.next\server\app\api\auth\[...nextauth]\route.js:1:3613[90m)[39m
+[90m    at Module._compile (node:internal/modules/cjs/loader:1873:14)[39m
+[90m    at Object..js (node:internal/modules/cjs/loader:2013:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:1596:32)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:1398:12)[39m
+[90m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)[39m
+[90m    at Module.<anonymous> (node:internal/modules/cjs/loader:1619:12)[39m
+    at mod.require (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require-hook.js:65:28)
+[90m    at require (node:internal/modules/helpers:191:16)[39m
+    at requirePage (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\require.js:109:84)
+    at E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\base-server.js:818:17)
+    at async E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\start-server.js:141:13) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [
+    [32m'E:\\MEGen\\apps\\web\\.next\\server\\webpack-runtime.js'[39m,
+    [32m'E:\\MEGen\\apps\\web\\.next\\server\\pages\\_document.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\require.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\load-components.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\build\\utils.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\lib\\router-server.js'[39m,
+    [32m'E:\\MEGen\\node_modules\\.pnpm\\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\\node_modules\\next\\dist\\server\\lib\\start-server.js'[39m
+  ],
+  page: [32m'/api/auth/session'[39m
+}
+ GET /api/auth/session [31m500[39m in 45ms
+ [32m[1m✓[22m[39m Compiled /dashboard in 454ms (848 modules)
+ [32m[1m✓[22m[39m Compiled /_not-found in 271ms (849 modules)
+ GET /_next/static/chunks/app/(app)/dashboard/page.js [33m404[39m in 429ms
+ GET /dashboard [32m200[39m in 72ms
+ GET /_next/static/css/app/layout.css?v=1784956585614 [33m404[39m in 37ms
+ GET /_next/static/chunks/app/(app)/dashboard/page.js [33m404[39m in 55ms
+ GET /_next/static/chunks/app/layout.js [33m404[39m in 54ms
+ GET /_next/static/chunks/main-app.js?v=1784956585614 [33m404[39m in 57ms
+ GET /_next/static/chunks/app-pages-internals.js [33m404[39m in 58ms
+ GET /_next/static/chunks/app/error.js [33m404[39m in 53ms
+ GET /_next/static/chunks/app/not-found.js [33m404[39m in 24ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 23ms
+ [32m[1m✓[22m[39m Compiled /icon.svg in 359ms (878 modules)
+ GET /icon.svg [32m200[39m in 414ms
+ GET /master-data/vendors [32m200[39m in 249ms
+ GET /_next/static/css/app/layout.css?v=1784956588801 [33m404[39m in 174ms
+ GET /_next/static/chunks/main-app.js?v=1784956588801 [33m404[39m in 228ms
+ GET /_next/static/chunks/app/(app)/master-data/vendors/page.js [33m404[39m in 228ms
+ GET /_next/static/chunks/app-pages-internals.js [33m404[39m in 228ms
+ GET /_next/static/chunks/app/layout.js [33m404[39m in 213ms
+ GET /_next/static/chunks/app/error.js [33m404[39m in 225ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 65ms
+ GET /_next/static/chunks/app/not-found.js [33m404[39m in 120ms
+ GET /icon.svg [32m200[39m in 23ms
+ GET /master-data/vendors [32m200[39m in 73ms
+ GET /_next/static/css/app/layout.css?v=1784956596248 [33m404[39m in 28ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 46ms
+ GET /_next/static/chunks/app/error.js [33m404[39m in 55ms
+ GET /_next/static/chunks/app-pages-internals.js [33m404[39m in 59ms
+ GET /_next/static/chunks/main-app.js?v=1784956596248 [33m404[39m in 61ms
+ GET /_next/static/chunks/app/(app)/master-data/vendors/page.js [33m404[39m in 57ms
+ GET /_next/static/chunks/app/layout.js [33m404[39m in 54ms
+ GET /_next/static/chunks/app/not-found.js [33m404[39m in 53ms
+ GET /icon.svg [32m200[39m in 12ms
+ GET /master-data/vendors [32m200[39m in 46ms
+ GET /_next/static/css/app/layout.css?v=1784956606850 [33m404[39m in 32ms
+ GET /_next/static/chunks/webpack.js?v=1784956606850 [33m404[39m in 36ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 39ms
+ GET /_next/static/chunks/app-pages-internals.js [33m404[39m in 58ms
+ GET /_next/static/chunks/main-app.js?v=1784956606850 [33m404[39m in 61ms
+ GET /_next/static/chunks/app/(app)/master-data/vendors/page.js [33m404[39m in 57ms
+ GET /_next/static/chunks/app/layout.js [33m404[39m in 58ms
+ GET /_next/static/chunks/app/error.js [33m404[39m in 57ms
+ GET /_next/static/chunks/app/not-found.js [33m404[39m in 53ms
+ GET /icon.svg [32m200[39m in 14ms
+ GET /master-data/vendors [32m200[39m in 42ms
+ GET /_next/static/css/app/layout.css?v=1784956632735 [33m404[39m in 19ms
+ GET /_next/static/chunks/webpack.js?v=1784956632735 [33m404[39m in 24ms
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 34ms
+ GET /_next/static/chunks/app-pages-internals.js [33m404[39m in 43ms
+ GET /_next/static/chunks/app/(app)/master-data/vendors/page.js [33m404[39m in 43ms
+ GET /_next/static/chunks/main-app.js?v=1784956632735 [33m404[39m in 43ms
+ GET /_next/static/chunks/app/layout.js [33m404[39m in 42ms
+ GET /_next/static/chunks/app/not-found.js [33m404[39m in 26ms
+ GET /_next/static/chunks/app/error.js [33m404[39m in 32ms
+ GET /icon.svg [32m200[39m in 7ms
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@radix-ui+react-use-is-hydrated@0.1.2_@types+react@18.3.31_react@18.3.0' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-use-is-hydrated@0.1.2_@types+react@18.3.31_react@18.3.0.js', but to 'Error: Can't resolve './vendor-chunks/@radix-ui+react-use-is-hydrated@0.1.2_@types+react@18.3.31_react@18.3.0' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@radix-ui+react-use-is-hydrated@0.1.2_@types+react@18.3.31_react@18.3.0 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-use-is-hydrated@0.1.2_@types+react@18.3.31_react@18.3.0.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'E:\MEGen\apps\web\.next\server\vendor-chunks'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@radix-ui+react-roving-focus@1.1.17_@types+react-dom@18.3.7_@types+react@18.3.31__@types+reac_3uyrhvxo6jt47wgxyv7fvifsdm' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-roving-focus@1.1.17_@types+react-dom@18.3.7_@types+react@18.3.31__@types+reac_3uyrhvxo6jt47wgxyv7fvifsdm.js', but to 'Error: Can't resolve './vendor-chunks/@radix-ui+react-roving-focus@1.1.17_@types+react-dom@18.3.7_@types+react@18.3.31__@types+reac_3uyrhvxo6jt47wgxyv7fvifsdm' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@radix-ui+react-roving-focus@1.1.17_@types+react-dom@18.3.7_@types+react@18.3.31__@types+reac_3uyrhvxo6jt47wgxyv7fvifsdm (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-roving-focus@1.1.17_@types+react-dom@18.3.7_@types+react@18.3.31__@types+reac_3uyrhvxo6jt47wgxyv7fvifsdm.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@radix-ui+react-dropdown-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+rea_vj6pd7vrigpc7hcck4jotsciia' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-dropdown-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+rea_vj6pd7vrigpc7hcck4jotsciia.js', but to 'Error: Can't resolve './vendor-chunks/@radix-ui+react-dropdown-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+rea_vj6pd7vrigpc7hcck4jotsciia' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@radix-ui+react-dropdown-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+rea_vj6pd7vrigpc7hcck4jotsciia (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-dropdown-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+rea_vj6pd7vrigpc7hcck4jotsciia.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@radix-ui+react-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@18.3.3_d54ffijbhxwps6x3nxugxnateq' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@18.3.3_d54ffijbhxwps6x3nxugxnateq.js', but to 'Error: Can't resolve './vendor-chunks/@radix-ui+react-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@18.3.3_d54ffijbhxwps6x3nxugxnateq' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@radix-ui+react-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@18.3.3_d54ffijbhxwps6x3nxugxnateq (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-menu@2.1.22_@types+react-dom@18.3.7_@types+react@18.3.31__@types+react@18.3.3_d54ffijbhxwps6x3nxugxnateq.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@radix-ui+react-use-layout-effect@1.1.3_@types+react@18.3.31_react@18.3.0' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-use-layout-effect@1.1.3_@types+react@18.3.31_react@18.3.0.js', but to 'Error: Can't resolve './vendor-chunks/@radix-ui+react-use-layout-effect@1.1.3_@types+react@18.3.31_react@18.3.0' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@radix-ui+react-use-layout-effect@1.1.3_@types+react@18.3.31_react@18.3.0 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@radix-ui+react-use-layout-effect@1.1.3_@types+react@18.3.31_react@18.3.0.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/get-nonce@1.0.1' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js', but to 'Error: Can't resolve './vendor-chunks/get-nonce@1.0.1' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/get-nonce@1.0.1 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 4294967295.[39m

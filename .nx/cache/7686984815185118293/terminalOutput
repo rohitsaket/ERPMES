@@ -1,0 +1,4 @@
+
+> @diamondflow/testing@0.0.1 typecheck E:\MEGen\packages\testing
+> tsc --noEmit
+

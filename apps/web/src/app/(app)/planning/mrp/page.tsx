@@ -91,8 +91,8 @@ export default function MRPPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Material Requirements Planning</h1>
             <p className="text-muted-foreground">Run MRP, review exceptions, and manage planned orders</p>
@@ -110,7 +110,7 @@ export default function MRPPage() {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="flex-1 flex flex-col gap-6 min-h-0">
           <div className="flex gap-2 border-b">
             <button
               onClick={() => setActiveTab("runs")}
@@ -132,20 +132,20 @@ export default function MRPPage() {
           </div>
 
           {activeTab === "runs" && (
-            <Card>
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
               <CardHeader>
                 <CardTitle>MRP Run History</CardTitle>
                 <CardDescription>View and select an MRP run to analyze exceptions</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col min-h-0">
                 {runsLoading ? (
                   <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
                 ) : runs?.data?.length === 0 ? (
                   <div className="text-center py-8 text-muted-foreground">No MRP runs found</div>
                 ) : (
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
+                  <div className="flex-1 overflow-auto border rounded-md">
+                    <table className="w-full text-sm relative">
+                      <thead className="sticky top-0 bg-card z-10 shadow-sm">
                         <tr className="border-b text-left text-muted-foreground">
                           <th className="pb-3 font-medium">Run ID</th>
                           <th className="pb-3 font-medium">Status</th>
@@ -193,12 +193,12 @@ export default function MRPPage() {
           )}
 
           {activeTab === "exceptions" && (
-            <Card>
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
               <CardHeader>
                 <CardTitle>MRP Exceptions</CardTitle>
                 <CardDescription>Material issues detected for the selected planning run</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col min-h-0">
                 {!selectedRun ? (
                   <div className="py-12 text-center text-muted-foreground">
                     <Filter className="mx-auto mb-4 h-12 w-12" />
@@ -212,9 +212,9 @@ export default function MRPPage() {
                     <p className="text-lg font-medium">No exceptions found</p>
                   </div>
                 ) : (
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
+                  <div className="flex-1 overflow-auto border rounded-md">
+                    <table className="w-full text-sm relative">
+                      <thead className="sticky top-0 bg-card z-10 shadow-sm">
                         <tr className="border-b text-left text-muted-foreground">
                           <th className="pb-3 font-medium">Type</th>
                           <th className="pb-3 font-medium">Item</th>

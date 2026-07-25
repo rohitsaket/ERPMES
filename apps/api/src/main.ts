@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { IoAdapter } from '@nestjs/platform-socket.io';
@@ -7,6 +7,7 @@ import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 import { QueryNormalizationPipe } from './common/pipes/query-normalization.pipe';
 import { ZodValidationPipe } from './common/pipes/zod-validation.pipe';
+import { JwtAuthGuard } from '@diamondflow/auth';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -46,6 +47,10 @@ async function bootstrap() {
     new ZodValidationPipe(),
   );
 
+  // Global guards
+  const reflector = app.get(Reflector);
+  app.useGlobalGuards(new JwtAuthGuard(reflector));
+
   // Global filters
   app.useGlobalFilters(new AllExceptionsFilter());
 
@@ -61,8 +66,8 @@ async function bootstrap() {
     .addApiKey({ type: 'apiKey', name: 'Idempotency-Key', in: 'header' }, 'Idempotency-Key')
     .build();
   
-  const document = SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('api/docs', app, document);
+  const document = SwaggerModule.createDocument(app as any, swaggerConfig);
+  SwaggerModule.setup('api/docs', app as any, document);
 
   const port = config.get('PORT') || 3000;
   await app.listen(port);

@@ -174,7 +174,7 @@ export function TopNavigation({
               >
                 <Avatar>
                   <AvatarImage src={user?.imageUrl} alt={user?.fullName || "User"} />
-                  <AvatarFallback>{user?.firstName?.[0]}{user?.lastName?.[0]}</AvatarFallback>
+                  <AvatarFallback>{user?.firstName?.[0] || "U"}</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
@@ -182,7 +182,7 @@ export function TopNavigation({
               <div className="flex items-center gap-2 p-2">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src={user?.imageUrl} />
-                  <AvatarFallback>{user?.firstName?.[0]}{user?.lastName?.[0]}</AvatarFallback>
+                  <AvatarFallback>{user?.firstName?.[0] || "U"}</AvatarFallback>
                 </Avatar>
                 <div>
                   <p className="text-sm font-medium">{user?.fullName}</p>

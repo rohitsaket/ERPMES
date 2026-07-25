@@ -72,8 +72,8 @@ export default function OEEPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Overall Equipment Effectiveness (OEE)</h1>
             <p className="text-muted-foreground">Track availability, performance, and quality metrics</p>
@@ -104,44 +104,44 @@ export default function OEEPage() {
 
         {overall && (
           <div className="grid gap-4 md:grid-cols-4">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
                 <CardTitle className="text-sm font-medium">OEE</CardTitle>
                 <Activity className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col min-h-0">
                 <div className="text-3xl font-bold">{overall.overallOEE.toFixed(1)}%</div>
                 <p className="text-xs text-muted-foreground">
                   {overall.overallOEE >= 85 ? "World Class" : overall.overallOEE >= 75 ? "Good" : overall.overallOEE >= 65 ? "Fair" : "Needs Improvement"}
                 </p>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
                 <CardTitle className="text-sm font-medium">Availability</CardTitle>
                 <Activity className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col min-h-0">
                 <div className="text-3xl font-bold">{overall.availability.toFixed(1)}%</div>
                 <p className="text-xs text-muted-foreground">Uptime / Scheduled Time</p>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
                 <CardTitle className="text-sm font-medium">Performance</CardTitle>
                 <Activity className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col min-h-0">
                 <div className="text-3xl font-bold">{overall.performance.toFixed(1)}%</div>
                 <p className="text-xs text-muted-foreground">Actual / Theoretical Speed</p>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
                 <CardTitle className="text-sm font-medium">Quality</CardTitle>
                 <Activity className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-1 flex flex-col min-h-0">
                 <div className="text-3xl font-bold">{overall.quality.toFixed(1)}%</div>
                 <p className="text-xs text-muted-foreground">Good Units / Total Units</p>
               </CardContent>
@@ -149,8 +149,8 @@ export default function OEEPage() {
           </div>
         )}
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>OEE by Department</CardTitle>
               <CardDescription>Breakdown of availability, performance, and quality</CardDescription>
@@ -168,13 +168,13 @@ export default function OEEPage() {
               </Select>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">Department</th>
                       <th className="pb-3 font-medium text-center">OEE</th>

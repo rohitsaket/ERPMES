@@ -1,0 +1,87 @@
+
+> @diamondflow/web@0.0.1 build E:\MEGen\apps\web
+> cross-env NODE_ENV=production next build
+
+  [1m[38;2;173;127;168m▲ Next.js 14.2.35[39m[22m
+  - Environments: .env.local
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [33m[1m⚠[22m[39m Compiled with warnings
+
+../../node_modules/.pnpm/bcryptjs@3.0.3/node_modules/bcryptjs/index.js
+A Node.js module is loaded ('crypto' at line 32) which is not supported in the Edge Runtime.
+Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime
+
+Import trace for requested module:
+../../node_modules/.pnpm/bcryptjs@3.0.3/node_modules/bcryptjs/index.js
+./src/lib/auth.ts
+
+../../node_modules/.pnpm/bcryptjs@3.0.3/node_modules/bcryptjs/index.js
+A Node.js API is used (setImmediate at line: 335) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+../../node_modules/.pnpm/bcryptjs@3.0.3/node_modules/bcryptjs/index.js
+./src/lib/auth.ts
+
+../../node_modules/.pnpm/bcryptjs@3.0.3/node_modules/bcryptjs/index.js
+A Node.js API is used (setImmediate at line: 336) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+../../node_modules/.pnpm/bcryptjs@3.0.3/node_modules/bcryptjs/index.js
+./src/lib/auth.ts
+
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/lib/deflate.js
+A Node.js API is used (CompressionStream at line: 10) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/lib/deflate.js
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/jwe/flattened/decrypt.js
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/index.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/jwt.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/lib/init.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/lib/index.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/index.js
+../../node_modules/.pnpm/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/next-auth/index.js
+./src/lib/auth.ts
+
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/lib/deflate.js
+A Node.js API is used (DecompressionStream at line: 26) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/lib/deflate.js
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/jwe/flattened/decrypt.js
+../../node_modules/.pnpm/jose@6.2.4/node_modules/jose/dist/webapi/index.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/jwt.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/lib/init.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/lib/index.js
+../../node_modules/.pnpm/@auth+core@0.41.3/node_modules/@auth/core/index.js
+../../node_modules/.pnpm/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/next-auth/index.js
+./src/lib/auth.ts
+
+ [37m[1m [22m[39m Linting and checking validity of types ...
+ [31m[1m⨯[22m[39m ESLint: Failed to load plugin 'import' declared in '..\..\.eslintrc.js': Cannot find module 'eslint-module-utils/resolve' Require stack: - E:\MEGen\node_modules\.pnpm\eslint-plugin-import@2.32.0_@typescript-eslint+parser@7.18.0_eslint@8.57.1_typescript@5.9.3___jibqm4kidcfjgupyw7qaqge2jy\node_modules\eslint-plugin-import\lib\rules\no-unresolved.js - E:\MEGen\node_modules\.pnpm\eslint-plugin-import@2.32.0_@typescript-eslint+parser@7.18.0_eslint@8.57.1_typescript@5.9.3___jibqm4kidcfjgupyw7qaqge2jy\node_modules\eslint-plugin-import\lib\index.js - E:\MEGen\node_modules\.pnpm\@eslint+eslintrc@2.1.4\node_modules\@eslint\eslintrc\dist\eslintrc.cjs Referenced from: E:\MEGen\.eslintrc.js
+
+<--- Last few GCs --->
+
+[37240:000001B63F574000]    90458 ms: Scavenge (during sweeping) 4061.5 (4102.0) -> 4053.9 (4102.0) MB, pooled: 0.2 MB, 4.65 / 0.00 ms (average mu = 0.219, current mu = 0.199) allocation failure; 
+[37240:000001B63F574000]    91368 ms: Mark-Compact 4069.8 (4110.0) -> 4052.6 (4110.0) MB, pooled: 0.0 MB, 900.21 / 0.00 ms (average mu = 0.187, current mu = 0.156) allocation failure; scavenge might not succeed
+
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF760FB65AD node::OnFatalError+1325
+ 2: 00007FF761D81141 v8::Function::NewInstance+577
+ 3: 00007FF761B65417 SSL_CTX_set_stateless_cookie_verify_cb+504087
+ 4: 00007FF761B62FDD SSL_CTX_set_stateless_cookie_verify_cb+494813
+ 5: 00007FF761B7FA0A v8::internal::StrongRootAllocatorBase::deallocate_impl+45626
+ 6: 00007FF761B80EA3 v8::internal::StrongRootAllocatorBase::deallocate_impl+50899
+ 7: 00007FF761B80AB3 v8::internal::StrongRootAllocatorBase::deallocate_impl+49891
+ 8: 00007FF761B923F0 v8::internal::StrongRootAllocatorBase::deallocate_impl+121888
+ 9: 00007FF761718232 v8::String::Value::~Value+166770
+10: 000001B667C7F43A 
+Next.js build worker exited with code: 134 and signal: null
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 134.[39m

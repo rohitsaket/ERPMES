@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { ToolRegistry } from './tool-registry.js';
-import { PermissionGuard } from './permission-guard.js';
-import { AuditLogger } from './audit-logger.js';
+import { ToolRegistry } from './tool-registry';
+import { PermissionGuard } from './permission-guard';
+import { AuditLogger } from './audit-logger';
 import { PrismaService } from '@diamondflow/database';
 
 @Injectable()

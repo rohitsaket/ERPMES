@@ -12,11 +12,6 @@ import { useAuth } from "@/hooks/use-auth";
 import { api } from "@/lib/api/client";
 import type { PaginatedResponse, RequestForQuotation } from "@/lib/api/types";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured =
-  Boolean(publishableKey) &&
-  !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const statusColors: Record<string, string> = {
   draft: "bg-gray-100 text-gray-700",
   sent: "bg-blue-100 text-blue-700",
@@ -45,18 +40,6 @@ function StatusBadge({ value }: { value: string }) {
 }
 
 export default function RfqsPage() {
-  if (!isClerkConfigured) {
-    return (
-      <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4">
-        <div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm">
-          <h1 className="text-2xl font-semibold">
-            Authentication setup required
-          </h1>
-        </div>
-      </main>
-    );
-  }
-
   return <AuthenticatedRfqsPage />;
 }
 
@@ -96,7 +79,7 @@ function AuthenticatedRfqsPage() {
 
   return (
     <AppShell>
-      <div className="space-y-5 sm:space-y-6">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div className="max-w-3xl">
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
             Requests for Quotation
@@ -129,8 +112,8 @@ function AuthenticatedRfqsPage() {
           </select>
         </div>
 
-        <Card>
-          <CardHeader className="px-4 pb-4 pt-5 sm:px-6">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="px-4 pb-4 pt-5 sm:px-6 shrink-0">
             <CardTitle className="flex items-center justify-between gap-3 text-lg sm:text-xl">
               <span>All RFQs</span>
               {data?.meta && (
@@ -140,7 +123,7 @@ function AuthenticatedRfqsPage() {
               )}
             </CardTitle>
           </CardHeader>
-          <CardContent className="px-4 pb-5 sm:px-6 sm:pb-6">
+          <CardContent className="px-4 pb-5 sm:px-6 sm:pb-6 flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div
                 className="space-y-3 py-2"
@@ -201,9 +184,9 @@ function AuthenticatedRfqsPage() {
               </div>
             ) : (
               <>
-                <div className="hidden overflow-x-auto md:block">
-                  <table className="w-full min-w-[760px] text-sm">
-                    <thead>
+                <div className="hidden flex-1 overflow-auto border rounded-md md:block">
+                  <table className="w-full min-w-[760px] text-sm relative">
+                    <thead className="sticky top-0 bg-card z-10 shadow-sm">
                       <tr className="border-b text-left text-muted-foreground">
                         <th scope="col" className="pb-3 font-medium">
                           RFQ
@@ -299,7 +282,7 @@ function AuthenticatedRfqsPage() {
             )}
 
             {data?.meta && data.meta.totalPages > 1 && (
-              <div className="mt-4 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-4 flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between shrink-0">
                 <p className="text-center text-sm tabular-nums text-muted-foreground sm:text-left">
                   Page {data.meta.page} of {data.meta.totalPages} (
                   {data.meta.total} total)

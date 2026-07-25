@@ -8,20 +8,20 @@ import { useAuth } from "@/hooks/use-auth";
 
 export default function ProfilePage() {
   const { user, organization } = useAuth();
-  const initials = `${user?.firstName?.[0] ?? ""}${user?.lastName?.[0] ?? ""}` || "U";
+  const avatarText = user?.firstName?.[0] || "U";
 
   return (
     <AppShell>
-      <div className="space-y-6">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
           <p className="text-muted-foreground">Your current account and organization context.</p>
         </div>
         <Card className="min-w-0 max-w-2xl overflow-hidden">
-          <CardHeader className="flex flex-row items-center gap-4">
+          <CardHeader className="flex flex-row items-center gap-4 shrink-0">
             <Avatar className="h-16 w-16">
               <AvatarImage src={user?.imageUrl} alt={user?.fullName ?? "User"} />
-              <AvatarFallback>{initials}</AvatarFallback>
+              <AvatarFallback>{avatarText}</AvatarFallback>
             </Avatar>
             <div className="min-w-0">
               <CardTitle className="truncate">{user?.fullName ?? "User"}</CardTitle>
@@ -30,7 +30,7 @@ export default function ProfilePage() {
               </p>
             </div>
           </CardHeader>
-          <CardContent className="grid gap-4 sm:grid-cols-2">
+          <CardContent className="grid gap-4 sm:grid-cols-2 flex-1 flex flex-col min-h-0">
             <div className="flex items-start gap-3 rounded-lg border p-4">
               <UserRound className="mt-0.5 h-5 w-5 text-muted-foreground" aria-hidden="true" />
               <div className="min-w-0">

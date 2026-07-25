@@ -1,0 +1,13 @@
+
+> @diamondflow/api@0.0.1 build E:\MEGen\apps\api
+> nest build
+
+[96m../../packages/auth/src/guards/auth.guards.ts[0m:[93m11[0m:[93m30[0m - [91merror[0m[90m TS2322: [0mType 'string | undefined' is not assignable to type 'string | null'.
+  Type 'undefined' is not assignable to type 'string | null'.
+
+[7m11[0m   return type === 'Bearer' ? token : null;
+[7m  [0m [91m                             ~~~~~[0m
+
+Found 1 error(s).
+
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

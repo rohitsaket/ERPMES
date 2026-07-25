@@ -13,13 +13,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Wrench, Eye, Plus } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured = Boolean(publishableKey) && !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const critColors: Record<string, string> = { HIGH: "bg-red-100 text-red-700", MEDIUM: "bg-amber-100 text-amber-700", LOW: "bg-emerald-100 text-emerald-700" };
 
 export default function AssetsPage() {
-  if (!isClerkConfigured) return <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4"><div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Authentication setup required</h1></div></main>;
   return <AuthenticatedPage />;
 }
 
@@ -39,8 +35,8 @@ function AuthenticatedPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div className="flex items-center gap-4">
             <Wrench className="h-8 w-8 text-primary" />
             <div><h1 className="text-3xl font-bold tracking-tight">Assets</h1><p className="text-muted-foreground">{assets.length} assets</p></div>
@@ -49,11 +45,11 @@ function AuthenticatedPage() {
         </div>
 
         {isLoading ? <div className="flex justify-center py-8"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
-        : assets.length === 0 ? <Card><CardContent className="py-12 text-center text-muted-foreground"><p>No assets found</p></CardContent></Card>
+        : assets.length === 0 ? <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden"><CardContent className="py-12 text-center text-muted-foreground flex-1 flex flex-col min-h-0"><p>No assets found</p></CardContent></Card>
         : <div className="grid gap-4">
             {assets.map((asset) => (
               <Card key={asset.id} className="hover:shadow-sm transition-shadow">
-                <CardContent className="flex items-center justify-between p-4">
+                <CardContent className="flex items-center justify-between p-4 flex-1 flex flex-col min-h-0">
                   <div className="flex items-center gap-4">
                     <Badge className={critColors[asset.criticality] || "bg-gray-100"}>{asset.criticality}</Badge>
                     <div>

@@ -1,0 +1,594 @@
+
+> @diamondflow/web@0.0.1 dev E:\MEGen\apps\web
+> next dev -p 3001
+
+  [1m[38;2;173;127;168m▲ Next.js 14.2.35[39m[22m
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 1457ms
+ [37m[1m○[22m[39m Compiling /src/middleware ...
+ [32m[1m✓[22m[39m Compiled /src/middleware in 6.4s (1148 modules)
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/de5ae2c52fc3ea1a.webpack.hot-update.json [33m404[39m in 6777ms
+ [37m[1m○[22m[39m Compiling /sign-in ...
+ [32m[1m✓[22m[39m Compiled /sign-in in 5.9s (1723 modules)
+ GET /sign-in [32m200[39m in 5890ms
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ GET /sign-in [32m200[39m in 110ms
+ GET /_next/static/webpack/de5ae2c52fc3ea1a.webpack.hot-update.json [33m404[39m in 223ms
+ GET /sign-in [32m200[39m in 59ms
+ [37m[1m○[22m[39m Compiling /api/auth/[...nextauth] ...
+ [32m[1m✓[22m[39m Compiled /api/auth/[...nextauth] in 578ms (1021 modules)
+ GET /api/auth/session [32m200[39m in 1041ms
+ GET /api/auth/session [32m200[39m in 19ms
+ GET /api/auth/session [32m200[39m in 12ms
+ GET /api/auth/session [32m200[39m in 12ms
+ [32m[1m✓[22m[39m Compiled in 293ms (852 modules)
+ [32m[1m✓[22m[39m Compiled in 190ms (852 modules)
+ [32m[1m✓[22m[39m Compiled in 370ms (1094 modules)
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ [37m[1m○[22m[39m Compiling /_error ...
+ [32m[1m✓[22m[39m Compiled /_error in 1164ms (1942 modules)
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ [32m[1m✓[22m[39m Compiled /_not-found in 314ms (1943 modules)
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ GET /sign-in [33m404[39m in 1ms
+ [33m[1m⚠[22m[39m Found a change in next.config.js. Restarting the server to apply the changes...
+  [1m[38;2;173;127;168m▲ Next.js 14.2.35[39m[22m
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 2.3s
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 5.9s (1139 modules)
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ GET /_next/static/webpack/1c9ad90c36f7a3e9.webpack.hot-update.json [33m404[39m in 6290ms
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ [37m[1m○[22m[39m Compiling /_error ...
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ [32m[1m✓[22m[39m Compiled /_error in 4.6s (1122 modules)
+ GET /sign-in [33m404[39m in 4ms
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ GET /_next/static/webpack/1c9ad90c36f7a3e9.webpack.hot-update.json [33m404[39m in 4123ms
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot read properties of undefined (reading 'map')
+    at <unknown> (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/@auth+core@0.41.3/node_modules/[4m@auth/core[24m/lib/utils/env.js:51:41)
+    at setEnvDefaults (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/lib/env.js:44:67)
+    at NextAuth (webpack-internal:///(middleware)/../../node_modules/[4m.pnpm[24m/next-auth@5.0.0-beta.32_next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin_z4rr53ez754yw5f2yx5t6teh4y/node_modules/[4mnext-auth[24m/index.js:141:64)
+    at eval (webpack-internal:///(middleware)/./src/lib/auth-middleware.ts:7:77)
+    at (middleware)/./src/lib/auth-middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:51:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at fn [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:285:21[90m)[39m
+    at eval (webpack-internal:///(middleware)/./src/middleware.ts:6:78)
+    at (middleware)/./src/middleware.ts [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:62:1[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+ GET /sign-in [33m404[39m in 1ms
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\_tmp_26164_72018c6c2f26b35877eefb1616d11b47'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\_tmp_26164_72018c6c2f26b35877eefb1616d11b47'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\_tmp_26164_72018c6c2f26b35877eefb1616d11b47'
+ [31m[1m⨯[22m[39m Error [TypeError]: Cannot redefine property: __import_unsupported
+    at <unknown> [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:2[90m)[39m
+    at Proxy.defineProperty (<anonymous>)
+    at 129 [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:2:155[90m)[39m
+    at __webpack_require__ [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:37:33[90m)[39m
+    at <unknown> [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:416:114653[90m)[39m
+    at webpackJsonpCallback [90m(file://E:\MEGen\apps\web\[39m.next\server\edge-runtime-webpack.js:1144:39[90m)[39m
+    at <unknown> [90m(file://E:\MEGen\apps\web\[39m.next\server\src\middleware.js:1:51[90m)[39m
+[90m    at Script.runInContext (node:vm:149:12)[39m
+[90m    at runInContext (node:vm:301:6)[39m
+    at evaluateInContext (file://E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\web\sandbox\context.js:398:38)
+    at getRuntimeContext (file://E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\web\sandbox\sandbox.js:72:9)
+ GET /sign-in [33m404[39m in 1ms
+ GET /_next/static/chunks/webpack.js [33m404[39m in 55ms
+ GET /_next/static/chunks/pages/_app.js [33m404[39m in 51ms
+ GET /_next/static/chunks/react-refresh.js [33m404[39m in 52ms
+ GET /_next/static/development/_buildManifest.js [33m404[39m in 51ms
+ GET /_next/static/chunks/main.js [33m404[39m in 55ms
+ GET /_next/static/chunks/pages/_error.js [33m404[39m in 51ms
+ GET /_next/static/development/_ssgManifest.js [33m404[39m in 36ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'E:\MEGen\apps\web\.next\server\vendor-chunks'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/aria-hidden@1.2.6' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js', but to 'Error: Can't resolve './vendor-chunks/aria-hidden@1.2.6' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/aria-hidden@1.2.6 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'E:\MEGen\apps\web\.next\server\vendor-chunks'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/aria-hidden@1.2.6' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js', but to 'Error: Can't resolve './vendor-chunks/aria-hidden@1.2.6' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/aria-hidden@1.2.6 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/get-nonce@1.0.1' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js', but to 'Error: Can't resolve './vendor-chunks/get-nonce@1.0.1' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/get-nonce@1.0.1 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@auth+core@0.41.3' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@auth+core@0.41.3.js', but to 'Error: Can't resolve './vendor-chunks/@auth+core@0.41.3' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@auth+core@0.41.3 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@auth+core@0.41.3.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@floating-ui+dom@1.8.0' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+dom@1.8.0.js', but to 'Error: Can't resolve './vendor-chunks/@floating-ui+dom@1.8.0' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@floating-ui+dom@1.8.0 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+dom@1.8.0.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@floating-ui+core@1.8.0' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+core@1.8.0.js', but to 'Error: Can't resolve './vendor-chunks/@floating-ui+core@1.8.0' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@floating-ui+core@1.8.0 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+core@1.8.0.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file E:\MEGen\apps\web\.next\server\pages\_app.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+ [32m[1m✓[22m[39m Compiled in 201ms (627 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'E:\MEGen\apps\web\.next\server\vendor-chunks'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/aria-hidden@1.2.6' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js', but to 'Error: Can't resolve './vendor-chunks/aria-hidden@1.2.6' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/aria-hidden@1.2.6 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/get-nonce@1.0.1' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js', but to 'Error: Can't resolve './vendor-chunks/get-nonce@1.0.1' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/get-nonce@1.0.1 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@auth+core@0.41.3' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@auth+core@0.41.3.js', but to 'Error: Can't resolve './vendor-chunks/@auth+core@0.41.3' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@auth+core@0.41.3 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@auth+core@0.41.3.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@floating-ui+core@1.8.0' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+core@1.8.0.js', but to 'Error: Can't resolve './vendor-chunks/@floating-ui+core@1.8.0' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@floating-ui+core@1.8.0 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+core@1.8.0.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@floating-ui+dom@1.8.0' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+dom@1.8.0.js', but to 'Error: Can't resolve './vendor-chunks/@floating-ui+dom@1.8.0' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@floating-ui+dom@1.8.0 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@floating-ui+dom@1.8.0.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-flight-client-module-loader.js
+ [32m[1m✓[22m[39m Compiled in 181ms (627 modules)
+ [32m[1m✓[22m[39m Compiled in 147ms (627 modules)
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\_tmp_24800_05d845150802f3317537c7cb386bd3c1'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\_tmp_24800_05d845150802f3317537c7cb386bd3c1'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\_tmp_24800_05d845150802f3317537c7cb386bd3c1'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'E:\MEGen\apps\web\.next\server\vendor-chunks'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/aria-hidden@1.2.6' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js', but to 'Error: Can't resolve './vendor-chunks/aria-hidden@1.2.6' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/aria-hidden@1.2.6 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\aria-hidden@1.2.6.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/get-nonce@1.0.1' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js', but to 'Error: Can't resolve './vendor-chunks/get-nonce@1.0.1' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/get-nonce@1.0.1 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\get-nonce@1.0.1.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/@auth+core@0.41.3' in E:\MEGen\apps\web\.next\server for build dependencies doesn't lead to expected result 'E:\MEGen\apps\web\.next\server\vendor-chunks\@auth+core@0.41.3.js', but to 'Error: Can't resolve './vendor-chunks/@auth+core@0.41.3' in 'E:\MEGen\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/@auth+core@0.41.3 (expected E:\MEGen\apps\web\.next\server\vendor-chunks\@auth+core@0.41.3.js)
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file E:\MEGen\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file E:\MEGen\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\require.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\utils.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\loader-runner\LoaderRunner.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\bundle5.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\compiled\webpack\webpack.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\plugins\define-env-plugin.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs E:\MEGen\node_modules\.pnpm\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+ [32m[1m✓[22m[39m Compiled in 153ms (627 modules)
+ [32m[1m✓[22m[39m Compiled in 300ms (869 modules)
+ [32m[1m✓[22m[39m Compiled in 180ms (627 modules)
+[?25h

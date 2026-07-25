@@ -1,0 +1,23 @@
+
+> @diamondflow/web@0.0.1 dev E:\MEGen\apps\web
+> next dev -p 3001
+
+ [31m[1m⨯[22m[39m Failed to start server
+Error: listen EADDRINUSE: address already in use :::3001
+[90m    at Server.setupListenHandle [as _listen2] (node:net:2008:16)[39m
+[90m    at listenInCluster (node:net:2065:12)[39m
+[90m    at Server.listen (node:net:2170:7)[39m
+    at E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\start-server.js:280:16
+    at new Promise (<anonymous>)
+    at startServer (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\start-server.js:191:11)
+    at E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\start-server.js:310:52
+    at Span.traceAsyncFn (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\trace\trace.js:154:26)
+    at process.<anonymous> (E:\MEGen\node_modules\[4m.pnpm[24m\next@14.2.35_@babel+core@7.29.7_@opentelemetry+api@1.9.1_babel-plugin-macros@2.8.0_react-dom@_56jdc355fkndfipqlbxy6k4nb4\node_modules\[4mnext[24m\dist\server\lib\start-server.js:310:35)
+[90m    at process.emit (node:events:509:20)[39m {
+  code: [32m'EADDRINUSE'[39m,
+  errno: [33m-4091[39m,
+  syscall: [32m'listen'[39m,
+  address: [32m'::'[39m,
+  port: [33m3001[39m
+}
+[?25h

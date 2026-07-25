@@ -1,6 +1,7 @@
 import { Controller, Get, Logger } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
-import { AppService } from './app.service.js';
+import { Public } from '@diamondflow/auth';
+import { AppService } from './app.service';
 
 @ApiTags('App')
 @Controller()
@@ -10,12 +11,14 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
+  @Public()
   @ApiOperation({ summary: 'Health check endpoint' })
   getHello(): string {
     return this.appService.getHello();
   }
 
   @Get('health')
+  @Public()
   @ApiOperation({ summary: 'Health check' })
   healthCheck(): { status: string; timestamp: string } {
     return {

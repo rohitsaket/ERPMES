@@ -1,0 +1,10 @@
+
+> @diamondflow/auth@0.0.1 build E:\MEGen\packages\auth
+> tsc
+
+src/session/mfa-handler.ts(2,28): error TS2307: Cannot find module 'speakeasy' or its corresponding type declarations.
+src/session/mfa-handler.ts(3,25): error TS2307: Cannot find module 'qrcode' or its corresponding type declarations.
+src/session/session-manager.ts(8,3): error TS2322: Type 'string | null | undefined' is not assignable to type 'string | null'.
+  Type 'undefined' is not assignable to type 'string | null'.
+src/session/token-refresh.ts(2,10): error TS2305: Module '"./session-manager"' has no exported member 'SessionManager'.
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m

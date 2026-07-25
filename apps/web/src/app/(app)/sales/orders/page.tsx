@@ -15,11 +15,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Search, Eye, ShoppingCart } from "lucide-react";
 
-const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-const isClerkConfigured =
-  Boolean(publishableKey) &&
-  !publishableKey?.includes("your_clerk_publishable_key_here");
-
 const statusColors: Record<string, string> = {
   DRAFT: "bg-gray-100 text-gray-700",
   CONFIRMED: "bg-blue-100 text-blue-700",
@@ -29,18 +24,6 @@ const statusColors: Record<string, string> = {
 };
 
 export default function SalesOrdersPage() {
-  if (!isClerkConfigured) {
-    return (
-      <main className="flex min-h-dvh items-center justify-center bg-muted/50 px-4">
-        <div className="max-w-lg rounded-xl border bg-background p-8 text-center shadow-sm">
-          <h1 className="text-2xl font-semibold">Authentication setup required</h1>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Configure Clerk in <code>apps/web/.env.local</code> before opening this page.
-          </p>
-        </div>
-      </main>
-    );
-  }
   return <AuthenticatedSalesOrdersPage />;
 }
 
@@ -76,8 +59,8 @@ function AuthenticatedSalesOrdersPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Sales Orders</h1>
             <p className="text-muted-foreground">Manage customer sales orders</p>
@@ -102,11 +85,11 @@ function AuthenticatedSalesOrdersPage() {
           </div>
         </div>
 
-        <Card>
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
           <CardHeader>
             <CardTitle>All Orders</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
@@ -118,9 +101,9 @@ function AuthenticatedSalesOrdersPage() {
                 <p className="text-sm">Create your first sales order to get started</p>
               </div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">ID</th>
                       <th className="pb-3 font-medium">Customer</th>
@@ -161,7 +144,7 @@ function AuthenticatedSalesOrdersPage() {
             )}
 
             {data?.meta && data.meta.totalPages > 1 && (
-              <div className="flex items-center justify-between pt-4">
+              <div className="flex items-center justify-between pt-4 shrink-0 mt-4 border-t">
                 <p className="text-sm text-muted-foreground">
                   Page {data.meta.page} of {data.meta.totalPages} ({data.meta.total} total)
                 </p>

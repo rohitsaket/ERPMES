@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  useAuth as useClerkAuth,
-  useOrganization,
-  useUser,
-} from "@clerk/nextjs";
+import { useSession, signOut as nextAuthSignOut } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
 import {
   createContext,
@@ -12,11 +8,13 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
+import type { Session } from "next-auth";
 
 export interface AuthState {
   isLoaded: boolean;
   isSignedIn: boolean;
   user: {
+    id?: string;
     imageUrl: string;
     fullName: string | null;
     firstName: string | null;
@@ -29,74 +27,39 @@ export interface AuthState {
   organization: { name: string } | null;
 }
 
+export type { Session };
+
 const AuthContext = createContext<AuthState | null>(null);
 
-const devAuthState: AuthState = {
-  isLoaded: true,
-  isSignedIn: true,
-  user: {
-    imageUrl: "",
-    fullName: "Dev User",
-    firstName: "Dev",
-    lastName: "User",
-    primaryEmailAddress: { emailAddress: "dev@diamondflow.local" },
-    publicMetadata: { permissions: ["manage:permission:company", "read:production-order", "write:operation", "read:sales-order", "write:sales-order", "read:inventory", "write:inventory", "read:quality", "write:quality"] },
-  },
-  signOut: async () => undefined,
-  getToken: async () => "mock-dev-token",
-  organization: { name: "Dev Company" },
-};
-
-const unavailableAuthState: AuthState = {
-  isLoaded: true,
-  isSignedIn: false,
-  user: null,
-  signOut: async () => undefined,
-  getToken: async () => null,
-  organization: null,
-};
-
-export function UnconfiguredAuthProvider({ children }: { children: ReactNode }) {
-  return (
-    <AuthContext.Provider value={unavailableAuthState}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
-
-export function DevAuthProvider({ children }: { children: ReactNode }) {
-  return (
-    <AuthContext.Provider value={devAuthState}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
-
-export function ClerkAuthProvider({ children }: { children: ReactNode }) {
-  const { isLoaded, isSignedIn, signOut, getToken } = useClerkAuth();
-  const { user } = useUser();
-  const { organization } = useOrganization();
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const { data: session, status, update } = useSession();
+  const isLoaded = status !== "loading";
+  const isSignedIn = status === "authenticated";
 
   const value: AuthState = {
     isLoaded,
-    isSignedIn: Boolean(isSignedIn),
-    user: user
+    isSignedIn,
+    user: session?.user
       ? {
-          imageUrl: user.imageUrl,
-          fullName: user.fullName,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          primaryEmailAddress: user.primaryEmailAddress
-            ? { emailAddress: user.primaryEmailAddress.emailAddress }
+          id: session.user.id as string | undefined,
+          imageUrl: session.user.image || "",
+          fullName: session.user.name || null,
+          firstName: (session.user as any).firstName || (session.user.name?.split(" ")[0] ?? null),
+          lastName: (session.user as any).lastName || (session.user.name?.split(" ").slice(1).join(" ") ?? null),
+          primaryEmailAddress: session.user.email
+            ? { emailAddress: session.user.email }
             : null,
-          publicMetadata: user.publicMetadata as Record<string, unknown>,
+          publicMetadata: {
+            role: (session.user as any).role,
+            companyId: (session.user as any).companyId,
+          },
         }
       : null,
     signOut: async () => {
-      await signOut();
+      await nextAuthSignOut({ callbackUrl: "/sign-in" });
     },
-    getToken: async () => getToken(),
-    organization: organization ? { name: organization.name } : null,
+    getToken: async () => null,
+    organization: null,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -108,8 +71,8 @@ export function useAuth(): AuthState {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (auth?.isLoaded && !auth.isSignedIn && pathname !== "/login") {
-      router.push("/login");
+    if (auth?.isLoaded && !auth.isSignedIn && pathname !== "/sign-in" && pathname !== "/sign-up" && pathname !== "/forgot-password" && pathname !== "/reset-password" && pathname !== "/verify-email") {
+      router.push("/sign-in");
     }
   }, [auth?.isLoaded, auth?.isSignedIn, pathname, router]);
 
@@ -122,9 +85,12 @@ export function useAuth(): AuthState {
 
 export function usePermissions() {
   const { user } = useAuth();
-  
+
   const hasPermission = (permission: string): boolean => {
     if (!user) return false;
+    const role = user.publicMetadata?.role as string;
+    if (role === "SUPER_ADMIN" || role === "admin" || role === "ADMIN") return true;
+    
     const userPermissions = (user.publicMetadata?.permissions as string[]) || [];
     return userPermissions.includes(permission) || userPermissions.includes("manage:permission:company");
   };

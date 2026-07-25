@@ -1,12 +1,10 @@
 module.exports = {
   root: true,
   ignorePatterns: ['**/*', '!**/*.ts', '!**/*.tsx', '!**/*.json', '!**/*.js', '!**/*.jsx'],
-  plugins: ['@typescript-eslint', 'import', 'unused-imports'],
+  plugins: ['@typescript-eslint', 'unused-imports'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -15,13 +13,6 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.base.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
     tsconfigRootDir: __dirname,
-  },
-  settings: {
-    'import/resolver': {
-      typescript: {
-        project: ['./tsconfig.base.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
-      },
-    },
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 'error',
@@ -32,18 +23,6 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-floating-promises': 'warn',
     '@typescript-eslint/no-misused-promises': 'warn',
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        pathGroups: [
-          { pattern: '@diamondflow/**', group: 'internal' },
-        ],
-        pathGroupsExcludedImportTypes: ['internal'],
-        alphabetize: { order: 'asc' },
-        'newlines-between': 'always',
-      },
-    ],
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'error',

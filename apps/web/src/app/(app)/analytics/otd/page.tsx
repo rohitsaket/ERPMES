@@ -60,8 +60,8 @@ export default function OTDPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">On-Time Delivery</h1>
             <p className="text-muted-foreground">Track shipment delivery performance against promised dates</p>
@@ -80,44 +80,44 @@ export default function OTDPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-4">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">On-Time Delivery</CardTitle>
               <Target className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-4xl font-bold">{overall.toFixed(1)}%</div>
               <p className="text-xs text-muted-foreground">
                 {overall >= 95 ? "Excellent" : overall >= 90 ? "Good" : overall >= 80 ? "Fair" : "Needs Improvement"}
               </p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Total Shipments</CardTitle>
               <Truck className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold">{totalShipments.toLocaleString()}</div>
               <p className="text-xs text-muted-foreground">In selected period</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">On-Time</CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-emerald-600">{onTimeShipments.toLocaleString()}</div>
               <p className="text-xs text-muted-foreground">Shipments delivered on time</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Late</CardTitle>
               <TrendingDown className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-3xl font-bold text-red-600">
                 {(totalShipments - onTimeShipments).toLocaleString()}
               </div>
@@ -137,8 +137,8 @@ export default function OTDPage() {
           </Select>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>Shipment Details</CardTitle>
               <CardDescription>Individual shipment tracking and delivery status</CardDescription>
@@ -147,13 +147,13 @@ export default function OTDPage() {
               <Button variant="secondary" disabled title="Delivery export is not implemented yet"><Download className="mr-2 h-4 w-4" />Export CSV</Button>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">Tracking #</th>
                       <th className="pb-3 font-medium">Customer</th>

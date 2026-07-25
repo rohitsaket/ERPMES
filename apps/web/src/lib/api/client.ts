@@ -1,12 +1,22 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api/v1';
-let accessTokenResolver: (() => Promise<string | null>) | undefined;
-
-export function setAccessTokenResolver(resolver?: () => Promise<string | null>) {
-  accessTokenResolver = resolver;
-}
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api/v1';
 
 interface RequestOptions extends RequestInit {
   params?: Record<string, string | number | undefined>;
+}
+
+async function getAccessToken(): Promise<string | null> {
+  if (typeof window !== 'undefined') {
+    const localToken = localStorage.getItem('token');
+    if (localToken) return localToken;
+  }
+  try {
+    const response = await fetch('/api/auth/token');
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data.token || null;
+  } catch {
+    return null;
+  }
 }
 
 export async function apiRequest<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
@@ -24,7 +34,7 @@ export async function apiRequest<T>(endpoint: string, options: RequestOptions = 
     if (qs) url += `?${qs}`;
   }
 
-  const accessToken = await accessTokenResolver?.();
+  const accessToken = await getAccessToken();
   const response = await fetch(url, {
     ...fetchOptions,
     headers: {

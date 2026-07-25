@@ -73,8 +73,8 @@ export default function CapacityPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Capacity Planning</h1>
             <p className="text-muted-foreground">Monitor work center utilization and identify bottlenecks</p>
@@ -105,46 +105,46 @@ export default function CapacityPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Overall Utilization</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-2xl font-bold">{overall.toFixed(1)}%</div>
               <p className="text-xs text-muted-foreground">
                 {overall > 90 ? "Critical - Immediate action needed" : overall > 80 ? "High - Monitor closely" : overall > 60 ? "Optimal range" : "Underutilized"}
               </p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Total Work Centers</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-2xl font-bold">{workCenters.length}</div>
               <p className="text-xs text-muted-foreground">Active work centers</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Over Capacity</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-2xl font-bold text-amber-600">
                 {workCenters.filter(wc => ["OVER", "CRITICAL"].includes(wc.status)).length}
               </div>
               <p className="text-xs text-muted-foreground">Require attention</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 shrink-0">
               <CardTitle className="text-sm font-medium">Underutilized</CardTitle>
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex flex-col min-h-0">
               <div className="text-2xl font-bold text-blue-600">
                 {workCenters.filter(wc => wc.status === "UNDER").length}
               </div>
@@ -153,8 +153,8 @@ export default function CapacityPage() {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between shrink-0">
             <div>
               <CardTitle>Work Center Utilization</CardTitle>
               <CardDescription>Detailed breakdown by work center</CardDescription>
@@ -172,13 +172,13 @@ export default function CapacityPage() {
               </Select>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
+              <div className="flex-1 overflow-auto border rounded-md">
+                <table className="w-full text-sm relative">
+                  <thead className="sticky top-0 bg-card z-10 shadow-sm">
                     <tr className="border-b text-left text-muted-foreground">
                       <th className="pb-3 font-medium">Work Center</th>
                       <th className="pb-3 font-medium">Type</th>

@@ -41,8 +41,8 @@ export default function CustomersPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex items-center justify-between shrink-0">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Customers</h1>
             <p className="text-muted-foreground">Manage your customer accounts</p>
@@ -50,8 +50,8 @@ export default function CustomersPage() {
           <Button disabled title="Customer creation is not implemented yet"><Plus className="mr-2 h-4 w-4" />New Customer</Button>
         </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between py-4">
+        <Card className="flex-1 flex flex-col min-h-0 shadow-sm overflow-hidden">
+          <CardHeader className="flex flex-row items-center justify-between py-4 shrink-0">
             <CardTitle>Customers List</CardTitle>
             <div className="relative w-64">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -63,7 +63,7 @@ export default function CustomersPage() {
               />
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col min-h-0">
             {isLoading ? (
               <div className="flex justify-center py-8"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
             ) : customers.length === 0 ? (
@@ -73,9 +73,9 @@ export default function CustomersPage() {
               </div>
             ) : (
               <>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
+                <div className="flex-1 overflow-auto border rounded-md">
+                  <table className="w-full text-sm relative">
+                    <thead className="sticky top-0 bg-card z-10 shadow-sm">
                       <tr className="border-b text-left text-muted-foreground">
                         <th className="pb-3 font-medium">Code</th>
                         <th className="pb-3 font-medium">Name</th>
@@ -109,7 +109,7 @@ export default function CustomersPage() {
                 </div>
 
                 {meta && meta.totalPages > 1 && (
-                  <div className="flex items-center justify-between pt-4">
+                  <div className="flex items-center justify-between pt-4 shrink-0 mt-4 border-t">
                     <p className="text-sm text-muted-foreground">
                       Page {meta.page} of {meta.totalPages} ({meta.total} total)
                     </p>
