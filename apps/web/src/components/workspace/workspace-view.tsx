@@ -5,7 +5,7 @@ import { useWorkspaceStore } from "@/store/workspace-store";
 import { TabBar } from "./tab-bar";
 import { TabPane } from "./tab-pane";
 import { getComponentForUrl } from "./registry";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 function formatTabTitle(path: string): string {
   const parts = path.split("/").filter(Boolean);
@@ -34,8 +34,9 @@ function formatTabTitle(path: string): string {
 export function WorkspaceView() {
   const { tabs, activeTabId, setActiveTab, closeTab, addTab } = useWorkspaceStore();
   const pathname = usePathname();
+  const router = useRouter();
 
-  // Sync URL changes (e.g. links, router.push) with workspace tabs
+  // Sync Next.js pathname navigation (e.g. clicking Links or browser back/forward) with workspace tabs
   useEffect(() => {
     if (pathname && pathname !== "/") {
       const existingTab = tabs.find((t) => t.id === pathname);
@@ -52,12 +53,12 @@ export function WorkspaceView() {
     }
   }, [pathname, activeTabId, tabs, setActiveTab, addTab]);
 
-  // Sync browser URL when active tab changes (e.g. tab bar click)
+  // Sync Next.js router when activeTabId changes (e.g. clicking a tab in the TabBar)
   useEffect(() => {
-    if (activeTabId && window.location.pathname !== activeTabId) {
-      window.history.pushState(null, "", activeTabId);
+    if (activeTabId && pathname !== activeTabId) {
+      router.push(activeTabId);
     }
-  }, [activeTabId]);
+  }, [activeTabId, pathname, router]);
 
   // Handle global keyboard shortcuts
   useEffect(() => {
