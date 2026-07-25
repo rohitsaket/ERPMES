@@ -126,9 +126,9 @@ export class VendorQueryDto {
   search?: string;
 
   @ApiPropertyOptional()
+  @IsOptional()
   @IsString()
-  @IsNotEmpty()
-  companyId!: string;
+  companyId?: string;
 
   @ApiPropertyOptional({ enum: VendorStatus })
   @IsOptional()
