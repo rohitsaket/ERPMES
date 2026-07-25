@@ -53,12 +53,13 @@ export function WorkspaceView() {
     }
   }, [pathname, activeTabId, tabs, setActiveTab, addTab]);
 
-  // Sync Next.js router when activeTabId changes (e.g. clicking a tab in the TabBar)
-  useEffect(() => {
-    if (activeTabId && pathname !== activeTabId) {
-      router.push(activeTabId);
+  // Activate a tab and navigate to it. Used by keyboard shortcuts; TabBar does this itself on click.
+  const activateTab = (id: string) => {
+    setActiveTab(id);
+    if (pathname !== id) {
+      router.push(id);
     }
-  }, [activeTabId, pathname, router]);
+  };
 
   // Handle global keyboard shortcuts
   useEffect(() => {
@@ -67,7 +68,9 @@ export function WorkspaceView() {
       if (e.ctrlKey && e.key === "t") {
         e.preventDefault();
         addTab({ id: "/dashboard", title: "Dashboard" });
-        window.history.pushState(null, "", "/dashboard");
+        if (pathname !== "/dashboard") {
+          router.push("/dashboard");
+        }
       }
       
       // Ctrl+W: Close Tab
@@ -90,23 +93,23 @@ export function WorkspaceView() {
         }
         
         const nextTab = tabs[nextIndex];
-        if (nextTab) setActiveTab(nextTab.id);
+        if (nextTab) activateTab(nextTab.id);
       }
-      
+
       // Ctrl+1..9
       if (e.ctrlKey && e.key >= "1" && e.key <= "9") {
         const num = parseInt(e.key);
         const tab = tabs[num - 1];
         if (tab) {
           e.preventDefault();
-          setActiveTab(tab.id);
+          activateTab(tab.id);
         }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeTabId, tabs, closeTab, setActiveTab, addTab]);
+  }, [activeTabId, tabs, closeTab, addTab, pathname, router]);
 
   return (
     <div className="flex flex-col h-screen w-full bg-background overflow-hidden">

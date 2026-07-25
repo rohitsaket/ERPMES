@@ -11,6 +11,7 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from "@dnd-kit/core";
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, horizontalListSortingStrategy, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -173,6 +174,15 @@ function SortableTab({ tab, isActive, onActivate, onClose, onContextMenu }: Sort
 export function TabBar() {
   const { tabs, activeTabId, setActiveTab, closeTab, closeOthers, closeLeft, closeRight, closeAll, togglePinTab, reorderTabs } = useWorkspaceStore();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleActivate = (id: string) => {
+    setActiveTab(id);
+    if (pathname !== id) {
+      router.push(id);
+    }
+  };
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -256,7 +266,7 @@ export function TabBar() {
                   key={tab.id}
                   tab={tab}
                   isActive={activeTabId === tab.id}
-                  onActivate={setActiveTab}
+                  onActivate={handleActivate}
                   onClose={closeTab}
                   onContextMenu={{ closeTab, closeOthers, closeLeft, closeRight, closeAll, togglePinTab }}
                 />
@@ -267,7 +277,7 @@ export function TabBar() {
                   key={tab.id}
                   tab={tab}
                   isActive={activeTabId === tab.id}
-                  onActivate={setActiveTab}
+                  onActivate={handleActivate}
                   onClose={closeTab}
                   onContextMenu={{ closeTab, closeOthers, closeLeft, closeRight, closeAll, togglePinTab }}
                 />
