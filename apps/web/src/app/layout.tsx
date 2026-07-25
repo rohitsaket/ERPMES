@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Unified enterprise operating platform for diamond and jewelry businesses",
   keywords: ["ERP", "MES", "Diamond", "Jewelry", "Manufacturing", "Supply Chain"],
   icons: {
-    icon: "/icon.svg",
+    icon: "/favicon.svg",
   },
 };
 
