@@ -7,3 +7,4 @@ export * from "./components/ui/label";
 export * from "./components/ui/select";
 export * from "./components/ui/toast";
 export * from "./lib/utils";
+export * from "./components/enterprise/kpi-card";

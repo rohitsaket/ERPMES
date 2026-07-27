@@ -33,7 +33,8 @@
       "@diamondflow/worker": ["apps/worker/src/index.ts"],
       "@diamondflow/config": ["packages/config/src/index.ts"],
       "@diamondflow/observability": ["packages/observability/src/index.ts"],
-      "@diamondflow/testing": ["packages/testing/src/index.ts"]
+      "@diamondflow/testing": ["packages/testing/src/index.ts"],
+      "@diamondflow/design-tokens": ["packages/design-tokens/src/index.ts"]
     },
     "types": ["node", "vitest/globals"]
   },
